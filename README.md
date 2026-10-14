@@ -60,11 +60,10 @@ Car-Fusion/
 | Layer | Technology | Rationale |
 |---|---|---|
 | **Structure** | HTML5 Semantic Elements | Enhanced accessibility (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<figure>`, `<footer>`) and improved crawlability. |
-| **Styling** | Vanilla CSS3 + Bootstrap 5.3 | High-performance CSS without bundler overhead; custom dark luxury palette with metallic gold accents (`#D4AF37`). |
-| **Interactivity** | Vanilla JavaScript (ES6+) | Zero runtime dependencies; high execution speed; dynamic path resolution for subpage routing. |
+| **Styling** | CSS3 + Bootstrap 5.3 | High-performance CSS without bundler overhead; custom dark luxury palette with metallic gold accents (`#D4AF37`). |
+| **Interactivity** | JavaScript (ES6+) | Zero runtime dependencies; high execution speed; dynamic path resolution for subpage routing. |
 | **Icons** | Bootstrap Icons (CDN) | Lightweight SVG-based icon font. |
 | **Storage** | Browser `localStorage` | Client-side user persistence (favorites, test drive bookings, and Fusion Lab projects). |
-| **SEO** | Schema.org JSON-LD | Rich snippet support (`AutoDealer`, `Car`, `ItemList`, `Article`). |
 
 ---
 
@@ -107,36 +106,3 @@ const schemaData = {
 - **EMI Amortization:** Dynamic tenure (12–84 months) and interest rate calculations with instantaneous UI updates.
 
 ---
-
-## 🚀 Local Development Setup
-
-To run the project locally on any standard environment:
-
-```bash
-# Clone the repository
-git clone https://github.com/Faizan-Ansari-7/Car-Fusion.git
-cd Car-Fusion
-
-# Start a local static HTTP server (Python 3)
-python -m http.server 8000
-
-# Open in browser
-http://localhost:8000
-```
-
----
-
-## 🎯 Technical Interview Q&A (Pronix Tech Preparation)
-
-**Q1: Why choose a Multi-Page Architecture (MPA) instead of a Single-Page App (SPA)?**
-> *Answer:* For an automotive marketplace, first-contentful paint (FCP), search engine indexability, and clean URL bookmarking are critical. An MPA allows deep linking to individual vehicle pages with pre-structured HTML, eliminating JavaScript hydration delays and client-side routing overhead.
-
-**Q2: How was folder reorganization handled without breaking relative paths?**
-> *Answer:* We decoupled asset references by introducing a dynamic path resolver in `main.js` and `news_data.js`. The scripts automatically inspect `window.location.pathname` to prepend `../` for internal pages or `./` for root. In addition, internal anchors were harmonized so sibling pages reference each other directly while linking back to the root `../index.html`.
-
-**Q3: What SEO practices were implemented?**
-> *Answer:* 
-> 1. Complete semantic tag hierarchy (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`, single `<h1>`).
-> 2. Schema.org structured data (`AutoDealer` on homepage, `ItemList` on brand catalog, `Car` on details).
-> 3. Social discovery meta (OpenGraph and Twitter Card specifications).
-> 4. Search engine crawler management with `robots.txt` and an authenticated `sitemap.xml`.
