@@ -84,23 +84,7 @@ cars.forEach(car => {
 });
 ```
 
-### 2. Dynamic SEO & Schema Injection (`car_details.html`)
-Vehicle specification pages dynamically construct Schema.org `Car` metadata and populate OpenGraph / Twitter tags based on the query parameter (`?id=X`), allowing dynamic SEO evaluation without server-side rendering:
-
-```javascript
-const schemaData = {
-    "@context": "https://schema.org/",
-    "@type": "Car",
-    "name": `${car.brand} ${car.model}`,
-    "offers": {
-        "@type": "Offer",
-        "price": car.price,
-        "priceCurrency": "INR"
-    }
-};
-```
-
-### 3. Financial Calculation Engine
+### 2. Financial Calculation Engine
 - **On-Road Price Breakdown:** State RTO registration calculation (individual vs company rates), insurance tiers, TCS, and handling charges.
 - **EMI Amortization:** Dynamic tenure (12–84 months) and interest rate calculations with instantaneous UI updates.
 
