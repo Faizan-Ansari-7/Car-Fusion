@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Car Fusion Luxury</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../assets/css/about_us.css">
+    <link rel="icon" href="../assets/icons/car_fusion_favicon.ico">
+    <link rel="stylesheet" href="../assets/css/main_interface.css">
+</head>
+<body class="euro-body">
+
+   <header class="euro-header fixed-top">
+    <div class="top-bar">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a class="navbar-brand me-4" href="../index.html">
+                <img src="../assets/images/car_fusion_logo.png" alt="Car Fusion" class="logo-size">
+            </a>
+
+            <div class="flex-grow-1 mx-lg-5 d-none d-lg-block">
+                <div class="header-search-container">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0">
+                            <i class="bi bi-search text-gold"></i>
+                        </span>
+                        <input type="text" id="searchInput" class="form-control border-start-0 ps-0" placeholder="Search for 'Porsche 911'...">
+                        <button class="btn btn-gold" type="button" id="searchBtn">SEARCH</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-4">
+                <div class="d-flex align-items-center text-white cursor-pointer hover-gold" data-bs-toggle="modal" data-bs-target="#locationModal" style="cursor: pointer;">
+                    <i class="bi bi-geo-alt me-2"></i>
+                    <span class="small fw-bold location-display">Ahmedabad</span>
+                </div>
+                <a href="login.html" class="d-flex align-items-center text-white text-decoration-none hover-gold">
+                    <i class="bi bi-person-circle me-2 fs-5"></i>
+                    <span class="small fw-bold">Login</span>
+                </a>
+            </div>
+
+            <button class="navbar-toggler d-lg-none text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
+                <i class="bi bi-list fs-1"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="secondary-nav border-top border-dark-subtle">
+        <div class="container">
+            <nav class="nav justify-content-center d-flex flex-wrap"> 
+                <div class="dropdown hover-dropdown">
+                    <a class="nav-link dropdown-toggle active-gold" href="new_cars.html" role="button" aria-expanded="false">
+                        NEW CARS
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="new_cars.html">EXPLORE NEW CARS</a></li>
+                        <li><a class="dropdown-item" href="compare.html">COMPARE CARS</a></li>
+                        <li><a class="dropdown-item" href="electric-cars.html">ELECTRIC CARS</a></li>
+                        <li><a class="dropdown-item" href="brands.html">POPULAR BRANDS</a></li>
+                    </ul>
+                </div>
+                <a class="nav-link" href="reviews_news.html">REVIEWS & NEWS</a>
+                <a class="nav-link" href="modify.html">FUSION LAB</a>
+                <a class="nav-link" href="about_us.html">ABOUT US</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <div class="header-spacer"></div>
+
+    <section class="about-hero-section d-flex align-items-center justify-content-center text-center">
+        <div class="container position-relative z-2">
+            <h5 class="text-gold text-uppercase ls-2 mb-3">About Car Fusion</h5>
+            <h1 class="display-3 fw-bold text-white mb-4">INDIA'S MOST TRUSTED</h1>
+            <div class="divider-gold mx-auto"></div>
+            <p class="text-white lead mt-3">The Ultimate Marketplace for Premium Automobiles</p>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <section class="py-5 bg-white">
+        <div class="container my-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h5 class="text-gold text-uppercase fw-bold ls-2 mb-3">Who We Are</h5>
+                    <h2 class="fw-bold text-black mb-4">Legacy of Excellence Since 2015</h2>
+                    <p class="text-secondary lead mb-4">
+                        Car Fusion is India's leading online platform for buying and selling cars. 
+                        We connect buyers with sellers, providing a seamless experience for all your 
+                        automotive needs.
+                    </p>
+                    <p class="text-secondary">
+                        Founded in 2015, we have grown to become one of the most trusted names in the 
+                        Indian automotive industry. Our mission is to make car buying and selling simple, 
+                        transparent, and hassle-free.
+                    </p>
+                    <div class="mt-4">
+                         <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Sign_of_signature.svg" alt="Signature" style="height: 40px; opacity: 0.6;">
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 ps-lg-5">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop" 
+                             alt="Showroom" class="img-fluid border border-light shadow-lg">
+                        
+                        <div class="bg-black text-white p-4 position-absolute bottom-0 start-0 m-4 shadow-lg" 
+                             style="border-left: 4px solid var(--euro-gold);">
+                            <i class="bi bi-award-fill text-gold fs-1 mb-2"></i>
+                            <h3 class="m-0 fw-bold">10+ Years</h3>
+                            <small class="text-gold text-uppercase ls-2">Of Excellence</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-black text-white">
+        <div class="container py-4">
+            <div class="row text-center g-4">
+                <div class="col-md-3 border-end border-secondary">
+                    <i class="bi bi-people text-gold fs-2 mb-3"></i>
+                    <h2 class="display-4 fw-bold text-white">50K+</h2>
+                    <p class="text-secondary text-uppercase small ls-1">Happy Customers</p>
+                </div>
+                <div class="col-md-3 border-end border-secondary">
+                    <i class="bi bi-car-front text-gold fs-2 mb-3"></i>
+                    <h2 class="display-4 fw-bold text-white">100+</h2>
+                    <p class="text-secondary text-uppercase small ls-1">Car Models</p>
+                </div>
+                <div class="col-md-3 border-end border-secondary">
+                    <i class="bi bi-geo-alt text-gold fs-2 mb-3"></i>
+                    <h2 class="display-4 fw-bold text-white">50+</h2>
+                    <p class="text-secondary text-uppercase small ls-1">Cities Covered</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="bi bi-star text-gold fs-2 mb-3"></i>
+                    <h2 class="display-4 fw-bold text-white">4.8/5</h2>
+                    <p class="text-secondary text-uppercase small ls-1">Customer Rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container my-5">
+            <div class="text-center mb-5">
+                <h5 class="text-gold text-uppercase ls-2 mb-2">The Advantage</h5>
+                <h2 class="fw-bold text-black">Why Choose Car Fusion?</h2>
+                <div class="divider-gold mx-auto"></div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card bg-white p-5 border text-center h-100">
+                        <div class="icon-box mb-4 mx-auto">
+                            <i class="bi bi-shield-check fs-2 text-gold"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Certified Quality</h4>
+                        <p class="text-secondary">
+                            Every car undergoes a rigorous 200+ point inspection process. 
+                            We ensure absolute perfection before the keys reach your hands.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="service-card bg-white p-5 border text-center h-100">
+                        <div class="icon-box mb-4 mx-auto">
+                            <i class="bi bi-currency-rupee fs-2 text-gold"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Best Prices</h4>
+                        <p class="text-secondary">
+                            Luxury shouldn't come with a hidden cost. We offer competitive, 
+                            transparent pricing with a detailed breakdown of value.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="service-card bg-white p-5 border text-center h-100">
+                        <div class="icon-box mb-4 mx-auto">
+                            <i class="bi bi-headset fs-2 text-gold"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">24/7 Support</h4>
+                        <p class="text-secondary">
+                            Our relationship doesn't end at the sale. Enjoy round-the-clock 
+                            premium concierge support for all your automotive queries.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" style="background-color: #111;">
+        <div class="container py-5 text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <i class="bi bi-quote text-gold display-3"></i>
+                    <h2 class="text-white fw-light fst-italic mb-4">
+                        "To revolutionize the car buying and selling experience in India by leveraging technology 
+                        and providing unmatched customer service."
+                    </h2>
+                    <div class="divider-gold mx-auto mb-4"></div>
+                    <p class="text-secondary text-uppercase ls-2">Our Vision</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="luxury-footer pt-5 pb-4">
+        <div class="container">
+            <div class="row gy-4 border-bottom border-dark-subtle pb-5">
+                
+                <div class="col-lg-4 text-center text-lg-start">
+                    <div class="d-inline-block p-2 rounded mb-3">
+                        <img src="../assets/images/car_fusion_logo.png" alt="Car Fusion" style="height: 50px; display: block;" class="foo">
+                    </div>
+                    <p class="text-secondary small">
+                        The world's most trusted marketplace for premium pre-owned automobiles. 
+                        We deliver excellence in every mile.
+                    </p>
+                </div>
+
+                <div class="col-lg-4 text-center">
+                    <h6 class="text-gold text-uppercase fw-bold mb-4">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="new_cars.html" class="footer-link">New Inventory</a></li>
+                        <li class="mb-2"><a href="new_cars.html" class="footer-link">Collection</a></li>
+                        <li class="mb-2"><a href="contact.html" class="footer-link">Insurance</a></li>
+                        <li class="mb-2"><a href="contact.html" class="footer-link">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 text-center text-lg-end">
+                    <h6 class="text-gold text-uppercase fw-bold mb-4">Connect With Us</h6>
+                    
+                    <div class="d-flex justify-content-center justify-content-lg-end gap-3 social-group">
+                        <a href="#" class="social-btn facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-btn instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-btn mail"><i class="bi bi-envelope-fill"></i></a>
+                        <a href="#" class="social-btn phone"><i class="bi bi-telephone-fill"></i></a>
+                    </div>
+                    
+                    <div class="mt-4 text-secondary small">
+                        <i class="bi bi-geo-alt-fill text-gold me-2"></i> <span class="location-display">Ahmedabad</span>, Gujarat, India
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center pt-4">
+                <p class="text-secondary small mb-0">&copy; 2026 Car Fusion. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

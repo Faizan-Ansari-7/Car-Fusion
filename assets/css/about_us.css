@@ -1,0 +1,125 @@
+/* =========================================
+   ABOUT US PAGE STYLES (Fixed Layout)
+   ========================================= */
+
+/* 1. VARIABLES (Important for Colors to work) */
+:root {
+    --euro-black: #000000;
+    --euro-gold: #D4AF37;
+    --euro-white: #FFFFFF;
+    --euro-text: #333333;
+}
+
+/* 2. TEXT & UTILITIES */
+.text-gold { color: var(--euro-gold) !important; }
+.text-black { color: var(--euro-black) !important; }
+.bg-black { background-color: var(--euro-black) !important; }
+.bg-light { background-color: #f8f9fa !important; }
+
+.ls-1 { letter-spacing: 1px; }
+.ls-2 { letter-spacing: 2px; }
+
+.divider-gold {
+    height: 3px;
+    width: 60px;
+    background-color: var(--euro-gold);
+    margin: 15px 0;
+}
+.text-center .divider-gold { margin: 15px auto; }
+
+/* 3. HEADER SPACER */
+.header-spacer { height: 126px; }
+@media (max-width: 991px) { .header-spacer { height: 80px; } }
+
+/* 4. HERO SECTION */
+.about-hero-section {
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1562519819-016930ada31b?q=80&w=2070&auto=format&fit=crop'); 
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    margin-top: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+/* 5. SERVICE CARDS */
+.service-card {
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+    border-top: 3px solid transparent;
+    background-color: #fff;
+    height: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    border-top-color: var(--euro-gold);
+}
+
+.icon-box {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.service-card:hover .icon-box {
+    background: var(--euro-gold);
+}
+.service-card:hover .icon-box i {
+    color: #000 !important;
+}
+
+/* 6. STATS SECTION BORDERS */
+.border-end { border-right: 1px solid rgba(255,255,255,0.1) !important; }
+@media (max-width: 768px) {
+    .border-end { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; }
+}
+
+/* 7. FOOTER STYLES */
+.footer-logo-glow {
+    transition: 0.3s;
+}
+.footer-logo-glow:hover {
+    filter: drop-shadow(0 0 10px var(--euro-gold));
+    transform: scale(1.05);
+}
+
+.footer-link {
+    color: #888;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+.footer-link:hover {
+    color: var(--euro-gold);
+    padding-left: 5px;
+}
+
+.social-btn {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #111;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; text-decoration: none;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+.social-btn:hover {
+    background: var(--euro-gold);
+    color: #000;
+    border-color: var(--euro-gold);
+}
+
+/* NOTE: Dropdown styles are deliberately NOT here so main_interface.css handles them smoothly. */

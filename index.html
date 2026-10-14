@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Fusion | India's Premier Luxury & Certified Pre-Owned Automobile Marketplace</title>
+    <meta name="description" content="Discover premium luxury and certified pre-owned vehicles at Car Fusion. Browse 130+ inspected cars from BMW, Mercedes-Benz, Audi, Porsche, and electric vehicles in India.">
+    <meta name="keywords" content="luxury cars India, buy pre-owned BMW, certified luxury cars, electric cars India, Audi, Mercedes-Benz, Car Fusion Ahmedabad">
+    <meta name="author" content="Car Fusion Automotive Group">
+    <link rel="canonical" href="https://carfusion.com/index.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://carfusion.com/index.html">
+    <meta property="og:title" content="Car Fusion | India's Premier Luxury & Certified Pre-Owned Automobile Marketplace">
+    <meta property="og:description" content="Discover premium luxury and certified pre-owned vehicles at Car Fusion. Browse 130+ inspected cars from BMW, Mercedes, Audi, and EVs.">
+    <meta property="og:image" content="assets/images/car_fusion_logo.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://carfusion.com/index.html">
+    <meta name="twitter:title" content="Car Fusion | Luxury & Certified Pre-Owned Automobiles">
+    <meta name="twitter:description" content="Browse 130+ inspected cars from BMW, Mercedes, Audi, Porsche, and electric vehicles across India.">
+    <meta name="twitter:image" content="assets/images/car_fusion_logo.png">
+
+    <!-- Favicon & Stylesheets -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/car_fusion_favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/main_interface.css">
+
+    <!-- Structured Data: Organization & AutoDealer -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoDealer",
+      "name": "Car Fusion",
+      "image": "https://carfusion.com/assets/images/car_fusion_logo.png",
+      "url": "https://carfusion.com/index.html",
+      "telephone": "+91-98765-43210",
+      "priceRange": "₹4,00,000 - ₹3,50,00,000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Car Fusion Boulevard, SG Highway",
+        "addressLocality": "Ahmedabad",
+        "addressRegion": "Gujarat",
+        "postalCode": "380054",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 23.033863,
+        "longitude": 72.585022
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "09:30",
+          "closes": "20:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/carfusion",
+        "https://www.instagram.com/carfusion"
+      ]
+    }
+    </script>
+
+    <style>
+        .feature-card {
+            background: #fff;
+            border: 1px solid #eee;
+            transition: 0.3s;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #D4AF37;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hover-dropdown {
+            position: relative;
+        }
+
+        .hover-dropdown:hover .dropdown-menu {
+            display: block;
+            margin-top: 0;
+        }
+
+        .dropdown-menu {
+            z-index: 1050;
+        }
+
+        /* Tab Styles */
+        .nav-pills .nav-link {
+            color: #000;
+            border: 1px solid #ddd;
+            border-radius: 0;
+            margin: 0 5px;
+            font-weight: 600;
+        }
+
+        .nav-pills .nav-link.active {
+            background-color: #000;
+            color: #D4AF37;
+            border-color: #000;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #D4AF37;
+            padding: 8px 16px;
+            z-index: 99999;
+            transition: top 0.2s ease;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+
+<body class="euro-body">
+    <a href="#mainContent" class="skip-link">Skip to main content</a>
+
+    <header class="euro-header fixed-top">
+        <div class="top-bar">
+            <div class="container d-flex align-items-center justify-content-between">
+                <a class="navbar-brand me-4" href="index.html" aria-label="Car Fusion Homepage">
+                    <img src="assets/images/car_fusion_logo.png" alt="Car Fusion Luxury Automotive Logo" class="logo-size">
+                </a>
+
+                <div class="flex-grow-1 mx-lg-5 d-lg-block">
+                    <div class="header-search-container">
+                        <form role="search" class="input-group" onsubmit="event.preventDefault(); document.getElementById('searchBtn').click();">
+                            <span class="input-group-text bg-white border-end-0">
+                                <i class="bi bi-search text-gold" aria-hidden="true"></i>
+                            </span>
+                            <input type="text" id="searchInput" class="form-control border-start-0 ps-0"
+                                placeholder="Search for 'Porsche 911', 'BMW M4', 'Electric'..." aria-label="Search automobile inventory">
+                            <button class="btn btn-gold" type="button" id="searchBtn" aria-label="Submit search query">SEARCH</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-4">
+                    <div class="d-flex align-items-center text-white cursor-pointer hover-gold" data-bs-toggle="modal" data-bs-target="#locationModal" style="cursor: pointer;" role="button" aria-label="Select delivery city">
+                        <i class="bi bi-geo-alt me-2" aria-hidden="true"></i>
+                        <span class="small fw-bold location-display">Ahmedabad</span>
+                    </div>
+
+                    <a href="pages/login.html" id="loginLink"
+                        class="d-flex align-items-center text-white text-decoration-none hover-gold" aria-label="Sign in to your Car Fusion account">
+                        <i class="bi bi-person-circle me-2 fs-5" aria-hidden="true"></i>
+                        <span class="small fw-bold">Login</span>
+                    </a>
+                </div>
+
+                <button class="navbar-toggler d-lg-none text-white border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation menu">
+                    <i class="bi bi-list fs-1" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="secondary-nav border-top border-dark-subtle">
+            <div class="container">
+                <nav class="nav justify-content-center d-lg-flex" aria-label="Main Navigation">
+                    <div class="dropdown hover-dropdown">
+                        <a class="nav-link dropdown-toggle" href="pages/new_cars.html" role="button" aria-expanded="false">
+                            NEW CARS
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="pages/new_cars.html">EXPLORE NEW CARS</a></li>
+                            <li><a class="dropdown-item" href="pages/compare.html">COMPARE CARS</a></li>
+                            <li><a class="dropdown-item" href="pages/electric-cars.html">ELECTRIC CARS</a></li>
+                            <li><a class="dropdown-item" href="pages/brands.html">POPULAR BRANDS</a></li>
+                        </ul>
+                    </div>
+                    <a class="nav-link" href="pages/reviews_news.html">REVIEWS & NEWS</a>
+                    <a class="nav-link" href="pages/modify.html">FUSION LAB</a>
+                    <a class="nav-link" href="pages/about_us.html">ABOUT US</a>
+                    <a class="nav-link" href="pages/contact.html">CONTACT</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-spacer"></div>
+
+    <main id="mainContent">
+        <!-- Hero Carousel Section -->
+        <section aria-label="Featured Showcases" id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070"
+                        class="d-block w-100" style="height: 600px; object-fit: cover; filter: brightness(0.7);"
+                        alt="Porsche 911 luxury sports car on a winding mountain road">
+                    <div class="carousel-caption d-none d-md-block" style="bottom: 150px;">
+                        <h1 class="display-4 fw-bold ls-2 text-white">THE GOLD STANDARD</h1>
+                        <p class="lead">Experience Automotive Excellence Across India</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2070"
+                        class="d-block w-100" style="height: 600px; object-fit: cover; filter: brightness(0.7);"
+                        alt="High performance luxury coupe in sleek grey finish">
+                    <div class="carousel-caption d-none d-md-block" style="bottom: 150px;">
+                        <h2 class="display-4 fw-bold ls-2 text-white">PRECISION ENGINEERING</h2>
+                        <p class="lead">Every Component Thoroughly Inspected & Certified</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=2070"
+                        class="d-block w-100" style="height: 600px; object-fit: cover; filter: brightness(0.7);"
+                        alt="Red exotic supercar under studio spotlights">
+                    <div class="carousel-caption d-none d-md-block" style="bottom: 150px;">
+                        <h2 class="display-4 fw-bold ls-2 text-white">TIMELESS LEGACY</h2>
+                        <p class="lead">Curated Marques for Discerning Connoisseurs</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Inventory Search Filter Bar -->
+        <section aria-label="Inventory Quick Search" class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="bg-white p-4 shadow-lg border border-1 border-light rounded-1"
+                        style="margin-top: -80px; position: relative; z-index: 10;">
+                        <form id="homeSearchForm">
+                            <div class="row g-3 align-items-end">
+                                <div class="col-md-3">
+                                    <label for="homeBrandSelect" class="form-label text-secondary small text-uppercase fw-bold">Make</label>
+                                    <select id="homeBrandSelect" class="form-select border-dark rounded-0">
+                                        <option value="">All Brands</option>
+                                        <option value="Audi">Audi</option>
+                                        <option value="BMW">BMW</option>
+                                        <option value="Honda">Honda</option>
+                                        <option value="Hyundai">Hyundai</option>
+                                        <option value="Kia">Kia</option>
+                                        <option value="Land Rover">Land Rover</option>
+                                        <option value="Mahindra">Mahindra</option>
+                                        <option value="Maruti Suzuki">Maruti Suzuki</option>
+                                        <option value="Mercedes">Mercedes-Benz</option>
+                                        <option value="MG Motor">MG Motor</option>
+                                        <option value="Nissan">Nissan</option>
+                                        <option value="Skoda">Skoda</option>
+                                        <option value="Tata">Tata</option>
+                                        <option value="Toyota">Toyota</option>
+                                        <option value="Volkswagen">Volkswagen</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="homeFuelSelect" class="form-label text-secondary small text-uppercase fw-bold">Fuel Type</label>
+                                    <select id="homeFuelSelect" class="form-select border-dark rounded-0">
+                                        <option value="">All Fuels</option>
+                                        <option value="Petrol">Petrol</option>
+                                        <option value="Diesel">Diesel</option>
+                                        <option value="Electric">Electric</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="homeBudgetSelect" class="form-label text-secondary small text-uppercase fw-bold">Budget</label>
+                                    <select id="homeBudgetSelect" class="form-select border-dark rounded-0">
+                                        <option value="">Any Budget</option>
+                                        <option value="1-5">₹1L - ₹5L</option>
+                                        <option value="5-10">₹5L - ₹10L</option>
+                                        <option value="10-20">₹10L - ₹20L</option>
+                                        <option value="20-50">₹20L - ₹50L</option>
+                                        <option value="50-100">₹50L - ₹1Cr</option>
+                                        <option value="100+">Above ₹1Cr</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="submit" class="btn btn-black w-100 fw-bold rounded-0 py-2"
+                                        style="background: black; color: #D4AF37;">SEARCH</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Curated Inventory Tabs Section -->
+        <section aria-labelledby="inventoryHeading" class="py-5 mt-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h5 class="text-gold text-uppercase ls-2">Curated Inventory</h5>
+                    <h2 id="inventoryHeading" class="section-title">Explore Collection</h2>
+                    <div class="divider-gold"></div>
+                </div>
+
+                <ul class="nav nav-pills justify-content-center mb-4" id="inventoryTabs" role="tablist">
+                    <li class="nav-item mx-1" role="presentation">
+                        <button class="nav-link active" id="latest-tab" data-bs-toggle="pill"
+                            data-bs-target="#latest-content" type="button" role="tab" aria-controls="latest-content" aria-selected="true">Latest Arrivals</button>
+                    </li>
+                    <li class="nav-item mx-1" role="presentation">
+                        <button class="nav-link" id="bestsellers-tab" data-bs-toggle="pill"
+                            data-bs-target="#bestsellers-content" type="button" role="tab" aria-controls="bestsellers-content" aria-selected="false">Best Sellers</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="inventoryTabContent">
+                    <div class="tab-pane fade show active" id="latest-content" role="tabpanel" aria-labelledby="latest-tab">
+                        <div class="row g-4" id="latestCarsGrid">
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="bestsellers-content" role="tabpanel" aria-labelledby="bestsellers-tab">
+                        <div class="row g-4" id="bestSellersGrid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Elite Brand Partners Section -->
+        <section aria-labelledby="brandsHeading" class="py-5 bg-light">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-end mb-4">
+                    <div>
+                        <h5 class="text-gold text-uppercase ls-2">Elite Partners</h5>
+                        <h2 id="brandsHeading" class="section-title">Popular Brands</h2>
+                    </div>
+                    <a href="pages/brands.html" class="btn btn-outline-dark rounded-0">View All Brands</a>
+                </div>
+
+                <div class="row g-4 text-center">
+                    <div class="col-6 col-md-2">
+                        <a href="pages/new_cars.html?brand=BMW" class="text-decoration-none">
+                            <div class="bg-white p-4 shadow-sm border h-100">
+                                <img src="assets/images/cars_logo/bmw_logo.jpg" alt="BMW Brand Emblem" class="img-fluid mb-2"
+                                    style="height: 50px; object-fit: contain;">
+                                <p class="mt-2 fw-bold mb-0 text-dark">BMW</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <a href="pages/new_cars.html?brand=Mercedes" class="text-decoration-none">
+                            <div class="bg-white p-4 shadow-sm border h-100">
+                                <img src="assets/images/cars_logo/mercedes_logo.jpg" alt="Mercedes-Benz Emblem" class="img-fluid mb-2"
+                                    style="height: 50px; object-fit: contain;">
+                                <p class="mt-2 fw-bold mb-0 text-dark">Mercedes</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <a href="pages/new_cars.html?brand=Audi" class="text-decoration-none">
+                            <div class="bg-white p-4 shadow-sm border h-100">
+                                <img src="assets/images/cars_logo/audi_logo.jpg" alt="Audi Four Rings Emblem" class="img-fluid mb-2"
+                                    style="height: 50px; object-fit: contain;">
+                                <p class="mt-2 fw-bold mb-0 text-dark">Audi</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <a href="pages/new_cars.html?brand=Tata" class="text-decoration-none">
+                            <div class="bg-white p-4 shadow-sm border h-100">
+                                <img src="assets/images/cars_logo/tata.jpg" alt="Tata Motors Logo" class="img-fluid mb-2"
+                                    style="height: 50px; object-fit: contain;">
+                                <p class="mt-2 fw-bold mb-0 text-dark">Tata</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <a href="pages/new_cars.html?brand=Mahindra" class="text-decoration-none">
+                            <div class="bg-white p-4 shadow-sm border h-100">
+                                <img src="assets/images/cars_logo/mahindra_logo.jpg" alt="Mahindra Twin Peaks Logo" class="img-fluid mb-2"
+                                    style="height: 50px; object-fit: contain;">
+                                <p class="mt-2 fw-bold mb-0 text-dark">Mahindra</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <a href="pages/new_cars.html?brand=Toyota" class="text-decoration-none">
+                            <div class="bg-white p-4 shadow-sm border h-100">
+                                <img src="assets/images/cars_logo/toyota_logo.jpg" alt="Toyota Logo" class="img-fluid mb-2"
+                                    style="height: 50px; object-fit: contain;">
+                                <p class="mt-2 fw-bold mb-0 text-dark">Toyota</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Side-by-Side Comparison Featurette -->
+        <section aria-labelledby="compareHeading" class="py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1000"
+                            class="img-fluid shadow-lg" alt="Side by side comparison of luxury automobiles">
+                    </div>
+                    <div class="col-lg-6 ps-lg-5 mt-4 mt-lg-0">
+                        <h5 class="text-gold text-uppercase ls-2">Side By Side Analysis</h5>
+                        <h2 id="compareHeading" class="section-title mb-3">Compare Cars</h2>
+                        <p class="text-secondary lead mb-4">
+                            Unsure which luxury vehicle suits your lifestyle? Use our advanced comparison tool to analyze
+                            specifications, features, and pricing side-by-side.
+                        </p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-gold me-2" aria-hidden="true"></i> Compare up to 3 vehicles</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-gold me-2" aria-hidden="true"></i> Detailed spec breakdown</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-gold me-2" aria-hidden="true"></i> Unbiased performance data</li>
+                        </ul>
+                        <a href="pages/compare.html" class="btn btn-black w-100 py-3 rounded-0"
+                            style="background: black; color: white;">START COMPARISON</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Electric & Hybrid Showcase -->
+        <section aria-labelledby="evHeading" class="py-5" style="background-color: #f4f4f4;">
+            <div class="container text-center">
+                <h5 class="text-success text-uppercase ls-2">Sustainable Luxury</h5>
+                <h2 id="evHeading" class="section-title mb-5">Electric & Hybrid</h2>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="feature-card p-4 h-100 bg-white">
+                            <i class="bi bi-lightning-charge-fill text-success fs-1 mb-3" aria-hidden="true"></i>
+                            <h4>EV Revolution</h4>
+                            <p class="text-secondary">Experience instant torque and zero emissions with our range of electric sports cars.</p>
+                            <a href="pages/electric-cars.html" class="btn btn-outline-success btn-sm rounded-0 mt-2">View EVs</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card p-4 h-100 bg-white">
+                            <i class="bi bi-battery-charging text-success fs-1 mb-3" aria-hidden="true"></i>
+                            <h4>Hybrid Power</h4>
+                            <p class="text-secondary">The perfect balance of efficiency and range. Explore our plug-in hybrid inventory.</p>
+                            <a href="pages/electric-cars.html" class="btn btn-outline-success btn-sm rounded-0 mt-2">View Hybrids</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card p-4 h-100 bg-success text-white border-0 d-flex flex-column justify-content-center align-items-center">
+                            <h3>Go Green</h3>
+                            <p class="small mb-3">Join the sustainable future of motoring.</p>
+                            <a href="pages/electric-cars.html" class="btn btn-white text-success bg-white fw-bold rounded-0">Explore All Electric</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Luxury Footer -->
+    <footer class="luxury-footer pt-5 pb-4">
+        <div class="container">
+            <div class="row gy-4 border-bottom border-dark-subtle pb-5">
+                <div class="col-lg-4 text-center text-lg-start">
+                    <div class="mb-3 d-inline-block">
+                        <img src="assets/images/car_fusion_logo.png" alt="Car Fusion Logo" class="footer-logo-glow"
+                            style="max-width: 180px; height: auto;">
+                    </div>
+                    <p class="text-secondary small">
+                        The world's most trusted marketplace for premium pre-owned automobiles.
+                        We deliver excellence in every mile.
+                    </p>
+                </div>
+
+                <div class="col-lg-4 text-center">
+                    <h6 class="text-gold text-uppercase fw-bold mb-4">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="pages/new_cars.html" class="footer-link">New Inventory</a></li>
+                        <li class="mb-2"><a href="pages/compare.html" class="footer-link">Compare Models</a></li>
+                        <li class="mb-2"><a href="pages/electric-cars.html" class="footer-link">Electric Vehicles</a></li>
+                        <li class="mb-2"><a href="pages/contact.html" class="footer-link">Contact & Concierge</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 text-center text-lg-end">
+                    <h6 class="text-gold text-uppercase fw-bold mb-4">Connect With Us</h6>
+                    <div class="d-flex justify-content-center justify-content-lg-end gap-3 social-group">
+                        <a href="https://facebook.com" class="social-btn facebook" aria-label="Follow Car Fusion on Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+                        <a href="https://instagram.com" class="social-btn instagram" aria-label="Follow Car Fusion on Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+                        <a href="mailto:concierge@carfusion.com" class="social-btn mail" aria-label="Email Car Fusion Concierge"><i class="bi bi-envelope-fill" aria-hidden="true"></i></a>
+                        <a href="tel:+919876543210" class="social-btn phone" aria-label="Call Car Fusion Concierge"><i class="bi bi-telephone-fill" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="mt-4 text-secondary small">
+                        <i class="bi bi-geo-alt-fill text-gold me-2" aria-hidden="true"></i> <span class="location-display">Ahmedabad</span>, Gujarat, India
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center pt-4">
+                <p class="text-secondary small mb-0">&copy; 2026 Car Fusion. All Rights Reserved. ISO 9001:2015 Certified Pre-Owned Marketplace.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap & Application Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main_interface.js"></script>
+</body>
+</html>

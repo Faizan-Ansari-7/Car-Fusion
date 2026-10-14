@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smiley Food Channel Strategy &amp; SEO Deep Dive | Content Architecture</title>
+    
+    <!-- Technical SEO Metadata -->
+    <meta name="description" content="In-depth analysis of the Smiley Food YouTube channel strategy: deconstructing viral algorithms, ASMR viewer psychology, high-retention video editing, and metadata SEO.">
+    <meta name="keywords" content="Smiley Food, YouTube strategy, viral content, video SEO, retention rate, ASMR food, CTR optimization">
+    <meta name="author" content="Content Strategy Lab">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Smiley Food: Viral Content Strategy &amp; Algorithm Deep Dive">
+    <meta property="og:description" content="Reverse engineering the visual psychology, zero-language barrier reach, and metadata architecture of top food creators.">
+    <meta property="og:site_name" content="Viral Channel Strategy Breakdown">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Smiley Food: Viral Content Strategy &amp; Algorithm Deep Dive">
+    <meta name="twitter:description" content="Reverse engineering the visual psychology, zero-language barrier reach, and metadata architecture of top food creators.">
+
+    <!-- External Assets -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom styles for chart containers and specific interactive elements */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafaf9; /* Stone-50 */
+            color: #44403c; /* Stone-700 */
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .interactive-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .interactive-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .interactive-card.active {
+            border-left-color: #f97316; /* Orange-500 */
+            background-color: #fff7ed; /* Orange-50 */
+        }
+        .hidden-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom Scrollbar for keyword lists */
+        .keyword-box::-webkit-scrollbar {
+            width: 6px;
+        }
+        .keyword-box::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .keyword-box::-webkit-scrollbar-thumb {
+            background: #d6d3d1;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-orange-200 selection:text-orange-900">
+
+    <!-- Global Navigation -->
+    <nav class="bg-white border-b border-stone-200 sticky top-0 z-50 shadow-sm" aria-label="Main Navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-orange-600 tracking-tight" role="heading" aria-level="1">Smiley Analysis</span>
+                </div>
+                <ul class="flex items-center space-x-2 sm:space-x-4" role="menubar">
+                    <li role="none">
+                        <button type="button" role="menuitem" onclick="scrollToSection('dashboard')" class="text-stone-600 hover:text-orange-600 font-medium px-3 py-2 rounded-md transition focus:outline-none focus:ring-2 focus:ring-orange-500">Dashboard</button>
+                    </li>
+                    <li role="none">
+                        <button type="button" role="menuitem" onclick="scrollToSection('formula')" class="text-stone-600 hover:text-orange-600 font-medium px-3 py-2 rounded-md transition focus:outline-none focus:ring-2 focus:ring-orange-500">Viral Formula</button>
+                    </li>
+                    <li role="none">
+                        <button type="button" role="menuitem" onclick="scrollToSection('seo')" class="text-stone-600 hover:text-orange-600 font-medium px-3 py-2 rounded-md transition focus:outline-none focus:ring-2 focus:ring-orange-500">SEO X-Ray</button>
+                    </li>
+                    <li role="none">
+                        <button type="button" role="menuitem" onclick="scrollToSection('action')" class="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition shadow-sm font-semibold focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">Growth Plan</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero Section -->
+    <header class="bg-stone-100 py-12 md:py-16 border-b border-stone-200">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <p class="text-xs uppercase font-bold tracking-widest text-orange-600 mb-2">Algorithm &amp; Audience Intelligence</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-stone-800 mb-4 tracking-tight">Deconstructing "Smiley Food"</h1>
+            <p class="text-lg md:text-xl text-stone-600 max-w-2xl mx-auto leading-relaxed">
+                A deep dive into the <strong>algorithms, visual psychology, and hidden metadata</strong> that power one of YouTube's most successful food content strategies.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+
+        <!-- Section 1: The Channel DNA (Dashboard) -->
+        <section id="dashboard" aria-labelledby="dashboard-heading" class="scroll-mt-24">
+            <header class="mb-6">
+                <h2 id="dashboard-heading" class="text-3xl font-bold text-stone-800">Channel DNA &amp; Performance</h2>
+                <p class="mt-2 text-stone-600 leading-relaxed">Understanding the core metrics and audience psychology. "Smiley Food" doesn't just make food; it manufactures <strong>satisfaction</strong>. The data below reveals why the algorithm pushes this content so aggressively.</p>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Stat Card 1 -->
+                <article class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:border-stone-200 transition">
+                    <header>
+                        <span class="text-sm font-semibold text-stone-400 uppercase tracking-wider block">Primary Reach Mechanic</span>
+                        <h3 class="text-3xl font-bold text-stone-800 mt-1">Browse Features</h3>
+                    </header>
+                    <p class="text-sm text-green-600 mt-2 font-medium">85% of Traffic</p>
+                    <p class="text-xs text-stone-500 mt-2">Viewers don't search for this; YouTube finds them. The thumbnail CTR is the engine.</p>
+                </article>
+
+                <!-- Stat Card 2 -->
+                <article class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:border-stone-200 transition">
+                    <header>
+                        <span class="text-sm font-semibold text-stone-400 uppercase tracking-wider block">Language Barrier</span>
+                        <h3 class="text-3xl font-bold text-stone-800 mt-1">Zero (0%)</h3>
+                    </header>
+                    <p class="text-sm text-blue-600 mt-2 font-medium">Global Scale</p>
+                    <p class="text-xs text-stone-500 mt-2">No talking strategy allows viral spread in India, USA, Brazil, and Indonesia simultaneously.</p>
+                </article>
+
+                <!-- Stat Card 3 -->
+                <article class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:border-stone-200 transition">
+                    <header>
+                        <span class="text-sm font-semibold text-stone-400 uppercase tracking-wider block">Content Archetype</span>
+                        <h3 class="text-3xl font-bold text-stone-800 mt-1">ASMR + Visuals</h3>
+                    </header>
+                    <p class="text-sm text-orange-600 mt-2 font-medium">High Retention</p>
+                    <p class="text-xs text-stone-500 mt-2">Combines "oddly satisfying" psychology with "food porn" appeal.</p>
+                </article>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Chart: Traffic Sources -->
+                <figure class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 flex flex-column justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-stone-800 mb-4">Traffic Source Breakdown</h3>
+                        <div class="chart-container" role="img" aria-label="Doughnut chart showing 55% Browse Features, 30% Suggested Videos, 10% YouTube Search, 5% External">
+                            <canvas id="trafficChart"></canvas>
+                        </div>
+                    </div>
+                    <figcaption class="text-xs text-center text-stone-500 mt-4 border-t border-stone-100 pt-3">
+                        The channel relies on "Suggested Videos" (sidebar) and Homepage Browse, not Search.
+                    </figcaption>
+                </figure>
+
+                <!-- Chart: Content Psychology -->
+                <figure class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 flex flex-column justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-stone-800 mb-4">Viewer Motivation Analysis</h3>
+                        <div class="chart-container" role="img" aria-label="Radar chart illustrating high visual satisfaction and ASMR triggers over recipe learning">
+                            <canvas id="psychChart"></canvas>
+                        </div>
+                    </div>
+                    <figcaption class="text-xs text-center text-stone-500 mt-4 border-t border-stone-100 pt-3">
+                        Viewers watch to relax or be mesmerized, not necessarily to learn a recipe.
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Section 2: The Viral Formula (Interactive) -->
+        <section id="formula" aria-labelledby="formula-heading" class="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden scroll-mt-24">
+            <header class="p-8 border-b border-stone-100 bg-orange-50">
+                <h2 id="formula-heading" class="text-3xl font-bold text-stone-800">The "Smiley" Viral Formula</h2>
+                <p class="mt-2 text-stone-700">How does she hold attention? Click the strategic elements below to reveal the specific production tactics used to boost Average View Duration (AVD).</p>
+            </header>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3">
+                <!-- Sidebar Controls -->
+                <aside class="bg-stone-50 p-6 border-r border-stone-100 space-y-2" aria-label="Production Tactics Selector">
+                    <nav aria-label="Strategy Tabs">
+                        <ul class="space-y-2">
+                            <li>
+                                <button type="button" onclick="showStrategy('hook')" id="btn-hook" aria-controls="content-hook" class="interactive-card w-full text-left p-4 rounded-lg bg-white font-semibold text-stone-700 active focus:outline-none focus:ring-2 focus:ring-orange-500">
+                                    1. The 3-Second Hook
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" onclick="showStrategy('visuals')" id="btn-visuals" aria-controls="content-visuals" class="interactive-card w-full text-left p-4 rounded-lg bg-white font-semibold text-stone-700 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                                    2. Color Saturation
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" onclick="showStrategy('asmr')" id="btn-asmr" aria-controls="content-asmr" class="interactive-card w-full text-left p-4 rounded-lg bg-white font-semibold text-stone-700 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                                    3. Audio Texture (ASMR)
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" onclick="showStrategy('loop')" id="btn-loop" aria-controls="content-loop" class="interactive-card w-full text-left p-4 rounded-lg bg-white font-semibold text-stone-700 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                                    4. The "Infinity" Loop
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                <!-- Content Display Area -->
+                <div class="col-span-1 lg:col-span-2 p-8">
+                    <!-- Hook Content -->
+                    <article id="content-hook" class="strategy-content" aria-labelledby="hook-title">
+                        <h3 id="hook-title" class="text-2xl font-bold text-orange-600 mb-4">Immediate Action (No Intros)</h3>
+                        <p class="text-stone-700 mb-4 text-lg">Smiley Food never starts with "Hello guys, welcome back."</p>
+                        <div class="bg-stone-100 p-4 rounded-lg border-l-4 border-orange-500 mb-6">
+                            <h4 class="font-bold text-stone-800">The Tactic:</h4>
+                            <p class="text-stone-600 mt-1">The video starts <strong>mid-action</strong>. Pouring chocolate, slicing a cake, or a satisfying "crunch" happens at 0:01.</p>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start"><span class="text-green-500 mr-2" aria-hidden="true">✔</span> <div><strong>Result:</strong> Stops the scroll immediately.</div></li>
+                            <li class="flex items-start"><span class="text-green-500 mr-2" aria-hidden="true">✔</span> <div><strong>Reason:</strong> Viewers judge relevance in &lt; 2 seconds. Motion confirms value.</div></li>
+                        </ul>
+                    </article>
+
+                    <!-- Visuals Content -->
+                    <article id="content-visuals" class="strategy-content hidden-content" aria-labelledby="visuals-title">
+                        <h3 id="visuals-title" class="text-2xl font-bold text-orange-600 mb-4">Hyper-Real Saturation</h3>
+                        <p class="text-stone-700 mb-4 text-lg">The colors aren't just bright; they are engineered.</p>
+                        <div class="bg-stone-100 p-4 rounded-lg border-l-4 border-orange-500 mb-6">
+                            <h4 class="font-bold text-stone-800">The Tactic:</h4>
+                            <p class="text-stone-600 mt-1">High contrast backgrounds (often white or black marble) with neon or deep primary colored foods (Red Strawberries, Dark Chocolate, Yellow Mango). Saturation is boosted in editing by ~15-20%.</p>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start"><span class="text-green-500 mr-2" aria-hidden="true">✔</span> <div><strong>Thumbnails:</strong> Uses "Impossible" imagery (e.g., a giant chocolate egg) to spark curiosity.</div></li>
+                        </ul>
+                    </article>
+
+                    <!-- ASMR Content -->
+                    <article id="content-asmr" class="strategy-content hidden-content" aria-labelledby="asmr-title">
+                        <h3 id="asmr-title" class="text-2xl font-bold text-orange-600 mb-4">The Sound of Texture</h3>
+                        <p class="text-stone-700 mb-4 text-lg">Audio is 50% of the experience.</p>
+                        <div class="bg-stone-100 p-4 rounded-lg border-l-4 border-orange-500 mb-6">
+                            <h4 class="font-bold text-stone-800">The Tactic:</h4>
+                            <p class="text-stone-600 mt-1">Microphones are placed extremely close to the food. High-frequency sounds (crunching, fizzing, snapping) are amplified. Background music is either non-existent or minimal lofi beats.</p>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start"><span class="text-green-500 mr-2" aria-hidden="true">✔</span> <div><strong>Sensory Engagement:</strong> Creates autonomous sensory meridian response (ASMR) tingling and satisfaction.</div></li>
+                        </ul>
+                    </article>
+
+                    <!-- Loop Content -->
+                    <article id="content-loop" class="strategy-content hidden-content" aria-labelledby="loop-title">
+                        <h3 id="loop-title" class="text-2xl font-bold text-orange-600 mb-4">Retention Engineering</h3>
+                        <p class="text-stone-700 mb-4 text-lg">Fast pacing creates a "hypnotic" state.</p>
+                        <div class="bg-stone-100 p-4 rounded-lg border-l-4 border-orange-500 mb-6">
+                            <h4 class="font-bold text-stone-800">The Tactic:</h4>
+                            <p class="text-stone-600 mt-1">Quick cuts (every 2-4 seconds). The process moves from raw ingredient to finished product rapidly, giving the viewer constant "dopamine hits" of completion.</p>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start"><span class="text-green-500 mr-2" aria-hidden="true">✔</span> <div><strong>Algorithmic Reward:</strong> Re-watch loops multiply completion rates well over 100%.</div></li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: SEO Inspector (Simulated) -->
+        <section id="seo" aria-labelledby="seo-heading" class="scroll-mt-24">
+            <header class="mb-6">
+                <h2 id="seo-heading" class="text-3xl font-bold text-stone-800">SEO &amp; Keyword "X-Ray"</h2>
+                <p class="mt-2 text-stone-600">Reverse-engineering YouTube metadata strategy. Select a video type below to inspect the <strong>Hidden Keywords</strong> utilized to capture algorithmic search and browse traffic.</p>
+            </header>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Control Panel -->
+                <aside class="lg:col-span-4 space-y-4" aria-label="SEO Selector and Documentation">
+                    <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+                        <label for="video-type-selector" class="block text-sm font-bold text-stone-700 mb-2">Select Video Archetype:</label>
+                        <select id="video-type-selector" onchange="updateSEO()" class="w-full p-3 border border-stone-300 rounded-lg bg-stone-50 focus:ring-2 focus:ring-orange-500 outline-none text-stone-800">
+                            <option value="chocolate">Chocolate Hacks / Decor</option>
+                            <option value="fruit">Fruit Carving / Plating</option>
+                            <option value="gadget">Kitchen Gadget Testing</option>
+                        </select>
+                        <p class="text-xs text-stone-500 mt-3">Changing this simulates inspecting the raw HTML source of a top-performing video.</p>
+                    </div>
+
+                    <div class="bg-blue-50 p-5 rounded-xl border border-blue-100">
+                        <h4 class="font-bold text-blue-800 mb-2">💡 Pro Tip: How to Inspect Source Code</h4>
+                        <p class="text-sm text-blue-700">To inspect any YouTube video metadata yourself:</p>
+                        <ol class="list-decimal ml-4 mt-2 text-sm text-blue-700 space-y-1">
+                            <li>Open a YouTube video.</li>
+                            <li>Right Click background &rarr; <strong>View Page Source</strong>.</li>
+                            <li>Press <kbd class="bg-blue-100 px-1 py-0.5 rounded border border-blue-300 font-mono text-xs">Ctrl + F</kbd> / <kbd class="bg-blue-100 px-1 py-0.5 rounded border border-blue-300 font-mono text-xs">Cmd + F</kbd>.</li>
+                            <li>Search for <code>"keywords"</code> tag.</li>
+                        </ol>
+                    </div>
+                </aside>
+
+                <!-- Simulation Display -->
+                <article class="lg:col-span-8 bg-stone-900 text-green-400 p-6 rounded-xl shadow-lg font-mono text-sm overflow-hidden relative" aria-label="Simulated Source Code Inspector">
+                    <!-- Decor Header -->
+                    <div class="flex justify-between border-b border-stone-700 pb-2 mb-4">
+                        <span class="text-stone-300 text-xs sm:text-sm">SOURCE_CODE_INSPECTOR_V1.2</span>
+                        <span id="seo-status" class="animate-pulse text-xs sm:text-sm">● LIVE DATA</span>
+                    </div>
+                    
+                    <!-- Dynamic Content -->
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-stone-500">&lt;!-- Video Title Strategy --&gt;</span><br>
+                            <span class="text-blue-300">&lt;title&gt;</span>
+                            <span id="seo-title" class="text-white">Most Satisfying Chocolate Cake Decorating Tutorials...</span>
+                            <span class="text-blue-300">&lt;/title&gt;</span>
+                        </div>
+
+                        <div>
+                            <span class="text-stone-500">&lt;!-- Broad Tags (High Volume Algorithmic Seed) --&gt;</span><br>
+                            <span class="text-purple-300">&lt;meta name="keywords" content="</span>
+                            <span id="seo-broad" class="text-yellow-300">satisfying, yummy, cake, chocolate, food hacks, tasty, dessert, diy</span>
+                            <span class="text-purple-300">"&gt;</span>
+                        </div>
+
+                        <div>
+                            <span class="text-stone-500">&lt;!-- Specific Long-Tail Tags --&gt;</span><br>
+                            <div id="seo-specific" class="keyword-box flex flex-wrap gap-2 mt-2 h-24 overflow-y-auto content-start">
+                                <!-- Populated dynamically by JavaScript -->
+                            </div>
+                        </div>
+
+                        <div class="border-t border-stone-700 pt-4 mt-2">
+                            <span class="text-stone-500">// ANALYST STRATEGY NOTE:</span><br>
+                            <p id="seo-note" class="text-stone-300 mt-1">Notice the lack of specific recipe names. They target *feelings* (Satisfying) and *broad categories* (Chocolate), not "How to bake a sponge cake."</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Section 4: Action Plan -->
+        <section id="action" aria-labelledby="action-heading" class="bg-orange-600 rounded-2xl p-8 md:p-12 text-white shadow-lg scroll-mt-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <article>
+                    <h2 id="action-heading" class="text-3xl font-bold mb-4">Growth Plan for Video Creators</h2>
+                    <p class="text-orange-100 mb-6 text-lg">To replicate "Smiley Food's" success, don't just cook—produce visual entertainment. Follow this action checklist.</p>
+                    
+                    <ol class="space-y-4">
+                        <li class="flex items-center">
+                            <span class="bg-white text-orange-600 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3 shrink-0" aria-hidden="true">1</span>
+                            <span><strong>Kill the Intro:</strong> Start with the best shot of the food at 0:00.</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-white text-orange-600 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3 shrink-0" aria-hidden="true">2</span>
+                            <span><strong>Brighten Everything:</strong> Use daylight or cool white LEDs. Increase saturation.</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-white text-orange-600 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3 shrink-0" aria-hidden="true">3</span>
+                            <span><strong>Keyword Stack:</strong> Use "Satisfying" and "Yummy" in every description.</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-white text-orange-600 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3 shrink-0" aria-hidden="true">4</span>
+                            <span><strong>Silence is Golden:</strong> Remove talking. Add crisp ASMR sounds.</span>
+                        </li>
+                    </ol>
+                </article>
+
+                <aside class="bg-white bg-opacity-10 p-6 rounded-xl border border-orange-400 backdrop-blur-sm" aria-label="Algorithm Priority Metrics">
+                    <h3 class="font-bold text-xl mb-4 border-b border-orange-400 pb-2">The "Smiley" Algorithm Trigger</h3>
+                    <p class="mb-4 text-sm">The algorithm pushes videos with high <strong>Click Through Rate (CTR)</strong> and high <strong>retention</strong>.</p>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1 font-semibold">
+                                <span>Thumbnail Quality (CTR)</span>
+                                <span>Critical</span>
+                            </div>
+                            <div class="w-full bg-orange-800 rounded-full h-2.5 overflow-hidden">
+                                <div class="bg-white h-2.5 rounded-full" style="width: 90%" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1 font-semibold">
+                                <span>Pacing / Editing (Retention)</span>
+                                <span>Very High</span>
+                            </div>
+                            <div class="w-full bg-orange-800 rounded-full h-2.5 overflow-hidden">
+                                <div class="bg-white h-2.5 rounded-full" style="width: 85%" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1 font-semibold">
+                                <span>Recipe Complexity</span>
+                                <span>Low Priority</span>
+                            </div>
+                            <div class="w-full bg-orange-800 rounded-full h-2.5 overflow-hidden">
+                                <div class="bg-white h-2.5 rounded-full" style="width: 40%" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-xs mt-4 text-orange-200 italic">Notice: Algorithmic growth rewards packaging and emotional resonance over recipe complexity.</p>
+                </aside>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-stone-900 text-stone-400 py-8 mt-12 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="mb-2">Analysis generated for educational and optimization purposes based on video channel archetypes.</p>
+            <p class="text-sm text-stone-500">&copy; 2026 Strategy Deep Dive. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- 1. Smooth Navigation Logic ---
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // --- 2. Interactive Strategy Cards Logic ---
+        function showStrategy(strategyId) {
+            // Update Buttons
+            const buttons = document.querySelectorAll('.interactive-card');
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'border-l-orange-500', 'bg-orange-50');
+                if (btn.id === `btn-${strategyId}`) {
+                    btn.classList.add('active', 'border-l-orange-500', 'bg-orange-50');
+                }
+            });
+
+            // Update Content
+            const contents = document.querySelectorAll('.strategy-content');
+            contents.forEach(content => {
+                content.classList.add('hidden-content');
+                if (content.id === `content-${strategyId}`) {
+                    content.classList.remove('hidden-content');
+                }
+            });
+        }
+
+        // --- 3. SEO X-Ray Data & Logic ---
+        const seoData = {
+            chocolate: {
+                title: "Most Satisfying Chocolate Cake Decorating Tutorials | Yummy Cake Ideas",
+                broad: "satisfying, yummy, cake, chocolate, food hacks, tasty, dessert, diy",
+                specific: ["chocolate garnish", "easy cake decor", "so yummy", "cakedecorating", "chocolate art", "how to make chocolate", "oddly satisfying video", "relaxing food"],
+                note: "Notice the lack of specific recipe names. They target *feelings* (Satisfying) and *broad categories* (Chocolate)."
+            },
+            fruit: {
+                title: "Amazing Fruit Carving Skills | Watermelon Art & Serving Ideas",
+                broad: "fruit, healthy, vegan, carving, skills, satisfying, art, fresh",
+                specific: ["fruit platter", "watermelon shark", "cucumber art", "serving hacks", "party food ideas", "fruit ninja real life", "oddly satisfying cutting"],
+                note: "Strategy shift: Focuses on 'Skills' and 'Art' rather than 'Taste'. Targets viewers looking for talent showcases."
+            },
+            gadget: {
+                title: "Top 10 Kitchen Gadgets That Will Change Your Life | Testing Amazon Tools",
+                broad: "gadgets, kitchen, amazon, testing, review, tools, smart home, cooking",
+                specific: ["kitchen hacks", "smart appliances", "amazon finds", "testing viral products", "tiktok made me buy it", "home gadgets"],
+                note: "High Search Intent here. Viewers are actually searching for 'Amazon Gadgets', unlike the other categories which rely on Browse."
+            }
+        };
+
+        function updateSEO() {
+            const selector = document.getElementById('video-type-selector');
+            if (!selector) return;
+            const type = selector.value;
+            const data = seoData[type];
+            if (!data) return;
+            
+            // Text Updates
+            const titleEl = document.getElementById('seo-title');
+            const broadEl = document.getElementById('seo-broad');
+            const noteEl = document.getElementById('seo-note');
+
+            if (titleEl) titleEl.innerText = data.title;
+            if (broadEl) broadEl.innerText = data.broad;
+            if (noteEl) noteEl.innerText = data.note;
+
+            // Specific Tag Generation
+            const specificContainer = document.getElementById('seo-specific');
+            if (specificContainer) {
+                specificContainer.innerHTML = '';
+                data.specific.forEach(tag => {
+                    const span = document.createElement('span');
+                    span.className = 'bg-stone-800 px-2 py-1 rounded text-green-300 border border-stone-600 text-xs';
+                    span.innerText = `#${tag}`;
+                    specificContainer.appendChild(span);
+                });
+            }
+        }
+
+        // --- 4. Chart.js Implementation ---
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize SEO Section
+            updateSEO();
+
+            // Chart 1: Traffic Sources (Doughnut)
+            const trafficCanvas = document.getElementById('trafficChart');
+            if (trafficCanvas) {
+                const trafficCtx = trafficCanvas.getContext('2d');
+                new Chart(trafficCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Browse Features (Home)', 'Suggested Videos (Sidebar)', 'YouTube Search', 'External/Other'],
+                        datasets: [{
+                            data: [55, 30, 10, 5],
+                            backgroundColor: [
+                                '#ea580c', // Orange-600
+                                '#fb923c', // Orange-400
+                                '#fdba74', // Orange-300
+                                '#fed7aa'  // Orange-200
+                            ],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { position: 'bottom' }
+                        }
+                    }
+                });
+            }
+
+            // Chart 2: Viewer Psychology (Radar)
+            const psychCanvas = document.getElementById('psychChart');
+            if (psychCanvas) {
+                const psychCtx = psychCanvas.getContext('2d');
+                new Chart(psychCtx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Visual Satisfaction', 'Recipe Learning', 'Relaxation/ASMR', 'Entertainment', 'Hunger Trigger'],
+                        datasets: [{
+                            label: 'Smiley Food Viewer',
+                            data: [95, 20, 85, 80, 70],
+                            backgroundColor: 'rgba(234, 88, 12, 0.2)',
+                            borderColor: '#ea580c',
+                            pointBackgroundColor: '#ea580c'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            r: {
+                                angleLines: { color: '#e5e7eb' },
+                                grid: { color: '#e5e7eb' },
+                                suggestedMin: 0,
+                                suggestedMax: 100
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

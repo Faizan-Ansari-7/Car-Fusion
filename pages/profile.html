@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard | Car Fusion</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../assets/css/main_interface.css">
+    <link rel="icon" href="../assets/icons/car_fusion_favicon.ico">
+    <style>
+        body { background-color: #f8f9fa; }
+        
+        /* Sidebar Styling */
+        .dashboard-sidebar { background: white; border-right: 1px solid #eee; min-height: 100vh; padding-top: 20px; }
+        .nav-pills .nav-link { color: #333; padding: 15px 20px; font-weight: 600; border-left: 4px solid transparent; transition: 0.3s; }
+        .nav-pills .nav-link:hover { background-color: #f8f9fa; padding-left: 25px; }
+        .nav-pills .nav-link.active { background-color: #fcfcfc; color: #D4AF37; border-left-color: #D4AF37; }
+        
+        /* Header Card */
+        .profile-header-card { background: linear-gradient(45deg, #000, #1a1a1a); color: white; border-radius: 10px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); position: relative; overflow: hidden; }
+        .profile-header-card::after { content: ''; position: absolute; top: 0; right: 0; width: 100px; height: 100%; background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2)); transform: skewX(-20deg); }
+        
+        /* Stats & Cards */
+        .stat-card { background: white; border: 1px solid #eee; border-radius: 10px; padding: 20px; transition: 0.3s; height: 100%; }
+        .stat-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .stat-icon { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 15px; }
+        
+        /* Car Cards */
+        .dashboard-car-card { background: white; border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: 0.3s; }
+        .dashboard-car-card:hover { border-color: #D4AF37; }
+        .badge-process { background: #cce5ff; color: #004085; }
+    </style>
+</head>
+<body>
+
+    <header class="bg-black py-3 border-bottom border-secondary sticky-top" style="z-index: 1040;">
+        <div class="container-fluid px-3 d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <button class="btn btn-outline-warning d-md-none me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+                    <i class="bi bi-list fs-5"></i> Menu
+                </button>
+                <a href="../index.html" class="d-flex align-items-center text-decoration-none">
+                    <img src="../assets/images/car_fusion_logo.png" alt="Car Fusion" style="height: 40px;">
+                    <span class="ms-3 text-white fw-bold border-start border-secondary ps-3 d-none d-sm-block">DASHBOARD</span>
+                </a>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="text-end d-none d-sm-block">
+                    <span class="text-white d-block small" id="headerUserName">Loading...</span>
+                    <small class="text-white-50" style="font-size: 0.7rem;">Verified Member</small>
+                </div>
+                <div class="bg-dark rounded-circle d-flex align-items-center justify-content-center text-gold" style="width: 40px; height: 40px; border: 1px solid #333;">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-lg-2 p-0">
+                <div class="offcanvas-md offcanvas-start dashboard-sidebar" tabindex="-1" id="sidebarMenu">
+                    <div class="offcanvas-header border-bottom">
+                        <h5 class="offcanvas-title fw-bold">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu"></button>
+                    </div>
+                    <div class="offcanvas-body d-block p-0">
+                        <div class="text-center mb-4 pt-4 px-3">
+                            <div class="bg-white rounded-circle mx-auto d-flex align-items-center justify-content-center shadow-sm" style="width: 80px; height: 80px; border: 2px solid #D4AF37;">
+                                <i class="bi bi-person-circle fs-1 text-dark"></i>
+                            </div>
+                            <h6 class="mt-3 fw-bold mb-0" id="sidebarName">User</h6>
+                            <p class="text-secondary small mb-3" id="sidebarMobile">+91 ...</p>
+                            <a href="../index.html" class="btn btn-outline-dark btn-sm w-100 rounded-0">Back to Home</a>
+                        </div>
+                        
+                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
+                            <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-overview">
+                                <i class="bi bi-grid-fill me-2"></i> Overview
+                            </button>
+                            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-favorites" onclick="loadFavorites()">
+                                <i class="bi bi-heart-fill text-danger me-2"></i> My Favorites
+                            </button>
+                            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-bookings" onclick="loadGarage()">
+                                <i class="bi bi-car-front-fill me-2"></i> My Garage
+                            </button>
+                            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-fusion" onclick="loadFusionRequests()">
+                                <i class="bi bi-tools me-2"></i> Fusion Lab
+                            </button>
+                            
+                            <hr class="mx-3 text-secondary">
+                            
+                            <button class="nav-link text-danger" onclick="logoutUser()">
+                                <i class="bi bi-box-arrow-right me-2"></i> Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9 col-lg-10 p-4">
+                
+                <div class="profile-header-card mb-4">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <h2 class="fw-bold mb-1">Welcome Back, <span id="welcomeName">Driver</span>!</h2>
+                            <p class="mb-0 text-white-50">Manage your garage, bookings, and projects.</p>
+                        </div>
+                        <i class="bi bi-speedometer2 text-gold d-none d-md-block" style="font-size: 3rem; opacity: 0.5;"></i>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="v-pills-tabContent">
+                    
+                    <div class="tab-pane fade show active" id="tab-overview">
+                        <div class="row g-4 mb-4">
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="stat-card">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div><p class="text-secondary small mb-1 text-uppercase fw-bold">Wishlist</p><h3 class="fw-bold mb-0" id="statFavCount">0</h3></div>
+                                        <div class="stat-icon bg-light text-danger mb-0"><i class="bi bi-heart-fill"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="stat-card">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div><p class="text-secondary small mb-1 text-uppercase fw-bold">My Cars</p><h3 class="fw-bold mb-0" id="statGarageCount">0</h3></div>
+                                        <div class="stat-icon bg-light text-primary mb-0"><i class="bi bi-car-front-fill"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="stat-card">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div><p class="text-secondary small mb-1 text-uppercase fw-bold">Status</p><h5 class="fw-bold mb-0 text-success">Verified</h5></div>
+                                        <div class="stat-icon bg-light text-success mb-0"><i class="bi bi-patch-check-fill"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="tab-favorites">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h4 class="fw-bold">My Wishlist ❤️</h4>
+                            <a href="new_cars.html" class="btn btn-sm btn-outline-dark rounded-0">Explore More</a>
+                        </div>
+                        <div id="favGrid" class="row g-4">
+                            </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="tab-bookings">
+                        <h4 class="fw-bold mb-4">My Garage</h4>
+                        <div class="row g-4" id="garageGrid">
+                            </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="tab-fusion">
+                        <div id="fusionGrid">
+                            </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Check Login
+            const userJson = localStorage.getItem('currentUser');
+            if (!userJson) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            const user = JSON.parse(userJson);
+            
+            // 2. Load User Info
+            const name = user.name || 'User';
+            const mobile = user.mobile || '+91 XXXXX';
+            
+            document.getElementById('headerUserName').textContent = name;
+            document.getElementById('welcomeName').textContent = name.split(' ')[0];
+            document.getElementById('sidebarName').textContent = name;
+            document.getElementById('sidebarMobile').textContent = "+91 " + mobile;
+
+            // 3. Update Stats
+            const favCount = user.favorites ? user.favorites.length : 0;
+            const garageCount = user.bookings ? user.bookings.length : 0;
+            
+            document.getElementById('statFavCount').textContent = favCount;
+            document.getElementById('statGarageCount').textContent = garageCount;
+
+            // 4. Initial Load
+            loadFavorites();
+            loadGarage();
+            loadFusionRequests();
+        });
+
+        // --- FAVORITES LOGIC ---
+        function loadFavorites() {
+            const favGrid = document.getElementById('favGrid');
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+            const favIds = user.favorites || []; 
+
+            favGrid.innerHTML = ''; 
+
+            if (favIds.length === 0) {
+                favGrid.innerHTML = `<div class="col-12 text-center py-5"><i class="bi bi-heart fs-1 text-secondary"></i><h5 class="mt-3">Wishlist Empty</h5><a href="new_cars.html" class="btn btn-gold rounded-0">Explore Cars</a></div>`;
+                return;
+            }
+
+            // Using global 'cars' from main.js
+            const myFavCars = cars.filter(car => favIds.includes(car.id));
+
+            myFavCars.forEach(car => {
+                const imgPath = car.image || 'https://via.placeholder.com/400';
+                favGrid.innerHTML += `
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="dashboard-car-card h-100 shadow-sm border position-relative">
+                            <button class="btn btn-sm btn-light text-danger position-absolute top-0 end-0 m-2 rounded-circle shadow-sm" onclick="removeFavFromProfile(${car.id})"><i class="bi bi-x-lg"></i></button>
+                            <div style="height: 180px; overflow:hidden;"><img src="${imgPath}" style="width:100%; height:100%; object-fit:cover;"></div>
+                            <div class="p-3"><h6 class="fw-bold mb-1">${car.brand} ${car.model}</h6><p class="text-secondary small mb-3">₹${(car.price / 100000).toFixed(2)} Lakh</p><a href="car_details.html?id=${car.id}" class="btn btn-sm btn-outline-dark w-100 rounded-0">View Details</a></div>
+                        </div>
+                    </div>`;
+            });
+        }
+
+        // --- GARAGE LOGIC (BOOKINGS) ---
+        function loadGarage() {
+            const container = document.getElementById('garageGrid');
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+            const bookings = user.bookings || [];
+
+            container.innerHTML = ''; 
+
+            if (bookings.length === 0) {
+                container.innerHTML = `<div class="col-12 text-center py-5"><i class="bi bi-car-front fs-1 text-secondary"></i><h5 class="mt-3">Garage Empty</h5><p class="text-secondary">Book a car to see it here.</p><a href="new_cars.html" class="btn btn-gold">Browse Cars</a></div>`;
+                return;
+            }
+
+            bookings.forEach(book => {
+                const imgPath = book.image || 'https://via.placeholder.com/400';
+                container.innerHTML += `
+                    <div class="col-lg-6">
+                        <div class="dashboard-car-card d-flex h-100 shadow-sm">
+                            <div style="width: 40%; overflow: hidden;"><img src="${imgPath}" style="height:100%; width:100%; object-fit:cover;"></div>
+                            <div class="p-3 w-100 d-flex flex-column justify-content-between">
+                                <div><div class="d-flex justify-content-between align-items-start"><h6 class="fw-bold mb-1">${book.brand} ${book.model}</h6><span class="badge bg-success" style="font-size:0.65rem">BOOKED</span></div><p class="small text-secondary mt-1">Date: ${book.date}</p></div>
+                                <button class="btn btn-sm btn-outline-dark w-100 rounded-0">View Documents</button>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+        }
+
+        // --- FUSION LAB LOGIC ---
+        function loadFusionRequests() {
+            const container = document.getElementById('fusionGrid'); 
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+            const projects = user.fusionProjects || [];
+
+            container.innerHTML = '<h4 class="fw-bold mb-4">My Fusion Lab Projects</h4>'; 
+
+            if (projects.length === 0) {
+                container.innerHTML += `<div class="text-center py-5 bg-white rounded shadow-sm"><i class="bi bi-tools fs-1 text-secondary"></i><h5 class="mt-3">No Saved Projects</h5><p class="text-secondary">Create custom builds in Fusion Lab and save them here!</p><a href="modify.html" class="btn btn-gold rounded-0">Start New Project</a></div>`;
+                return;
+            }
+
+            projects.forEach(project => {
+                const modCount = Object.values(project.modifications).reduce((sum, cat) => {
+                    if (typeof cat === 'object') {
+                        return sum + Object.keys(cat).length;
+                    }
+                    return sum;
+                }, 0);
+
+                container.innerHTML += `
+                    <div class="card border-0 shadow-sm mb-3">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-2">
+                                    <img src="${project.image}" class="img-fluid rounded" style="height:80px; width:100%; object-fit:cover;">
+                                </div>
+                                <div class="col-md-5">
+                                    <h6 class="fw-bold mb-1">${project.brand} ${project.model}</h6>
+                                    <small class="text-secondary d-block">Base: ₹${project.baseCost.toFixed(2)}L | Modified: ₹${project.totalCost.toFixed(2)}L</small>
+                                    <small class="text-muted"><i class="bi bi-tools me-1"></i>${modCount} Modifications</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="small">
+                                        <div><i class="bi bi-lightning-fill text-warning me-1"></i>${project.stats.hp} HP</div>
+                                        <div><i class="bi bi-speedometer2 text-primary me-1"></i>${project.stats.topSpeed} km/h</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-end">
+                                    <span class="badge bg-success px-3 py-2 mb-2">Saved</span>
+                                    <button class="btn btn-sm btn-outline-danger w-100" onclick="deleteFusionProject(${project.id})">
+                                        <i class="bi bi-trash"></i> Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+        }
+
+        function deleteFusionProject(projectId) {
+            if (!confirm('Delete this project?')) return;
+            
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+            user.fusionProjects = user.fusionProjects.filter(p => p.id !== projectId);
+            localStorage.setItem('currentUser', JSON.stringify(user));
+            
+            // Update in users array
+            const users = JSON.parse(localStorage.getItem('carFusionUsers') || '[]');
+            const userIndex = users.findIndex(u => 
+                (u.email && u.email === user.email) || 
+                (u.mobile && u.mobile === user.mobile)
+            );
+            if (userIndex !== -1) {
+                users[userIndex] = user;
+                localStorage.setItem('carFusionUsers', JSON.stringify(users));
+            }
+            
+            loadFusionRequests();
+        }
+
+        function removeFavFromProfile(carId) {
+            if(confirm('Remove from favorites?')) {
+                // Ensure toggleFavorite is in main.js
+                if(typeof toggleFavorite === 'function') {
+                    toggleFavorite(carId); 
+                    loadFavorites(); 
+                    const user = JSON.parse(localStorage.getItem('currentUser'));
+                    document.getElementById('statFavCount').textContent = user.favorites ? user.favorites.length : 0;
+                } else {
+                    alert("Error: main.js not loaded properly.");
+                }
+            }
+        }
+
+        function logoutUser() {
+            if(confirm('Are you sure you want to logout?')) {
+                localStorage.removeItem('currentUser');
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+
+    <footer class="pt-4 pb-3 mt-5 bg-light border-top">
+        <div class="container text-center">
+            <p class="text-secondary small mb-0">&copy; 2026 Car Fusion. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

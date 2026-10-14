@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Specifications, On-Road Price &amp; EMI | Car Fusion</title>
+    
+    <!-- Technical SEO Metadata -->
+    <meta name="description" content="View complete technical specifications, city-wise on-road pricing, 5-year running costs, EMI calculations, and verified owner reviews for luxury and performance cars at Car Fusion.">
+    <meta name="keywords" content="car specifications, on-road price, car EMI calculator, luxury cars, pre-owned cars, car maintenance costs, Car Fusion">
+    <meta name="author" content="Car Fusion">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="car_details.html">
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="Vehicle Specifications &amp; Pricing | Car Fusion">
+    <meta property="og:description" content="Explore on-road pricing, EMI breakdown, verified owner reviews, and detailed technical specifications at Car Fusion.">
+    <meta property="og:image" content="../assets/images/car_fusion_logo.png">
+    <meta property="og:site_name" content="Car Fusion">
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vehicle Specifications &amp; Pricing | Car Fusion">
+    <meta name="twitter:description" content="Explore on-road pricing, EMI breakdown, verified owner reviews, and detailed technical specifications at Car Fusion.">
+    <meta name="twitter:image" content="../assets/images/car_fusion_logo.png">
+
+    <!-- Stylesheets & Favicon -->
+    <link rel="icon" href="../assets/icons/car_fusion_favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../assets/css/main_interface.css">
+
+    <!-- Structured Data (JSON-LD) Placeholder (Dynamically updated via JS) -->
+    <script type="application/ld+json" id="carSchema">
+    {
+        "@context": "https://schema.org/",
+        "@type": "Car",
+        "name": "Luxury Vehicle",
+        "description": "Premium automobile available at Car Fusion with verified inspection.",
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+        }
+    }
+    </script>
+
+    <style>
+        .detail-hero { background: #f8f9fa; }
+        .detail-img-container {
+            height: 450px; overflow: hidden; border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #fff;
+        }
+        .detail-img-container img { width: 100%; height: 100%; object-fit: contain; padding: 20px; }
+        
+        .section-card {
+            background: white; border: 1px solid #eee; border-radius: 12px;
+            padding: 25px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+        
+        /* On-Road Price Box */
+        .on-road-price-box {
+            background: linear-gradient(135deg, #fffbf0 0%, #fff8e1 100%);
+            border: 2px solid #D4AF37;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            animation: fadeIn 0.5s;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* City Selector Styling */
+        #citySelector {
+            background: white;
+            border: 2px solid #D4AF37;
+            border-radius: 8px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        #citySelector:hover {
+            border-color: #bfa13f;
+            box-shadow: 0 3px 10px rgba(212, 175, 55, 0.3);
+        }
+        
+        #citySelector:focus {
+            outline: none;
+            border-color: #D4AF37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Price Breakdown Animation */
+        .on-road-price-box .border-top {
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Specs & Slider */
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%;
+            background: #D4AF37; cursor: pointer; margin-top: -8px; box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; cursor: pointer; background: #000; border-radius: 2px; }
+        
+        .spec-box {
+            text-align: center; padding: 15px; background: #fff; border: 1px solid #eee;
+            border-radius: 8px; transition: 0.3s; height: 100%;
+        }
+        .spec-box:hover { border-color: #D4AF37; transform: translateY(-5px); }
+        .spec-icon { font-size: 1.5rem; color: #D4AF37; margin-bottom: 8px; display: block; }
+        
+        /* Hover effect for similar cars */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+        }
+        
+        /* Badge styling */
+        .bg-gold {
+            background-color: #D4AF37 !important;
+        }
+        
+        /* Chatbot Styles */
+        .chat-widget { position: fixed; bottom: 30px; right: 30px; z-index: 1000; display: flex; flex-direction: column; align-items: flex-end; }
+        .chat-btn { width: 65px; height: 65px; background: #000; border-radius: 50%; color: #D4AF37; font-size: 28px; border: 2px solid #D4AF37; box-shadow: 0 5px 20px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .chat-window { width: 360px; height: 500px; background: rgba(255, 255, 255, 0.98); border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.25); display: none; flex-direction: column; margin-bottom: 15px; border: 1px solid #ddd; }
+        .chat-header { background: #000; color: #D4AF37; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: #f4f4f4; }
+        .chat-footer { padding: 12px; background: #fff; border-top: 1px solid #eee; display: flex; gap: 8px; }
+        .msg { max-width: 80%; padding: 8px 12px; border-radius: 15px; margin-bottom: 8px; font-size: 0.9rem; }
+        .msg.bot { background: #fff; border: 1px solid #ddd; align-self: flex-start; }
+        .msg.user { background: #000; color: #D4AF37; align-self: flex-end; margin-left: auto; }
+        
+        /* Star Rating */
+        .star-rating i { font-size: 1.5rem; color: #e0e0e0; cursor: pointer; }
+        .star-rating i.active { color: #ffc107; }
+    </style>
+</head>
+<body class="euro-body">
+
+    <!-- Global Header -->
+    <header class="euro-header fixed-top" role="banner">
+        <div class="top-bar">
+            <div class="container d-flex align-items-center justify-content-between">
+                <a class="navbar-brand me-4" href="../index.html" aria-label="Car Fusion Homepage">
+                    <img src="../assets/images/car_fusion_logo.png" alt="Car Fusion Luxury Automotive Logo" class="logo-size" width="160" height="40">
+                </a>
+                <div class="flex-grow-1 mx-lg-5 d-none d-lg-block">
+                    <form class="header-search-container" role="search" onsubmit="event.preventDefault(); document.getElementById('searchBtn').click();">
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-gold" aria-hidden="true"></i></span>
+                            <input type="search" id="searchInput" class="form-control border-start-0 ps-0" placeholder="Search models or brands..." aria-label="Search vehicles">
+                            <button class="btn btn-gold" id="searchBtn" type="button" aria-label="Search">SEARCH</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="d-flex align-items-center gap-4">
+                    <div class="d-flex align-items-center text-white cursor-pointer hover-gold" data-bs-toggle="modal" data-bs-target="#locationModal" role="button" tabindex="0" aria-label="Select location, current location Ahmedabad" style="cursor: pointer;">
+                        <i class="bi bi-geo-alt me-2" aria-hidden="true"></i>
+                        <span class="small fw-bold location-display">Ahmedabad</span>
+                    </div>
+                    <a href="login.html" id="loginLink" class="d-flex align-items-center text-white text-decoration-none hover-gold" aria-label="User Login">
+                        <i class="bi bi-person-circle me-2 fs-5" aria-hidden="true"></i><span class="small fw-bold">Login</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <nav class="secondary-nav border-top border-dark-subtle" aria-label="Primary Navigation">
+            <div class="container">
+                <div class="nav justify-content-center d-flex flex-wrap">
+                    <a class="nav-link" href="new_cars.html">NEW CARS</a>
+                    <a class="nav-link" href="reviews_news.html">REVIEWS &amp; NEWS</a>
+                    <a class="nav-link" href="modify.html">FUSION LAB</a>
+                    <a class="nav-link" href="about_us.html">ABOUT US</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="header-spacer" aria-hidden="true"></div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+        <!-- Vehicle Detail Hero Section -->
+        <section class="py-5 detail-hero" aria-labelledby="detailName">
+            <div class="container">
+                <nav aria-label="Breadcrumb Navigation" class="mb-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../index.html" class="text-secondary text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item"><a href="new_cars.html" class="text-secondary text-decoration-none">Inventory</a></li>
+                        <li class="breadcrumb-item active text-dark fw-bold" id="breadCrumbName" aria-current="page">Details</li>
+                    </ol>
+                </nav>
+
+                <div class="row g-4">
+                    <div class="col-lg-7">
+                        <figure class="detail-img-container position-relative mb-0">
+                            <img id="mainImage" src="" alt="Automobile showcase photo" loading="eager">
+                            <span class="badge bg-warning text-dark position-absolute top-0 start-0 m-3 px-3 py-2 fw-bold" id="detailStatus">PREMIUM</span>
+                            <figcaption class="visually-hidden">Vehicle studio portrait</figcaption>
+                        </figure>
+                        
+                        <!-- Quick Specs Below Image -->
+                        <div class="row g-3 mt-1" role="region" aria-label="Essential Vehicle Specifications">
+                            <div class="col-3">
+                                <article class="spec-box text-center p-3 h-100">
+                                    <i class="bi bi-fuel-pump spec-icon d-block mb-2" aria-hidden="true"></i>
+                                    <span class="small text-muted mb-1 d-block">Fuel</span>
+                                    <strong id="detailFuel" class="d-block">-</strong>
+                                </article>
+                            </div>
+                            <div class="col-3">
+                                <article class="spec-box text-center p-3 h-100">
+                                    <i class="bi bi-gear spec-icon d-block mb-2" aria-hidden="true"></i>
+                                    <span class="small text-muted mb-1 d-block">Trans.</span>
+                                    <strong id="detailTrans" class="d-block">-</strong>
+                                </article>
+                            </div>
+                            <div class="col-3">
+                                <article class="spec-box text-center p-3 h-100">
+                                    <i class="bi bi-speedometer spec-icon d-block mb-2" aria-hidden="true"></i>
+                                    <span class="small text-muted mb-1 d-block">Mileage</span>
+                                    <strong id="detailMileage" class="d-block">-</strong>
+                                </article>
+                            </div>
+                            <div class="col-3">
+                                <article class="spec-box text-center p-3 h-100">
+                                    <i class="bi bi-lightning spec-icon d-block mb-2" aria-hidden="true"></i>
+                                    <span class="small text-muted mb-1 d-block">Engine</span>
+                                    <strong id="detailEngine" class="d-block">-</strong>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-5">
+                        <header class="h-100 d-flex flex-column">
+                            <h1 class="display-5 fw-bold mb-2" id="detailName">Loading Car...</h1>
+                            
+                            <div class="mb-4">
+                                <p class="h2 text-gold fw-bold mb-0" id="detailPrice">₹ 0.00 Lakh</p>
+                                <small class="text-muted text-uppercase fw-bold">Ex-Showroom Price</small>
+                                
+                                <!-- City Selector -->
+                                <div class="mt-3 mb-3">
+                                    <label for="citySelector" class="small text-secondary fw-bold mb-2 d-flex align-items-center">
+                                        <i class="bi bi-geo-alt-fill text-gold me-1" aria-hidden="true"></i>SELECT YOUR CITY
+                                        <span class="badge bg-dark text-gold ms-2" style="font-size: 0.7rem;">7 CITIES AVAILABLE</span>
+                                    </label>
+                                    <select class="form-select border-2" id="citySelector" onchange="updateCityPrice()" style="border-color: #D4AF37; font-weight: 600;" aria-label="Select city for localized on-road price calculation">
+                                        <option value="Mumbai">🏙️ Mumbai - 13% RTO</option>
+                                        <option value="Delhi">🏛️ Delhi - 10% RTO (Lowest Tax)</option>
+                                        <option value="Bangalore">🌆 Bangalore - 18% RTO (Highest Tax)</option>
+                                        <option value="Ahmedabad" selected>🏭 Ahmedabad - 12% RTO</option>
+                                        <option value="Hyderabad">🏰 Hyderabad - 14% RTO</option>
+                                        <option value="Pune">🎓 Pune - 13% RTO</option>
+                                        <option value="Chennai">🏖️ Chennai - 15% RTO</option>
+                                    </select>
+                                    <small class="text-muted d-block mt-1">
+                                        <i class="bi bi-info-circle me-1" aria-hidden="true"></i>RTO charges vary according to state taxation norms
+                                    </small>
+                                </div>
+                                
+                                <!-- On-Road Price Box -->
+                                <aside class="on-road-price-box mt-3" aria-label="On-Road Price Breakdown">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span class="small text-secondary fw-bold">ON-ROAD PRICE IN <span id="priceCity" class="text-dark text-uppercase">AHMEDABAD</span></span>
+                                        <i class="bi bi-info-circle text-gold" title="Includes Registration, Insurance & Handling Charges" aria-hidden="true"></i>
+                                    </div>
+                                    <h3 class="fw-bold mb-2 text-dark" id="onRoadPrice">Calculating...</h3>
+                                    
+                                    <!-- Price Breakdown -->
+                                    <div class="border-top pt-2 mt-2" style="border-color: #D4AF37 !important;">
+                                        <div class="d-flex justify-content-between small mb-1">
+                                            <span class="text-secondary">Ex-Showroom:</span>
+                                            <span class="fw-bold" id="breakdownExShowroom">₹ 0</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between small mb-1">
+                                            <span class="text-secondary">RTO &amp; Tax (<span id="taxPercent">12</span>%):</span>
+                                            <span class="fw-bold text-primary" id="breakdownRTO">₹ 0</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between small mb-1">
+                                            <span class="text-secondary">Insurance (4%):</span>
+                                            <span class="fw-bold text-info" id="breakdownInsurance">₹ 0</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between small mb-1">
+                                            <span class="text-secondary">Handling Charges:</span>
+                                            <span class="fw-bold text-warning" id="breakdownHandling">₹ 15,000</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between small mt-2 pt-2 border-top">
+                                            <span class="text-dark fw-bold">
+                                                Price Difference:
+                                                <i class="bi bi-question-circle text-gold ms-1" 
+                                                   data-bs-toggle="tooltip" 
+                                                   data-bs-placement="top" 
+                                                   title="Compared to base city (Ahmedabad). Green = Cheaper, Red = Costlier"
+                                                   aria-hidden="true"></i>
+                                            </span>
+                                            <span class="fw-bold" id="priceDifference" style="color: #D4AF37;">₹ 0</span>
+                                        </div>
+                                        
+                                        <!-- Quick City Comparison -->
+                                        <div class="mt-3 pt-2 border-top" style="border-color: #D4AF37 !important;">
+                                            <button class="btn btn-sm btn-outline-dark w-100" type="button" data-bs-toggle="collapse" data-bs-target="#cityComparison" aria-expanded="false" aria-controls="cityComparison" style="font-size: 0.75rem;">
+                                                <i class="bi bi-bar-chart-fill me-1" aria-hidden="true"></i>COMPARE ALL CITIES
+                                            </button>
+                                            <div class="collapse mt-2" id="cityComparison">
+                                                <div class="small" id="allCityPrices" style="max-height: 150px; overflow-y: auto;">
+                                                    <!-- Populated by JavaScript -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <small class="text-danger d-block mt-2" style="font-size: 0.7rem;">*Indicative pricing; final invoice depends on dealer delivery</small>
+                                </aside>
+                            </div>
+                            
+                            <!-- Action Buttons -->
+                            <div class="mt-auto" role="group" aria-label="Vehicle Acquisition Options">
+                                <div class="row g-2">
+                                    <div class="col-12">
+                                        <button class="btn btn-gold w-100 py-3 fw-bold" onclick="bookCar()" style="background: #D4AF37; border:none; color:black;">
+                                            <i class="bi bi-bag-check-fill me-2" aria-hidden="true"></i>BOOK NOW (₹ 11,000)
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-black w-100 py-3 fw-bold" onclick="toggleChat(true)" style="background:black; color:#D4AF37; border:none;">
+                                            <i class="bi bi-chat-text-fill me-2" aria-hidden="true"></i>NEGOTIATE
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-outline-dark w-100 py-3 fw-bold" onclick="document.getElementById('financeSection').scrollIntoView({behavior: 'smooth'})">
+                                            <i class="bi bi-calculator me-2" aria-hidden="true"></i>FINANCE
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </header>
+                    </div>
+                </div>
+                
+                <!-- Performance Metrics Grid -->
+                <section class="row mt-4" aria-labelledby="perf-metrics-heading">
+                    <div class="col-12">
+                         <div class="bg-white p-4 rounded shadow-sm border">
+                            <h2 class="h6 fw-bold mb-3" id="perf-metrics-heading">Performance &amp; Powertrain Highlights</h2>
+                            <div class="row g-3">
+                                <div class="col-md-3 col-6"><div class="spec-box h-100"><i class="bi bi-fire spec-icon" aria-hidden="true"></i><h3 class="h6 small text-secondary">MAX POWER</h3><p class="mb-0 fw-bold" id="detailPower">-</p></div></div>
+                                <div class="col-md-3 col-6"><div class="spec-box h-100"><i class="bi bi-hammer spec-icon" aria-hidden="true"></i><h3 class="h6 small text-secondary">MAX TORQUE</h3><p class="mb-0 fw-bold" id="detailTorque">-</p></div></div>
+                                <div class="col-md-3 col-6"><div class="spec-box h-100"><i class="bi bi-speedometer2 spec-icon" aria-hidden="true"></i><h3 class="h6 small text-secondary">TOP SPEED</h3><p class="mb-0 fw-bold" id="detailTopSpeed">-</p></div></div>
+                                <div class="col-md-3 col-6"><div class="spec-box h-100"><i class="bi bi-box-seam-fill spec-icon" aria-hidden="true"></i><h3 class="h6 small text-secondary">BOOT SPACE</h3><p class="mb-0 fw-bold" id="detailBoot">-</p></div></div>
+                            </div>
+                         </div>
+                    </div>
+                </section>
+
+                <!-- Vehicle Overview Article -->
+                <article class="row mt-4" aria-labelledby="overview-heading">
+                    <div class="col-12">
+                        <div class="bg-white p-4 rounded shadow-sm border">
+                            <h2 class="h6 fw-bold mb-3" id="overview-heading"><i class="bi bi-file-text text-gold me-2" aria-hidden="true"></i>About This Vehicle</h2>
+                            <p class="text-muted mb-0 leading-relaxed" id="carDescription">
+                                Experience luxury and performance combined in this exceptional vehicle. With cutting-edge technology, 
+                                premium materials, and outstanding engineering, this car delivers an unmatched driving experience. 
+                                Perfect for those who demand excellence in every journey.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Detailed Specifications Table Section -->
+                <section class="row mt-4" aria-labelledby="specs-table-heading">
+                    <div class="col-12">
+                        <div class="bg-white p-4 rounded shadow-sm border">
+                            <h2 class="h5 fw-bold mb-3" id="specs-table-heading"><i class="bi bi-table text-gold me-2" aria-hidden="true"></i>Complete Specifications &amp; Features</h2>
+                            
+                            <h3 class="h6 text-uppercase text-secondary small fw-bold mt-4 mb-3">Engine &amp; Performance</h3>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover mb-0" aria-label="Engine specifications table">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light" style="width: 40%;">Engine Type</th>
+                                            <td id="accordionEngine">-</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light">Displacement</th>
+                                            <td id="accordionDisplacement">-</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light">Max Power</th>
+                                            <td id="accordionPower">-</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light">Max Torque</th>
+                                            <td id="accordionTorque">-</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light">Fuel Type</th>
+                                            <td id="accordionFuelType">-</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light">Transmission</th>
+                                            <td id="accordionTransmission">-</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light">Mileage</th>
+                                            <td id="accordionMileage">-</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light">Top Speed</th>
+                                            <td id="accordionTopSpeed">-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3 class="h6 text-uppercase text-secondary small fw-bold mt-4 mb-3">Dimensions &amp; Capacity</h3>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover mb-0" aria-label="Dimensions and capacity table">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light" style="width: 40%;">Boot Space</th>
+                                            <td id="accordionBootSpace">-</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light">Seating Capacity</th>
+                                            <td id="accordionSeating">5 Persons</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light">Fuel Tank Capacity</th>
+                                            <td id="accordionFuelTank">-</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light">Ground Clearance</th>
+                                            <td id="accordionClearance">170-200 mm</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light">Kerb Weight</th>
+                                            <td id="accordionWeight">1200-1500 kg</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light">Wheelbase</th>
+                                            <td id="accordionWheelbase">2600-2700 mm</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3 class="h6 text-uppercase text-secondary small fw-bold mt-4 mb-3">Safety Architecture</h3>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover mb-0" aria-label="Safety systems table">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light" style="width: 40%;">Airbags</th>
+                                            <td><i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>Dual Front &amp; Curtain Airbags</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light">Braking System</th>
+                                            <td><i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>ABS with EBD &amp; Brake Assist</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light">Parking Assistance</th>
+                                            <td><i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>Rear Parking Sensors &amp; HD Camera</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light">Stability Control</th>
+                                            <td><i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>Electronic Stability Control, Traction Control</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light">Driver Assistance</th>
+                                            <td><i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>Hill Hold Assist, Seat Belt Warning</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light">Child Safety</th>
+                                            <td><i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>ISOFIX Child Seat Mounts</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3 class="h6 text-uppercase text-secondary small fw-bold mt-4 mb-3">Comfort &amp; Technology</h3>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover mb-0" aria-label="Comfort and technology features table">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light" style="width: 40%;">Climate Control</th>
+                                            <td><i class="bi bi-check-circle-fill text-primary me-2" aria-hidden="true"></i>Automatic Multi-Zone Climate Control</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light">Infotainment</th>
+                                            <td><i class="bi bi-check-circle-fill text-primary me-2" aria-hidden="true"></i>Touchscreen Infotainment, Wireless Apple CarPlay &amp; Android Auto</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light">Driving Dynamics</th>
+                                            <td><i class="bi bi-check-circle-fill text-primary me-2" aria-hidden="true"></i>Cruise Control, Paddle Shifters, Steering Mounted Controls</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="fw-semibold bg-light">Convenience</th>
+                                            <td><i class="bi bi-check-circle-fill text-primary me-2" aria-hidden="true"></i>Smart Keyless Entry &amp; Push Button Start</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </section>
+
+        <!-- Calculators, Reviews & Side Modules Container -->
+        <div class="container py-5">
+            <div class="row">
+                <!-- Left Column: Calculators & Reviews -->
+                <div class="col-lg-8">
+                    <!-- Running Cost Calculator -->
+                    <section class="section-card" aria-labelledby="running-cost-heading">
+                        <h2 class="h4 section-title" id="running-cost-heading"><i class="bi bi-wallet2 text-success" aria-hidden="true"></i> Running Cost Estimator</h2>
+                        <div class="bg-light p-4 rounded-3 mb-4">
+                            <label for="kmSlider" class="fw-bold d-flex justify-content-between mb-3">
+                                <span>Daily Commute Distance:</span>
+                                <span class="text-gold fs-4"><span id="kmDisplay">30</span> km</span>
+                            </label>
+                            <input type="range" class="form-range" min="10" max="150" value="30" id="kmSlider" oninput="updateRunningCost()" aria-label="Commute distance slider in kilometers">
+                            <div class="d-flex justify-content-between small text-muted mt-2">
+                                <span>10 km</span>
+                                <span>80 km</span>
+                                <span>150 km</span>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-4 border-end"><small class="text-muted d-block">Daily Cost</small><h3 class="h5 fw-bold text-dark mb-0" id="costDay">₹ 0</h3></div>
+                            <div class="col-4 border-end"><small class="text-muted d-block">Monthly Cost</small><h3 class="h5 fw-bold text-primary mb-0" id="costMonth">₹ 0</h3></div>
+                            <div class="col-4"><small class="text-muted d-block">Yearly Cost</small><h3 class="h5 fw-bold text-gold mb-0" id="costYear">₹ 0</h3></div>
+                        </div>
+                        <div class="alert alert-info mt-3 mb-0" role="note">
+                            <small><i class="bi bi-info-circle me-2" aria-hidden="true"></i>Calculation modeled on live fuel/energy benchmarks and manufacturer rated mileage</small>
+                        </div>
+                    </section>
+
+                    <!-- Service Cost Schedule -->
+                    <section class="section-card" aria-labelledby="service-cost-heading">
+                        <h2 class="h4 section-title" id="service-cost-heading"><i class="bi bi-tools" aria-hidden="true"></i> Projected 5-Year Maintenance Schedule</h2>
+                        <div class="table-responsive">
+                            <table class="table table-bordered text-center mb-0" aria-label="5 year maintenance schedule">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th scope="col">Year</th>
+                                        <th scope="col">Service Type</th>
+                                        <th scope="col">Estimated Expense</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="serviceTable">
+                                    <!-- Populated by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- User Reviews & Ratings -->
+                    <section class="section-card" aria-labelledby="reviews-heading">
+                        <h2 class="h4 section-title" id="reviews-heading"><i class="bi bi-chat-quote-fill" aria-hidden="true"></i> Verified Owner Reviews &amp; Ratings</h2>
+                        
+                        <!-- Overall Rating Summary -->
+                        <div class="bg-light p-4 rounded mb-4 text-center">
+                            <div class="row align-items-center">
+                                <div class="col-md-4">
+                                    <h3 class="display-3 fw-bold mb-0" id="overallRating">4.5</h3>
+                                    <div class="text-gold mb-2" id="overallStars" aria-label="Rating: 4.5 out of 5 stars">
+                                        <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                        <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                        <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                        <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                        <i class="bi bi-star-half" aria-hidden="true"></i>
+                                    </div>
+                                    <p class="text-muted mb-0"><span id="totalReviews">127</span> Verified Reviews</p>
+                                </div>
+                                <div class="col-md-8 text-start">
+                                    <div class="mb-3 d-flex align-items-center">
+                                        <span class="me-2 fw-semibold" style="min-width: 50px;">5 <i class="bi bi-star-fill text-warning" aria-hidden="true"></i></span>
+                                        <div class="progress flex-grow-1 me-3" style="height: 12px;">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <span class="fw-semibold text-dark" style="min-width: 45px;">70%</span>
+                                    </div>
+                                    <div class="mb-3 d-flex align-items-center">
+                                        <span class="me-2 fw-semibold" style="min-width: 50px;">4 <i class="bi bi-star-fill text-warning" aria-hidden="true"></i></span>
+                                        <div class="progress flex-grow-1 me-3" style="height: 12px;">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <span class="fw-semibold text-dark" style="min-width: 45px;">20%</span>
+                                    </div>
+                                    <div class="mb-3 d-flex align-items-center">
+                                        <span class="me-2 fw-semibold" style="min-width: 50px;">3 <i class="bi bi-star-fill text-warning" aria-hidden="true"></i></span>
+                                        <div class="progress flex-grow-1 me-3" style="height: 12px;">
+                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 7%" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <span class="fw-semibold text-dark" style="min-width: 45px;">7%</span>
+                                    </div>
+                                    <div class="mb-3 d-flex align-items-center">
+                                        <span class="me-2 fw-semibold" style="min-width: 50px;">2 <i class="bi bi-star-fill text-warning" aria-hidden="true"></i></span>
+                                        <div class="progress flex-grow-1 me-3" style="height: 12px;">
+                                            <div class="progress-bar" role="progressbar" style="width: 2%; background-color: #ff8c00;" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <span class="fw-semibold text-dark" style="min-width: 45px;">2%</span>
+                                    </div>
+                                    <div class="mb-0 d-flex align-items-center">
+                                        <span class="me-2 fw-semibold" style="min-width: 50px;">1 <i class="bi bi-star-fill text-warning" aria-hidden="true"></i></span>
+                                        <div class="progress flex-grow-1 me-3" style="height: 12px;">
+                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 1%" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <span class="fw-semibold text-dark" style="min-width: 45px;">1%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Individual Reviews List -->
+                        <div id="reviewsContainer">
+                            <article class="border-bottom pb-3 mb-3">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <header>
+                                        <h3 class="h6 fw-bold mb-1">Rajesh Kumar</h3>
+                                        <div class="text-warning mb-1" aria-label="5 out of 5 stars">
+                                            <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                            <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                            <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                            <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                            <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                        </div>
+                                    </header>
+                                    <time datetime="2026-09-30" class="text-muted small">2 weeks ago</time>
+                                </div>
+                                <p class="mb-0 text-secondary">Excellent car! The build quality is outstanding and the driving experience is smooth. Highly recommended for city and highway driving.</p>
+                            </article>
+
+                            <article class="border-bottom pb-3 mb-3">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <header>
+                                        <h3 class="h6 fw-bold mb-1">Priya Sharma</h3>
+                                        <div class="text-warning mb-1" aria-label="4 out of 5 stars">
+                                            <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                            <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                            <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                            <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                            <i class="bi bi-star" aria-hidden="true"></i>
+                                        </div>
+                                    </header>
+                                    <time datetime="2026-09-14" class="text-muted small">1 month ago</time>
+                                </div>
+                                <p class="mb-0 text-secondary">Great features and comfortable interiors. The only downside is the mileage could be better. Overall, a solid choice!</p>
+                            </article>
+
+                            <article class="border-bottom pb-3 mb-3">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <header>
+                                        <h3 class="h6 fw-bold mb-1">Amit Patel</h3>
+                                        <div class="text-warning mb-1" aria-label="5 out of 5 stars">
+                                            <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                            <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                            <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                            <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                            <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                        </div>
+                                    </header>
+                                    <time datetime="2026-08-14" class="text-muted small">2 months ago</time>
+                                </div>
+                                <p class="mb-0 text-secondary">Perfect family car! Spacious, safe, and loaded with features. The after-sales service is also excellent.</p>
+                            </article>
+                        </div>
+                        
+                        <button class="btn btn-outline-dark w-100 mt-3" data-bs-toggle="modal" data-bs-target="#reviewModal">
+                            <i class="bi bi-pencil-square me-2" aria-hidden="true"></i>Write Your Review
+                        </button>
+                    </section>
+                </div>
+
+                <!-- Right Column: EMI Calculator & Similar Vehicles -->
+                <aside class="col-lg-4" aria-label="Financing and Similar Recommendations">
+                    <!-- EMI Calculator -->
+                    <article class="section-card" id="financeSection" aria-labelledby="emi-calc-heading">
+                        <h2 class="h4 section-title" id="emi-calc-heading"><i class="bi bi-bank2 text-gold" aria-hidden="true"></i> EMI Calculator</h2>
+                        <div class="mb-3">
+                            <label for="emiPrincipal" class="form-label small fw-bold text-secondary">Loan Amount (₹)</label>
+                            <input type="number" id="emiPrincipal" class="form-control" value="0">
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <label for="emiRate" class="form-label small fw-bold text-secondary">Interest %</label>
+                                <input type="number" id="emiRate" class="form-control" value="9.5" step="0.1">
+                            </div>
+                            <div class="col-6">
+                                <label for="emiYears" class="form-label small fw-bold text-secondary">Tenure (Years)</label>
+                                <input type="number" id="emiYears" class="form-control" value="5">
+                            </div>
+                        </div>
+                        <div class="bg-black text-white p-3 rounded text-center mb-3">
+                            <span class="small text-white-50 d-block mb-1">Estimated Monthly EMI</span>
+                            <h3 class="text-gold m-0 h2 fw-bold" id="emiResult">₹ 0</h3>
+                        </div>
+                        <button class="btn btn-gold w-100 fw-bold" type="button" onclick="calculateEMI()">Recalculate EMI</button>
+                    </article>
+
+                    <!-- Similar Cars Section -->
+                    <section class="section-card" aria-labelledby="similar-cars-heading">
+                        <h2 class="h4 section-title" id="similar-cars-heading"><i class="bi bi-car-front-fill text-gold" aria-hidden="true"></i> Similar Vehicles</h2>
+                        <div id="similarCarsContainer">
+                            <article class="card mb-3 border-0 shadow-sm hover-lift">
+                                <img src="cars/audi_a6.jpg" class="card-img-top" alt="Audi A6 luxury sedan" style="height: 150px; object-fit: cover;" loading="lazy">
+                                <div class="card-body p-3">
+                                    <h3 class="h6 fw-bold mb-1">Audi A6</h3>
+                                    <p class="text-gold fw-bold mb-2 small">₹ 62.00 Lakh</p>
+                                    <div class="d-flex justify-content-between text-muted small mb-2">
+                                        <span><i class="bi bi-fuel-pump me-1" aria-hidden="true"></i>Petrol</span>
+                                        <span><i class="bi bi-speedometer me-1" aria-hidden="true"></i>14.0 kmpl</span>
+                                    </div>
+                                    <a href="car_details.html?id=3" class="btn btn-sm btn-outline-dark w-100">View Details</a>
+                                </div>
+                            </article>
+                            <article class="card mb-3 border-0 shadow-sm hover-lift">
+                                <img src="cars/bmw_3series.jpg" class="card-img-top" alt="BMW 3 Series sports sedan" style="height: 150px; object-fit: cover;" loading="lazy">
+                                <div class="card-body p-3">
+                                    <h3 class="h6 fw-bold mb-1">BMW 3 Series</h3>
+                                    <p class="text-gold fw-bold mb-2 small">₹ 48.50 Lakh</p>
+                                    <div class="d-flex justify-content-between text-muted small mb-2">
+                                        <span><i class="bi bi-fuel-pump me-1" aria-hidden="true"></i>Petrol</span>
+                                        <span><i class="bi bi-speedometer me-1" aria-hidden="true"></i>16.5 kmpl</span>
+                                    </div>
+                                    <a href="car_details.html?id=13" class="btn btn-sm btn-outline-dark w-100">View Details</a>
+                                </div>
+                            </article>
+                            <article class="card mb-3 border-0 shadow-sm hover-lift">
+                                <img src="cars/mercedes_cclass.jpg" class="card-img-top" alt="Mercedes C-Class luxury sedan" style="height: 150px; object-fit: cover;" loading="lazy">
+                                <div class="card-body p-3">
+                                    <h3 class="h6 fw-bold mb-1">Mercedes C-Class</h3>
+                                    <p class="text-gold fw-bold mb-2 small">₹ 55.00 Lakh</p>
+                                    <div class="d-flex justify-content-between text-muted small mb-2">
+                                        <span><i class="bi bi-fuel-pump me-1" aria-hidden="true"></i>Petrol</span>
+                                        <span><i class="bi bi-speedometer me-1" aria-hidden="true"></i>15.2 kmpl</span>
+                                    </div>
+                                    <a href="car_details.html?id=68" class="btn btn-sm btn-outline-dark w-100">View Details</a>
+                                </div>
+                            </article>
+                            <article class="card mb-0 border-0 shadow-sm hover-lift">
+                                <img src="cars/audi_q5.jpg" class="card-img-top" alt="Audi Q5 premium SUV" style="height: 150px; object-fit: cover;" loading="lazy">
+                                <div class="card-body p-3">
+                                    <h3 class="h6 fw-bold mb-1">Audi Q5</h3>
+                                    <p class="text-gold fw-bold mb-2 small">₹ 65.00 Lakh</p>
+                                    <div class="d-flex justify-content-between text-muted small mb-2">
+                                        <span><i class="bi bi-fuel-pump me-1" aria-hidden="true"></i>Diesel</span>
+                                        <span><i class="bi bi-speedometer me-1" aria-hidden="true"></i>13.5 kmpl</span>
+                                    </div>
+                                    <a href="car_details.html?id=6" class="btn btn-sm btn-outline-dark w-100">View Details</a>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Related News & Articles Section -->
+        <section class="py-5" aria-labelledby="related-news-heading">
+            <div class="container">
+                <header class="text-center mb-4">
+                    <h2 class="fw-bold mb-2" id="related-news-heading"><i class="bi bi-newspaper text-gold me-2" aria-hidden="true"></i>Related Automotive Insights</h2>
+                    <p class="text-muted">Editorial reviews, comparison breakdowns, and market analyses</p>
+                </header>
+                <div class="row g-4" id="relatedNewsContainer">
+                    <div class="col-md-6 col-lg-4">
+                        <article class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <span class="badge bg-gold text-dark me-2">Review</span>
+                                    <small class="text-muted">2 days ago</small>
+                                </div>
+                                <h3 class="h6 fw-bold mb-2">Expert Review: Dynamic Handling &amp; Track Test</h3>
+                                <p class="text-muted small mb-3">
+                                    Our comprehensive test drive reveals exceptional suspension calibration and high-speed stability benchmarks.
+                                </p>
+                                <a href="reviews_news.html" class="text-gold text-decoration-none small fw-semibold">
+                                    Read Full Review <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <article class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <span class="badge bg-primary text-white me-2">News</span>
+                                    <small class="text-muted">5 days ago</small>
+                                </div>
+                                <h3 class="h6 fw-bold mb-2">Mid-Cycle Refresh &amp; New Features</h3>
+                                <p class="text-muted small mb-3">
+                                    Industry sources indicate an updated variant featuring enhanced ADAS features and refined battery efficiency.
+                                </p>
+                                <a href="reviews_news.html" class="text-gold text-decoration-none small fw-semibold">
+                                    Read Full Report <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <article class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <span class="badge bg-success text-white me-2">Comparison</span>
+                                    <small class="text-muted">1 week ago</small>
+                                </div>
+                                <h3 class="h6 fw-bold mb-2">Segment Rivals: Head-to-Head Comparison</h3>
+                                <p class="text-muted small mb-3">
+                                    We pit this luxury model against its German and Japanese competitors to evaluate total ownership cost and performance.
+                                </p>
+                                <a href="compare.html" class="text-gold text-decoration-none small fw-semibold">
+                                    Compare Models <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Accordion Section -->
+        <section class="py-5 bg-light" aria-labelledby="faq-heading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="bg-white p-4 rounded shadow-sm border">
+                            <h2 class="h4 fw-bold mb-4 text-center" id="faq-heading"><i class="bi bi-question-circle text-gold me-2" aria-hidden="true"></i>Frequently Asked Questions</h2>
+                            <div class="accordion" id="faqAccordion">
+                                <div class="accordion-item border-0 border-bottom">
+                                    <h3 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
+                                            What is the on-road price of this vehicle?
+                                        </button>
+                                    </h3>
+                                    <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion" aria-labelledby="headingOne">
+                                        <div class="accordion-body text-muted">
+                                            The on-road price varies by city and includes ex-showroom price, state RTO registration charges, insurance, and handling fees. 
+                                            You can reserve the vehicle online with a refundable booking deposit of ₹11,000.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item border-0 border-bottom">
+                                    <h3 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                            What is the expected delivery timeframe?
+                                        </button>
+                                    </h3>
+                                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion" aria-labelledby="headingTwo">
+                                        <div class="accordion-body text-muted">
+                                            Delivery timelines depend on model inventory and color specification. Pre-owned certified inventory is available for immediate delivery within 48 to 72 hours, while new vehicles take 2 to 6 weeks.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item border-0 border-bottom">
+                                    <h3 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                            What warranty coverage is included?
+                                        </button>
+                                    </h3>
+                                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion" aria-labelledby="headingThree">
+                                        <div class="accordion-body text-muted">
+                                            All certified vehicles at Car Fusion include a comprehensive 1-year / 20,000 km warranty covering major mechanical and electrical assemblies, with optional extensions up to 3 years.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item border-0">
+                                    <h3 class="accordion-header" id="headingFour">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                                            Are financing and trade-in exchange available?
+                                        </button>
+                                    </h3>
+                                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion" aria-labelledby="headingFour">
+                                        <div class="accordion-body text-muted">
+                                            Yes, we partner with leading banks (HDFC, ICICI, SBI) offering competitive auto financing rates starting from 8.5% p.a. with up to 7-year tenures. Trade-in evaluations are provided on-site.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Payment Booking Modal -->
+    <div class="modal fade" id="paymentModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="paymentModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-0 border-0">
+                <div class="modal-header bg-black text-white">
+                    <h5 class="modal-title text-gold" id="paymentModalTitle"><i class="bi bi-credit-card-2-front-fill me-2" aria-hidden="true"></i>Secure Vehicle Reservation</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="bg-light p-3 mb-4 rounded border">
+                        <div class="d-flex justify-content-between"><span class="fw-bold text-secondary">Token Booking Amount:</span><span class="fw-bold text-dark">₹ 11,000</span></div>
+                        <div class="d-flex justify-content-between mt-2"><span class="small text-muted">Car:</span><span class="small fw-bold text-uppercase" id="payCarName">-</span></div>
+                    </div>
+                    <form id="paymentForm" onsubmit="event.preventDefault(); processPayment();">
+                        <div class="mb-3">
+                            <label for="cardNumber" class="small fw-bold text-secondary">CARD NUMBER</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white"><i class="bi bi-credit-card" aria-hidden="true"></i></span>
+                                <input type="text" id="cardNumber" class="form-control" placeholder="0000 0000 0000 0000" maxlength="19" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label for="cardExpiry" class="small fw-bold text-secondary">EXPIRY</label>
+                                <input type="text" id="cardExpiry" class="form-control" placeholder="MM/YY" maxlength="5" required>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label for="cardCvv" class="small fw-bold text-secondary">CVV</label>
+                                <input type="password" id="cardCvv" class="form-control" placeholder="123" maxlength="3" required>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="cardHolder" class="small fw-bold text-secondary">CARD HOLDER</label>
+                            <input type="text" id="cardHolder" class="form-control" placeholder="Name on Card" required>
+                        </div>
+                        <button type="submit" class="btn btn-black w-100 py-2 fw-bold text-gold">PAY ₹ 11,000</button>
+                    </form>
+                    <div id="paymentLoading" class="text-center py-4 d-none">
+                        <div class="spinner-border text-gold mb-3" role="status"><span class="visually-hidden">Loading...</span></div>
+                        <h6 class="fw-bold">Encrypting &amp; Processing Reservation...</h6>
+                    </div>
+                    <div id="paymentSuccess" class="text-center py-4 d-none">
+                        <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;" aria-hidden="true"></i>
+                        <h5 class="fw-bold mt-3">Reservation Confirmed!</h5>
+                        <p class="text-secondary small">Redirecting to your member dashboard...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review Submission Modal -->
+    <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-0">
+                <div class="modal-header bg-black text-white">
+                    <h5 class="modal-title text-gold" id="reviewModalTitle">Submit Verified Feedback</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="reviewName" class="visually-hidden">Your Name</label>
+                    <input type="text" id="reviewName" class="form-control mb-3" placeholder="Your Full Name">
+                    <div class="star-rating mb-3" id="starContainer" role="radiogroup" aria-label="Rating out of 5 stars">
+                        <i class="bi bi-star-fill active" data-val="1" role="radio" aria-checked="false" aria-label="1 star" tabindex="0"></i>
+                        <i class="bi bi-star-fill active" data-val="2" role="radio" aria-checked="false" aria-label="2 stars" tabindex="0"></i>
+                        <i class="bi bi-star-fill active" data-val="3" role="radio" aria-checked="false" aria-label="3 stars" tabindex="0"></i>
+                        <i class="bi bi-star-fill active" data-val="4" role="radio" aria-checked="false" aria-label="4 stars" tabindex="0"></i>
+                        <i class="bi bi-star-fill active" data-val="5" role="radio" aria-checked="true" aria-label="5 stars" tabindex="0"></i>
+                    </div>
+                    <label for="reviewText" class="visually-hidden">Review Comment</label>
+                    <textarea id="reviewText" class="form-control mb-3" rows="4" placeholder="Detail your driving impressions, maintenance, and satisfaction..."></textarea>
+                    <button class="btn btn-black w-100 text-gold fw-bold" onclick="submitReview()">Submit Review</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Chatbot Widget -->
+    <div class="chat-widget">
+        <div class="chat-window" id="chatWindow" role="dialog" aria-label="Fusion AI Assistant">
+            <div class="chat-header"><span>Fusion AI Concierge</span><button class="btn-close btn-close-white" onclick="toggleChat()" aria-label="Close chat"></button></div>
+            <div class="chat-body" id="chatBody"><div class="msg bot">Hello! Ask me any technical or financial question about this vehicle.</div></div>
+            <div class="chat-footer">
+                <input type="text" id="chatInput" class="form-control" placeholder="Ask about mileage, safety, price..." onkeypress="handleEnter(event)" aria-label="Chat input">
+                <button class="btn btn-dark" onclick="sendMessage()" aria-label="Send message"><i class="bi bi-send text-gold" aria-hidden="true"></i></button>
+            </div>
+        </div>
+        <button class="chat-btn" onclick="toggleChat()" aria-label="Open AI Concierge"><i class="bi bi-chat-dots-fill" aria-hidden="true"></i></button>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="luxury-footer pt-5 pb-4" role="contentinfo">
+        <div class="container">
+            <div class="row gy-4 border-bottom border-dark-subtle pb-5">
+                <div class="col-lg-4 text-center text-lg-start">
+                    <div class="mb-3 d-inline-block">
+                        <img src="../assets/images/car_fusion_logo.png" alt="Car Fusion footer logo" class="footer-logo-glow"
+                            style="max-width: 180px; height: auto;" width="180" height="45">
+                    </div>
+                    <p class="text-secondary small">
+                        The world's most trusted marketplace for premium pre-owned automobiles.
+                        We deliver excellence in every mile.
+                    </p>
+                </div>
+
+                <div class="col-lg-4 text-center">
+                    <h5 class="text-gold text-uppercase fw-bold mb-4 fs-6">Quick Links</h5>
+                    <nav aria-label="Footer Quick Links">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="new_cars.html" class="footer-link">New Inventory</a></li>
+                            <li class="mb-2"><a href="new_cars.html" class="footer-link">Curated Collection</a></li>
+                            <li class="mb-2"><a href="compare.html" class="footer-link">Compare Cars</a></li>
+                            <li class="mb-2"><a href="contact.html" class="footer-link">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="col-lg-4 text-center text-lg-end">
+                    <h5 class="text-gold text-uppercase fw-bold mb-4 fs-6">Connect With Us</h5>
+                    <div class="d-flex justify-content-center justify-content-lg-end gap-3 social-group" aria-label="Social media channels">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn facebook" aria-label="Car Fusion on Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn instagram" aria-label="Car Fusion on Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+                        <a href="mailto:info@carfusion.com" class="social-btn mail" aria-label="Email Car Fusion"><i class="bi bi-envelope-fill" aria-hidden="true"></i></a>
+                        <a href="tel:+919876543210" class="social-btn phone" aria-label="Call Car Fusion"><i class="bi bi-telephone-fill" aria-hidden="true"></i></a>
+                    </div>
+                    <address class="mt-4 text-secondary small not-italic mb-0">
+                        <i class="bi bi-geo-alt-fill text-gold me-2" aria-hidden="true"></i> <span class="location-display">Ahmedabad</span>, Gujarat, India
+                    </address>
+                </div>
+            </div>
+
+            <div class="text-center pt-4">
+                <p class="text-secondary small mb-0">&copy; 2026 Car Fusion. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap & Core JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+    <script>
+        let currentCar = null;
+        let selectedRating = 5;
+        let basePrice = 0;
+        let defaultCity = 'Ahmedabad';
+
+        // City-wise tax rates (realistic Indian city variations)
+        const cityTaxRates = {
+            'Mumbai': { rto: 0.13, name: 'Mumbai', state: 'Maharashtra' },
+            'Delhi': { rto: 0.10, name: 'Delhi', state: 'Delhi NCR' },
+            'Bangalore': { rto: 0.18, name: 'Bangalore', state: 'Karnataka' },
+            'Ahmedabad': { rto: 0.12, name: 'Ahmedabad', state: 'Gujarat' },
+            'Hyderabad': { rto: 0.14, name: 'Hyderabad', state: 'Telangana' },
+            'Pune': { rto: 0.13, name: 'Pune', state: 'Maharashtra' },
+            'Chennai': { rto: 0.15, name: 'Chennai', state: 'Tamil Nadu' }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof cars === 'undefined') { alert("Error: Database not loaded."); return; }
+
+            const params = new URLSearchParams(window.location.search);
+            const carId = parseInt(params.get('id'));
+
+            if (!carId) { window.location.href = 'new_cars.html'; return; }
+
+            currentCar = cars.find(c => c.id === carId);
+            
+            if (currentCar) {
+                basePrice = currentCar.price;
+                loadBasicDetails(currentCar);
+                setupRunningCostCalc(currentCar);
+                generateServiceTable(currentCar);
+                setupEMICalculator(currentCar.price);
+                
+                // Load saved city or use default
+                const savedCity = localStorage.getItem('userLocation') || defaultCity;
+                const citySelector = document.getElementById('citySelector');
+                if (citySelector) {
+                    citySelector.value = savedCity;
+                }
+                updateCityPrice();
+
+                // Dynamically update SEO tags for this car
+                updateDynamicSEO(currentCar);
+            } else {
+                alert("Car not found!");
+                window.location.href = 'new_cars.html';
+            }
+
+            document.querySelectorAll('.star-rating i').forEach(star => {
+                star.addEventListener('click', function() {
+                    selectedRating = this.getAttribute('data-val');
+                    document.querySelectorAll('.star-rating i').forEach(s => s.classList.toggle('active', s.getAttribute('data-val') <= selectedRating));
+                });
+            });
+
+            // Listen for location changes from the modal
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'userLocation' && e.newValue) {
+                    const citySelector = document.getElementById('citySelector');
+                    if (citySelector && citySelector.value !== e.newValue) {
+                        citySelector.value = e.newValue;
+                        updateCityPrice();
+                    }
+                }
+            });
+
+            // Also listen for custom location change events (for same-page updates)
+            document.addEventListener('locationChanged', function(e) {
+                const citySelector = document.getElementById('citySelector');
+                if (citySelector && e.detail && e.detail.location) {
+                    citySelector.value = e.detail.location;
+                    updateCityPrice();
+                }
+            });
+        });
+
+        function updateDynamicSEO(car) {
+            const pageTitle = `${car.brand} ${car.model} Price, Specs & On-Road Estimate | Car Fusion`;
+            document.title = pageTitle;
+
+            const descMeta = document.querySelector('meta[name="description"]');
+            if (descMeta) {
+                descMeta.content = `Explore ${car.brand} ${car.model} with ${car.engine || ''} engine, ${car.power || ''} power, and ${car.mileage} mileage. Check city-wise on-road price, EMI calculator, and owner reviews.`;
+            }
+
+            // Update JSON-LD structured data
+            const schemaScript = document.getElementById('carSchema');
+            if (schemaScript) {
+                const schemaData = {
+                    "@context": "https://schema.org/",
+                    "@type": "Car",
+                    "name": `${car.brand} ${car.model}`,
+                    "brand": {
+                        "@type": "Brand",
+                        "name": car.brand
+                    },
+                    "model": car.model,
+                    "image": car.image,
+                    "fuelType": car.fuel,
+                    "vehicleTransmission": car.transmission,
+                    "offers": {
+                        "@type": "Offer",
+                        "price": car.price,
+                        "priceCurrency": "INR",
+                        "availability": "https://schema.org/InStock",
+                        "priceValidUntil": "2026-12-31"
+                    }
+                };
+                schemaScript.textContent = JSON.stringify(schemaData, null, 2);
+            }
+        }
+
+        function updateCityPrice() {
+            const citySelector = document.getElementById('citySelector');
+            if (!citySelector) return;
+            const selectedCity = citySelector.value;
+            const cityData = cityTaxRates[selectedCity] || cityTaxRates[defaultCity];
+            
+            // Save selected city to global location storage
+            localStorage.setItem('userLocation', selectedCity);
+            
+            // Update all location displays on the page (including navbar)
+            if (typeof updateAllLocationLabels === 'function') {
+                updateAllLocationLabels(selectedCity);
+            }
+            
+            // Update city display in price section
+            const priceCityEl = document.getElementById('priceCity');
+            if (priceCityEl) priceCityEl.textContent = selectedCity.toUpperCase();
+            
+            // Calculate on-road price components
+            const exShowroom = basePrice;
+            const rtoTax = exShowroom * cityData.rto;
+            const insurance = exShowroom * 0.04; // 4% insurance
+            const handling = 15000; // Fixed handling charges
+            
+            const totalOnRoad = exShowroom + rtoTax + insurance + handling;
+            
+            // Calculate price difference from default city (Ahmedabad)
+            const defaultCityData = cityTaxRates[defaultCity];
+            const defaultOnRoad = exShowroom + (exShowroom * defaultCityData.rto) + (exShowroom * 0.04) + handling;
+            const priceDiff = totalOnRoad - defaultOnRoad;
+            
+            // Update UI
+            document.getElementById('onRoadPrice').textContent = `₹ ${(totalOnRoad / 100000).toFixed(2)} Lakh`;
+            document.getElementById('breakdownExShowroom').textContent = `₹ ${(exShowroom / 100000).toFixed(2)} L`;
+            document.getElementById('taxPercent').textContent = (cityData.rto * 100).toFixed(0);
+            document.getElementById('breakdownRTO').textContent = `₹ ${(rtoTax / 100000).toFixed(2)} L`;
+            document.getElementById('breakdownInsurance').textContent = `₹ ${(insurance / 100000).toFixed(2)} L`;
+            document.getElementById('breakdownHandling').textContent = `₹ ${(handling / 1000).toFixed(0)}k`;
+            
+            // Show price difference with color coding
+            const diffElement = document.getElementById('priceDifference');
+            if (diffElement) {
+                if (priceDiff > 0) {
+                    diffElement.style.color = '#dc3545';
+                    diffElement.innerHTML = `<i class="bi bi-arrow-up-circle-fill me-1" aria-hidden="true"></i>+₹ ${(priceDiff / 100000).toFixed(2)} L`;
+                } else if (priceDiff < 0) {
+                    diffElement.style.color = '#28a745';
+                    diffElement.innerHTML = `<i class="bi bi-arrow-down-circle-fill me-1" aria-hidden="true"></i>-₹ ${(Math.abs(priceDiff) / 100000).toFixed(2)} L`;
+                } else {
+                    diffElement.style.color = '#D4AF37';
+                    diffElement.innerHTML = `<i class="bi bi-dash-circle-fill me-1" aria-hidden="true"></i>₹ 0 (Base City)`;
+                }
+            }
+            
+            // Populate all city comparison
+            populateCityComparison();
+            
+            // Add animation
+            const priceBox = document.querySelector('.on-road-price-box');
+            if (priceBox) {
+                priceBox.style.animation = 'none';
+                setTimeout(() => {
+                    priceBox.style.animation = 'fadeIn 0.5s';
+                }, 10);
+            }
+            
+            // Initialize tooltips
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        }
+
+        function populateCityComparison() {
+            const container = document.getElementById('allCityPrices');
+            if (!container) return;
+            const exShowroom = basePrice;
+            const insurance = exShowroom * 0.04;
+            const handling = 15000;
+            
+            let html = '<div class="bg-light p-2 rounded">';
+            
+            const cityPrices = Object.keys(cityTaxRates).map(city => {
+                const cityData = cityTaxRates[city];
+                const rtoTax = exShowroom * cityData.rto;
+                const totalOnRoad = exShowroom + rtoTax + insurance + handling;
+                return { city, totalOnRoad, rto: cityData.rto };
+            }).sort((a, b) => a.totalOnRoad - b.totalOnRoad);
+            
+            cityPrices.forEach((item, index) => {
+                const isSelected = item.city === document.getElementById('citySelector').value;
+                const badge = index === 0 ? '<span class="badge bg-success" style="font-size: 0.6rem;">CHEAPEST</span>' : 
+                             index === cityPrices.length - 1 ? '<span class="badge bg-danger" style="font-size: 0.6rem;">COSTLIEST</span>' : '';
+                
+                html += `
+                    <div class="d-flex justify-content-between align-items-center py-1 ${isSelected ? 'fw-bold' : ''}" style="font-size: 0.85rem; ${isSelected ? 'background: rgba(212, 175, 55, 0.1); padding: 5px; border-radius: 5px;' : ''}">
+                        <span>${isSelected ? '→ ' : ''}${item.city} ${badge}</span>
+                        <span class="${isSelected ? 'text-gold' : ''}">₹ ${(item.totalOnRoad / 100000).toFixed(2)} L</span>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        function loadBasicDetails(car) {
+            const mainImg = document.getElementById('mainImage');
+            if (mainImg) {
+                mainImg.src = car.image || 'https://via.placeholder.com/600x400';
+                mainImg.alt = `${car.brand} ${car.model} luxury vehicle photo`;
+            }
+            
+            document.getElementById('detailName').textContent = `${car.brand} ${car.model}`;
+            document.getElementById('breadCrumbName').textContent = car.model;
+            document.getElementById('detailPrice').textContent = `₹ ${(car.price / 100000).toFixed(2)} Lakh`;
+            document.getElementById('detailFuel').textContent = car.fuel;
+            document.getElementById('detailTrans').textContent = car.transmission;
+            document.getElementById('detailMileage').textContent = car.mileage;
+            document.getElementById('detailEngine').textContent = car.engine || 'N/A';
+            document.getElementById('detailPower').textContent = car.power || 'N/A';
+            document.getElementById('detailTorque').textContent = car.torque || 'N/A';
+            document.getElementById('detailTopSpeed').textContent = car.topSpeed || 'N/A';
+            document.getElementById('detailBoot').textContent = car.bootSpace || 'N/A';
+            
+            // Populate accordion / specifications table
+            document.getElementById('accordionEngine').textContent = car.engine || 'N/A';
+            document.getElementById('accordionDisplacement').textContent = car.engine || 'N/A';
+            document.getElementById('accordionPower').textContent = car.power || 'N/A';
+            document.getElementById('accordionTorque').textContent = car.torque || 'N/A';
+            document.getElementById('accordionFuelType').textContent = car.fuel || 'N/A';
+            document.getElementById('accordionTransmission').textContent = car.transmission || 'N/A';
+            document.getElementById('accordionMileage').textContent = car.mileage || 'N/A';
+            document.getElementById('accordionTopSpeed').textContent = car.topSpeed || 'N/A';
+            document.getElementById('accordionBootSpace').textContent = car.bootSpace || 'N/A';
+            document.getElementById('accordionFuelTank').textContent = car.fuelTank || '50 L';
+            
+            updateRunningCost();
+        }
+
+        function bookCar() {
+            if (!currentCar) { alert("Error: Car data missing."); return; }
+            const userJson = localStorage.getItem('currentUser');
+            if (!userJson) {
+                if(confirm("Please Login to book this car. Go to Login?")) window.location.href = 'login.html';
+                return;
+            }
+            const user = JSON.parse(userJson);
+            if (user.bookings && user.bookings.some(b => b.id === currentCar.id)) {
+                alert("You already have this car in your Garage!");
+                window.location.href = 'profile.html';
+                return;
+            }
+            document.getElementById('payCarName').textContent = `${currentCar.brand} ${currentCar.model}`;
+            const payModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+            payModal.show();
+        }
+
+        function processPayment() {
+            document.getElementById('paymentForm').classList.add('d-none');
+            document.getElementById('paymentLoading').classList.remove('d-none');
+            setTimeout(() => {
+                document.getElementById('paymentLoading').classList.add('d-none');
+                document.getElementById('paymentSuccess').classList.remove('d-none');
+                
+                const user = JSON.parse(localStorage.getItem('currentUser'));
+                if (!user.bookings) user.bookings = [];
+                user.bookings.push({
+                    id: currentCar.id, brand: currentCar.brand, model: currentCar.model,
+                    image: currentCar.image, price: currentCar.price, date: new Date().toLocaleDateString(), status: 'Booked'
+                });
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                setTimeout(() => window.location.href = 'profile.html', 2000);
+            }, 2000);
+        }
+
+        function updateRunningCost() {
+            if (!currentCar) return;
+            
+            const slider = document.getElementById('kmSlider');
+            if (!slider) return;
+            const km = parseInt(slider.value);
+            document.getElementById('kmDisplay').textContent = km;
+            
+            let mileage = 15;
+            if (currentCar.fuel === 'Electric') {
+                const costPerKm = 5;
+                const dailyCost = km * costPerKm;
+                document.getElementById('costDay').textContent = '₹ ' + Math.ceil(dailyCost);
+                document.getElementById('costMonth').textContent = '₹ ' + Math.ceil(dailyCost * 30);
+                document.getElementById('costYear').textContent = '₹ ' + Math.ceil(dailyCost * 365);
+            } else {
+                const mileageMatch = currentCar.mileage.match(/[\d.]+/);
+                if (mileageMatch) mileage = parseFloat(mileageMatch[0]);
+                
+                const fuelPrice = currentCar.fuel === 'Diesel' ? 90 : 100;
+                const fuelConsumed = km / mileage;
+                const dailyCost = fuelConsumed * fuelPrice;
+                
+                document.getElementById('costDay').textContent = '₹ ' + Math.ceil(dailyCost);
+                document.getElementById('costMonth').textContent = '₹ ' + Math.ceil(dailyCost * 30);
+                document.getElementById('costYear').textContent = '₹ ' + Math.ceil(dailyCost * 365);
+            }
+        }
+        
+        function setupRunningCostCalc(car) {
+            const slider = document.getElementById('kmSlider');
+            if (slider) slider.addEventListener('input', updateRunningCost);
+        }
+
+        function generateServiceTable(car) {
+            const table = document.getElementById('serviceTable');
+            if (!table) return;
+            let html = '';
+            for(let i=1; i<=5; i++) {
+                html += `<tr><td>Year ${i}</td><td>General Maintenance &amp; Inspection</td><td>₹ ${5000 + (i*1000)}</td></tr>`;
+            }
+            table.innerHTML = html;
+        }
+
+        function setupEMICalculator(price) { 
+            const emiEl = document.getElementById('emiPrincipal');
+            if (emiEl) emiEl.value = price; 
+            calculateEMI(); 
+        }
+
+        function calculateEMI() {
+            const pEl = document.getElementById('emiPrincipal');
+            const rEl = document.getElementById('emiRate');
+            const yEl = document.getElementById('emiYears');
+            if (!pEl || !rEl || !yEl) return;
+
+            const P = parseFloat(pEl.value) || 0;
+            const r = (parseFloat(rEl.value) || 9.5) / 12 / 100;
+            const n = (parseFloat(yEl.value) || 5) * 12;
+            
+            if (P <= 0 || r <= 0 || n <= 0) {
+                document.getElementById('emiResult').textContent = '₹ 0';
+                return;
+            }
+
+            const emi = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+            document.getElementById('emiResult').textContent = '₹ ' + Math.ceil(emi).toLocaleString();
+        }
+
+        function toggleChat(show) { 
+            const win = document.getElementById('chatWindow');
+            if (!win) return;
+            win.style.display = show ? 'flex' : (win.style.display === 'flex' ? 'none' : 'flex'); 
+        }
+
+        function sendMessage() { 
+            const input = document.getElementById('chatInput');
+            if (!input) return;
+            const val = input.value.trim();
+            if(val) {
+                const body = document.getElementById('chatBody');
+                body.innerHTML += `<div class="msg user">${val}</div>`;
+                setTimeout(() => {
+                    body.innerHTML += `<div class="msg bot">I can assist with specifications, test drives, and financing. Click 'Book Now' to reserve!</div>`;
+                    body.scrollTop = body.scrollHeight;
+                }, 1000);
+                input.value = '';
+            }
+        }
+
+        function handleEnter(e) { if(e.key === 'Enter') sendMessage(); }
+
+        function submitReview() { 
+            showBootstrapAlert("Review Submitted! Thank you for your feedback.", 'success'); 
+            const modalEl = document.getElementById('reviewModal');
+            if (modalEl) {
+                const modal = bootstrap.Modal.getInstance(modalEl);
+                if (modal) modal.hide();
+            }
+        }
+    </script>
+</body>
+</html>

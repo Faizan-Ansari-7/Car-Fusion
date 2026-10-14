@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Signup | Car Fusion</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../assets/css/main_interface.css">
+    <link rel="icon" href="../assets/icons/car_fusion_favicon.ico">
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("uWcrGjqNF8rUW3GC1");
+        })();
+    </script>
+
+    <style>
+        .login-body {
+            background: #000;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background Image simulating video */
+        .bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.95);
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+            border-radius: 0;
+            position: relative;
+            z-index: 2;
+            border-top: 5px solid #D4AF37;
+            /* Gold Border */
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
+        }
+
+        .form-control {
+            border-radius: 0;
+            border: 1px solid #ccc;
+            padding: 12px;
+        }
+
+        .form-control:focus {
+            border-color: #D4AF37;
+            box-shadow: none;
+        }
+
+        .btn-gold {
+            width: 100%;
+            padding: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 0;
+            background-color: #D4AF37;
+            border: none;
+        }
+
+        .btn-gold:hover {
+            background-color: #bfa13f;
+        }
+    </style>
+</head>
+
+<body class="login-body">
+
+    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2070" class="bg-video"
+        alt="Background">
+
+    <div class="login-card text-center">
+        <img src="../assets/images/car_fusion_logo.png" alt="Car Fusion" style="width: 150px; margin-bottom: 20px;">
+
+        <h4 class="fw-bold mb-4" id="formTitle">Welcome Back</h4>
+
+        <div id="alertBox" class="alert alert-danger d-none small"></div>
+        <div id="successBox" class="alert alert-success d-none small"></div>
+
+        <form id="otpAuthForm">
+            <div id="step1">
+                <div class="mb-3">
+                    <label class="form-label small text-secondary fw-bold">Login Method</label>
+                    <div class="btn-group w-100 mb-3" role="group">
+                        <input type="radio" class="btn-check" name="loginMethod" id="emailMethod" value="email" checked>
+                        <label class="btn btn-outline-dark" for="emailMethod">
+                            <i class="bi bi-envelope-fill me-1"></i> Email
+                        </label>
+
+                        <input type="radio" class="btn-check" name="loginMethod" id="mobileMethod" value="mobile">
+                        <label class="btn btn-outline-dark" for="mobileMethod">
+                            <i class="bi bi-phone-fill me-1"></i> Mobile
+                        </label>
+                    </div>
+                </div>
+
+                <div id="emailInputGroup" class="mb-3">
+                    <input type="email" id="emailInput" class="form-control" placeholder="Enter Email Address" required>
+                </div>
+
+                <div id="mobileInputGroup" class="mb-3 d-none">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0 text-secondary fw-bold">+91</span>
+                        <input type="tel" id="mobileInput" class="form-control border-start-0"
+                            placeholder="Enter Mobile Number" maxlength="10">
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-gold" onclick="sendOtp()">Get OTP</button>
+            </div>
+
+            <div id="step2-new-user" class="d-none text-start mb-3">
+                <p class="small text-secondary mb-2"><i class="bi bi-person-plus-fill"></i> Looks like you're new!
+                    Create account.</p>
+                <div class="row g-2">
+                    <div class="col-6">
+                        <input type="text" id="firstName" class="form-control" placeholder="First Name">
+                    </div>
+                    <div class="col-6">
+                        <input type="text" id="lastName" class="form-control" placeholder="Last Name">
+                    </div>
+                </div>
+            </div>
+
+            <div id="step3-otp" class="d-none mt-3">
+                <div class="mb-3">
+                    <input type="text" id="otpInput" class="form-control text-center fw-bold ls-2 fs-5"
+                        placeholder="Enter 4-Digit OTP" maxlength="4">
+                </div>
+                <button type="submit" class="btn btn-black w-100 bg-black text-white py-2 rounded-0 fw-bold">VERIFY &
+                    LOGIN</button>
+
+                <div class="mt-3 d-flex justify-content-between">
+                    <button type="button" id="resendBtn"
+                        class="btn btn-link text-secondary btn-sm p-0 text-decoration-none" onclick="resendOtp()">
+                        Resend OTP <span id="timerText"></span>
+                    </button>
+                    <button type="button" class="btn btn-link text-secondary btn-sm p-0 text-decoration-none"
+                        onclick="location.reload()">
+                        Change Number
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <p class="mt-4 text-secondary small" style="font-size: 0.75rem;">By continuing, you agree to our Terms & Privacy
+            Policy.</p>
+        <a href="../index.html" class="text-gold small text-decoration-none fw-bold"><i class="bi bi-arrow-left"></i> Back
+            to Home</a>
+    </div>
+    <footer class="pt-4 pb-3" style="background: rgba(0,0,0,0.9); position: fixed; bottom: 0; width: 100%;">
+        <div class="container text-center">
+            <p class="text-secondary small mb-0">&copy; 2026 Car Fusion. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Toggle logic for email/mobile
+        document.querySelectorAll('input[name="loginMethod"]').forEach(radio => {
+            radio.addEventListener('change', function () {
+                const emailGroup = document.getElementById('emailInputGroup');
+                const mobileGroup = document.getElementById('mobileInputGroup');
+                if (this.value === 'email') {
+                    emailGroup.classList.remove('d-none');
+                    mobileGroup.classList.add('d-none');
+                    document.getElementById('emailInput').required = true;
+                    document.getElementById('mobileInput').required = false;
+                } else {
+                    emailGroup.classList.add('d-none');
+                    mobileGroup.classList.remove('d-none');
+                    document.getElementById('emailInput').required = false;
+                    document.getElementById('mobileInput').required = true;
+                }
+            });
+        });
+
+        let timerInterval;
+
+        // Timer Logic
+        function startTimer() {
+            let timeLeft = 60;
+            const resendBtn = document.getElementById("resendBtn");
+            const timerText = document.getElementById("timerText");
+
+            resendBtn.disabled = true;
+            resendBtn.style.pointerEvents = "none";
+            timerText.innerText = `(${timeLeft}s)`;
+
+            clearInterval(timerInterval); // Purana timer clear karne ke liye
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                timerText.innerText = `(${timeLeft}s)`;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    resendBtn.disabled = false;
+                    resendBtn.style.pointerEvents = "auto";
+                    timerText.innerText = "";
+                }
+            }, 1000);
+        }
+
+        function sendOtp() {
+            const loginMethod = document.querySelector('input[name="loginMethod"]:checked').value;
+            if (loginMethod !== 'email') {
+                document.getElementById("alertBox").innerText = "Currently, only Email OTP is supported.";
+                document.getElementById("alertBox").classList.remove("d-none");
+                return;
+            }
+
+            const email = document.getElementById("emailInput").value;
+            if (!email) {
+                document.getElementById("alertBox").innerText = "Please enter your email address.";
+                document.getElementById("alertBox").classList.remove("d-none");
+                return;
+            }
+
+            // Check if user exists
+            const users = JSON.parse(localStorage.getItem('carFusionUsers') || '[]');
+            const existingUser = users.find(u => u.email === email);
+            
+            // Show name fields for new users
+            if (!existingUser) {
+                document.getElementById("step2-new-user").classList.remove("d-none");
+                document.getElementById("formTitle").innerText = "Create Your Account";
+            } else {
+                document.getElementById("step2-new-user").classList.add("d-none");
+                document.getElementById("formTitle").innerText = "Welcome Back";
+            }
+
+            const otp = Math.floor(1000 + Math.random() * 9000);
+            sessionStorage.setItem("carFusionOTP", otp);
+            sessionStorage.setItem("carFusionEmail", email);
+
+            const templateParams = {
+                otp: otp,
+                to_email: email,
+                name: "Car Fusion"
+            };
+
+            emailjs.send('service_z197g0f', 'template_45dg0lh', templateParams)
+                .then(function (response) {
+                    document.getElementById("alertBox").classList.add("d-none");
+                    document.getElementById("successBox").innerText = "OTP has been sent to " + email;
+                    document.getElementById("successBox").classList.remove("d-none");
+
+                    document.getElementById("step1").classList.add("d-none");
+                    document.getElementById("step3-otp").classList.remove("d-none");
+
+                    startTimer();
+                }, function (error) {
+                    document.getElementById("alertBox").innerText = "Failed to send OTP. Check console.";
+                    document.getElementById("alertBox").classList.remove("d-none");
+                    console.log(error);
+                });
+        }
+
+        document.getElementById("otpAuthForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const enteredOtp = document.getElementById("otpInput").value;
+            const savedOtp = sessionStorage.getItem("carFusionOTP");
+
+            if (enteredOtp === savedOtp) {
+                // Get email
+                const email = sessionStorage.getItem("carFusionEmail") || document.getElementById("emailInput").value;
+                
+                // Check if user exists in database
+                const users = JSON.parse(localStorage.getItem('carFusionUsers') || '[]');
+                let user = users.find(u => u.email === email);
+                
+                if (!user) {
+                    // New user - get name from form fields
+                    const firstName = document.getElementById("firstName").value.trim();
+                    const lastName = document.getElementById("lastName").value.trim();
+                    
+                    if (!firstName) {
+                        document.getElementById("alertBox").innerText = "Please enter your first name.";
+                        document.getElementById("alertBox").classList.remove("d-none");
+                        return;
+                    }
+                    
+                    // Create new user
+                    user = {
+                        name: `${firstName} ${lastName}`.trim(),
+                        email: email,
+                        mobile: '',
+                        joined: new Date().toLocaleDateString(),
+                        favorites: [],
+                        bookings: [],
+                        fusionProjects: []
+                    };
+                    
+                    users.push(user);
+                    localStorage.setItem('carFusionUsers', JSON.stringify(users));
+                }
+                
+                // Save current user session
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                
+                // Clear session storage
+                sessionStorage.removeItem("carFusionOTP");
+                sessionStorage.removeItem("carFusionEmail");
+                
+                // Check for redirect parameter
+                const urlParams = new URLSearchParams(window.location.search);
+                const redirectUrl = urlParams.get('redirect');
+                
+                document.getElementById("successBox").innerText = "Login Successful! Redirecting...";
+                document.getElementById("successBox").classList.remove("d-none");
+                document.getElementById("alertBox").classList.add("d-none");
+                
+                setTimeout(() => {
+                    window.location.href = redirectUrl || "index.html";
+                }, 1000);
+            } else {
+                document.getElementById("alertBox").innerText = "Invalid OTP. Please try again.";
+                document.getElementById("alertBox").classList.remove("d-none");
+                document.getElementById("successBox").classList.add("d-none");
+            }
+        });
+
+        function resendOtp() {
+            document.getElementById("otpInput").value = "";
+            document.getElementById("successBox").innerText = "Resending OTP...";
+            sendOtp();
+        }
+    </script>
+</body>
+
+</html>

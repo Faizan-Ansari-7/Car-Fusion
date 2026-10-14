@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Luxury &amp; Premium Car Brands | Car Fusion</title>
+    
+    <!-- Technical SEO Metadata -->
+    <meta name="description" content="Discover world-class automotive manufacturers at Car Fusion. Browse inventory by brand including Audi, BMW, Mercedes-Benz, Land Rover, Porsche, Tata, and more with verified specs.">
+    <meta name="keywords" content="luxury car brands, car manufacturers, Audi, BMW, Mercedes-Benz, Land Rover, Toyota, Tata Motors, electric cars, pre-owned luxury cars">
+    <meta name="author" content="Car Fusion">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="brands.html">
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Explore Luxury &amp; Premium Car Brands | Car Fusion">
+    <meta property="og:description" content="Browse prestigious automobile manufacturers from around the world. Compare models, specifications, and find your dream vehicle.">
+    <meta property="og:image" content="../assets/images/car_fusion_logo.png">
+    <meta property="og:site_name" content="Car Fusion">
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Explore Luxury &amp; Premium Car Brands | Car Fusion">
+    <meta name="twitter:description" content="Browse prestigious automobile manufacturers from around the world. Compare models, specifications, and find your dream vehicle.">
+    <meta name="twitter:image" content="../assets/images/car_fusion_logo.png">
+
+    <!-- Favicon & Stylesheets -->
+    <link rel="icon" href="../assets/icons/car_fusion_favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../assets/css/main_interface.css">
+
+    <!-- Structured Data (JSON-LD) for Brand Catalog -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Car Fusion Automotive Brand Catalog",
+        "description": "Premium, luxury, and electric automotive brands available at Car Fusion.",
+        "itemListElement": [
+            { "@type": "Brand", "name": "Audi", "position": 1 },
+            { "@type": "Brand", "name": "BMW", "position": 2 },
+            { "@type": "Brand", "name": "Mercedes-Benz", "position": 3 },
+            { "@type": "Brand", "name": "Land Rover", "position": 4 },
+            { "@type": "Brand", "name": "Toyota", "position": 5 },
+            { "@type": "Brand", "name": "Honda", "position": 6 },
+            { "@type": "Brand", "name": "Volkswagen", "position": 7 },
+            { "@type": "Brand", "name": "Skoda", "position": 8 },
+            { "@type": "Brand", "name": "Maruti Suzuki", "position": 9 },
+            { "@type": "Brand", "name": "Hyundai", "position": 10 },
+            { "@type": "Brand", "name": "Tata Motors", "position": 11 },
+            { "@type": "Brand", "name": "Mahindra", "position": 12 },
+            { "@type": "Brand", "name": "Kia", "position": 13 },
+            { "@type": "Brand", "name": "MG Motor", "position": 14 },
+            { "@type": "Brand", "name": "Nissan", "position": 15 }
+        ]
+    }
+    </script>
+
+    <style>
+        .brand-card {
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: #fff;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+        .brand-card:hover {
+            border-color: #D4AF37;
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        .brand-logo-img {
+            height: 80px;
+            width: 100%;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: 0.3s;
+        }
+        .brand-card:hover .brand-logo-img {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        /* Enhanced Brand Cards */
+        .premium-brand-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border: 2px solid #e9ecef;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            height: 100%;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            min-height: 280px;
+            cursor: pointer;
+        }
+
+        .premium-brand-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .premium-brand-card:hover::before {
+            left: 100%;
+        }
+
+        .premium-brand-card:hover {
+            border-color: #D4AF37;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .brand-logo-premium {
+            height: 90px;
+            width: 100%;
+            object-fit: contain;
+            margin: 25px 0 20px 0;
+            filter: grayscale(80%);
+            transition: all 0.4s ease;
+            padding: 0 10px;
+        }
+
+        .premium-brand-card:hover .brand-logo-premium {
+            filter: grayscale(0%);
+            transform: scale(1.15);
+        }
+
+        .brand-stats {
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 15px;
+        }
+
+        .brand-category {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        /* Brand Categories */
+        .luxury-category { 
+            background: linear-gradient(135deg, #FFD700, #FF6B35);
+            color: #000;
+            font-weight: 800;
+        }
+        .premium-category { 
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+        }
+        .mainstream-category { 
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #000;
+            font-weight: 700;
+        }
+        .electric-category { 
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+            color: #000;
+            font-weight: 700;
+        }
+
+        /* Ensure badges are always visible */
+        .premium-brand-card:hover .brand-category {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        /* Statistics Section */
+        .stats-section {
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #D4AF37;
+            line-height: 1;
+        }
+
+        /* Featured Brands Section */
+        .featured-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .featured-brand-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .featured-brand-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .featured-logo {
+            height: 120px;
+            width: 100%;
+            object-fit: contain;
+            margin-bottom: 25px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .premium-brand-card {
+                padding: 20px 15px;
+            }
+            
+            .brand-logo-premium {
+                height: 80px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+
+        /* Dropdown Fix */
+        .hover-dropdown {
+            position: relative;
+        }
+
+        .hover-dropdown:hover .dropdown-menu {
+            display: block;
+            margin-top: 0;
+        }
+
+        .dropdown-menu {
+            z-index: 1050;
+        }
+    </style>
+</head>
+<body class="euro-body">
+
+    <!-- Global Header -->
+    <header class="euro-header fixed-top" role="banner">
+        <div class="top-bar">
+            <div class="container d-flex align-items-center justify-content-between">
+                <a class="navbar-brand me-4" href="../index.html" aria-label="Car Fusion Homepage">
+                    <img src="../assets/images/car_fusion_logo.png" alt="Car Fusion Luxury Automotive Logo" class="logo-size" width="160" height="40">
+                </a>
+
+                <div class="flex-grow-1 mx-lg-5 d-none d-lg-block">
+                    <form class="header-search-container" role="search" onsubmit="event.preventDefault(); document.getElementById('searchBtn').click();">
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0">
+                                <i class="bi bi-search text-gold" aria-hidden="true"></i>
+                            </span>
+                            <input type="search" id="searchInput" class="form-control border-start-0 ps-0"
+                                placeholder="Search for 'Porsche 911'..." aria-label="Search vehicles">
+                            <button class="btn btn-gold" type="button" id="searchBtn" aria-label="Submit Search">SEARCH</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="d-flex align-items-center gap-4">
+                    <div class="d-flex align-items-center text-white cursor-pointer hover-gold" data-bs-toggle="modal" data-bs-target="#locationModal" role="button" tabindex="0" aria-label="Select location, current location Ahmedabad" style="cursor: pointer;">
+                        <i class="bi bi-geo-alt me-2" aria-hidden="true"></i>
+                        <span class="small fw-bold location-display">Ahmedabad</span>
+                    </div>
+                    <a href="login.html" id="loginLink" class="d-flex align-items-center text-white text-decoration-none hover-gold" aria-label="User Account Login">
+                        <i class="bi bi-person-circle me-2 fs-5" aria-hidden="true"></i>
+                        <span class="small fw-bold">Login</span>
+                    </a>
+                </div>
+
+                <button class="navbar-toggler d-lg-none text-white border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation menu">
+                    <i class="bi bi-list fs-1" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Secondary Navigation -->
+        <nav class="secondary-nav border-top border-dark-subtle" aria-label="Primary Navigation">
+            <div class="container">
+                <div class="collapse navbar-collapse d-lg-block" id="mobileMenu">
+                    <ul class="nav justify-content-center flex-column flex-lg-row">
+                        <li class="nav-item dropdown hover-dropdown">
+                            <a class="nav-link dropdown-toggle text-gold fw-bold active" href="new_cars.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                NEW CARS
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="new_cars.html">EXPLORE NEW CARS</a></li>
+                                <li><a class="dropdown-item" href="compare.html">COMPARE CARS</a></li>
+                                <li><a class="dropdown-item" href="electric-cars.html">ELECTRIC CARS</a></li>
+                                <li><a class="dropdown-item active" href="brands.html">POPULAR BRANDS</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reviews_news.html">REVIEWS &amp; NEWS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="modify.html">FUSION LAB</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about_us.html">ABOUT US</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="header-spacer" aria-hidden="true"></div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+        <!-- Page Hero Banner -->
+        <section class="d-flex align-items-center justify-content-center text-center py-5" 
+                 style="background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1493238792015-fa094a3672a1?q=80&w=2070'); background-size: cover; background-position: center; min-height: 40vh;"
+                 aria-labelledby="brands-page-title">
+            <div class="container position-relative z-2">
+                <p class="text-gold text-uppercase ls-2 mb-2 fw-semibold">World Class Engineering</p>
+                <h1 id="brands-page-title" class="display-3 fw-bold text-white mb-3">OUR PREMIER BRANDS</h1>
+                <div class="divider-gold mx-auto" aria-hidden="true"></div>
+                <p class="text-white-50 mt-3 max-w-2xl mx-auto lead">Explore the global automotive leaders crafting performance, luxury, and sustainable mobility.</p>
+            </div>
+        </section>
+
+        <!-- Brand Showcase Container -->
+        <div class="py-5 bg-white">
+            <div class="container py-4">
+                <header class="text-center mb-5">
+                    <h2 class="fw-bold mb-3">World-Renowned Automotive Manufacturers</h2>
+                    <p class="text-secondary w-75 mx-auto lead fs-6">
+                        We host an exhaustive collection of vehicles from the world's most renowned marques. 
+                        Filter inventory directly by brand to explore engineering excellence tailored to your lifestyle.
+                    </p>
+                </header>
+
+                <!-- Category 1: Luxury Brands Section -->
+                <section class="mb-5" aria-labelledby="luxury-heading">
+                    <header class="mb-4 text-center">
+                        <h3 id="luxury-heading" class="fw-bold d-inline-flex align-items-center justify-content-center">
+                            <i class="bi bi-gem text-gold me-2" aria-hidden="true"></i>Luxury &amp; Flagship Marques
+                        </h3>
+                    </header>
+                    <div class="row g-4">
+                        <!-- Audi -->
+                        <div class="col-md-6 col-lg-3">
+                            <article class="premium-brand-card" role="button" tabindex="0" onclick="filterByBrand('Audi')" onkeydown="handleBrandKey(event, 'Audi')" aria-label="Explore Audi inventory: 10 models, starting at ₹46 Lakh">
+                                <span class="brand-category luxury-category">Luxury</span>
+                                <img src="../assets/images/cars_logo/audi_logo.jpg" class="brand-logo-premium" alt="Audi official emblem logo" loading="lazy">
+                                <h4 class="h5 fw-bold mb-2">Audi</h4>
+                                <p class="small text-muted mb-3">Vorsprung durch Technik</p>
+                                <div class="brand-stats">
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <strong class="d-block text-dark">10</strong>
+                                            <small class="text-muted">Models</small>
+                                        </div>
+                                        <div class="col-6">
+                                            <strong class="d-block text-gold">₹46L+</strong>
+                                            <small class="text-muted">Starting</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- BMW -->
+                        <div class="col-md-6 col-lg-3">
+                            <article class="premium-brand-card" role="button" tabindex="0" onclick="filterByBrand('BMW')" onkeydown="handleBrandKey(event, 'BMW')" aria-label="Explore BMW inventory: 18 models, starting at ₹43 Lakh">
+                                <span class="brand-category luxury-category">Luxury</span>
+                                <img src="../assets/images/cars_logo/bmw_logo.jpg" class="brand-logo-premium" alt="BMW official roundel logo" loading="lazy">
+                                <h4 class="h5 fw-bold mb-2">BMW</h4>
+                                <p class="small text-muted mb-3">The Ultimate Driving Machine</p>
+                                <div class="brand-stats">
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <strong class="d-block text-dark">18</strong>
+                                            <small class="text-muted">Models</small>
+                                        </div>
+                                        <div class="col-6">
+                                            <strong class="d-block text-gold">₹43L+</strong>
+                                            <small class="text-muted">Starting</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Mercedes-Benz -->
+                        <div class="col-md-6 col-lg-3">
+                            <article class="premium-brand-card" role="button" tabindex="0" onclick="filterByBrand('Mercedes')" onkeydown="handleBrandKey(event, 'Mercedes')" aria-label="Explore Mercedes-Benz inventory: 12 models, starting at ₹44 Lakh">
+                                <span class="brand-category luxury-category">Luxury</span>
+                                <img src="../assets/images/cars_logo/mercedes_logo.jpg" class="brand-logo-premium" alt="Mercedes-Benz three-pointed star logo" loading="lazy">
+                                <h4 class="h5 fw-bold mb-2">Mercedes-Benz</h4>
+                                <p class="small text-muted mb-3">The Best or Nothing</p>
+                                <div class="brand-stats">
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <strong class="d-block text-dark">12</strong>
+                                            <small class="text-muted">Models</small>
+                                        </div>
+                                        <div class="col-6">
+                                            <strong class="d-block text-gold">₹44L+</strong>
+                                            <small class="text-muted">Starting</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Land Rover -->
+                        <div class="col-md-6 col-lg-3">
+                            <article class="premium-brand-card" role="button" tabindex="0" onclick="filterByBrand('Land Rover')" onkeydown="handleBrandKey(event, 'Land Rover')" aria-label="Explore Land Rover inventory: 2 models, starting at ₹1.5 Crore">
+                                <span class="brand-category luxury-category">Luxury</span>
+                                <img src="../assets/images/cars_logo/land_rover_logo.jpg" class="brand-logo-premium" alt="Land Rover green oval emblem" loading="lazy">
+                                <h4 class="h5 fw-bold mb-2">Land Rover</h4>
+                                <p class="small text-muted mb-3">Above and Beyond</p>
+                                <div class="brand-stats">
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <strong class="d-block text-dark">2</strong>
+                                            <small class="text-muted">Models</small>
+                                        </div>
+                                        <div class="col-6">
+                                            <strong class="d-block text-gold">₹1.5Cr+</strong>
+                                            <small class="text-muted">Starting</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Category 2: Premium Brands Section -->
+                <section class="mb-5" aria-labelledby="premium-heading">
+                    <header class="mb-4 text-center">
+                        <h3 id="premium-heading" class="fw-bold d-inline-flex align-items-center justify-content-center">
+                            <i class="bi bi-star-fill text-gold me-2" aria-hidden="true"></i>Executive &amp; Premium Brands
+                        </h3>
+                    </header>
+                    <div class="row g-4">
+                        <!-- Toyota -->
+                        <div class="col-md-6 col-lg-3">
+                            <article class="premium-brand-card" role="button" tabindex="0" onclick="filterByBrand('Toyota')" onkeydown="handleBrandKey(event, 'Toyota')" aria-label="Explore Toyota inventory: 10 models, starting at ₹6.9 Lakh">
+                                <span class="brand-category premium-category">Premium</span>
+                                <img src="../assets/images/cars_logo/toyota_logo.jpg" class="brand-logo-premium" alt="Toyota official emblem logo" loading="lazy">
+                                <h4 class="h5 fw-bold mb-2">Toyota</h4>
+                                <p class="small text-muted mb-3">Let's Go Places</p>
+                                <div class="brand-stats">
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <strong class="d-block text-dark">10</strong>
+                                            <small class="text-muted">Models</small>
+                                        </div>
+                                        <div class="col-6">
+                                            <strong class="d-block text-gold">₹6.9L+</strong>
+                                            <small class="text-muted">Starting</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Honda -->
+                        <div class="col-md-6 col-lg-3">
+                            <article class="premium-brand-card" role="button" tabindex="0" onclick="filterByBrand('Honda')" onkeydown="handleBrandKey(event, 'Honda')" aria-label="Explore Honda inventory: 9 models, starting at ₹5.0 Lakh">
+                                <span class="brand-category premium-category">Premium</span>
+                                <img src="../assets/images/cars_logo/honda_logo.jpg" class="brand-logo-premium" alt="Honda badge emblem logo" loading="lazy">
+                                <h4 class="h5 fw-bold mb-2">Honda</h4>
+                                <p class="small text-muted mb-3">The Power of Dreams</p>
+                                <div class="brand-stats">
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <strong class="d-block text-dark">9</strong>
+                                            <small class="text-muted">Models</small>
+                                        </div>
+                                        <div class="col-6">
+                                            <strong class="d-block text-gold">₹5.0L+</strong>
+                                            <small class="text-muted">Starting</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Volkswagen -->
+                        <div class="col-md-6 col-lg-3">
+                            <article class="premium-brand-card" role="button" tabindex="0" onclick="filterByBrand('Volkswagen')" onkeydown="handleBrandKey(event, 'Volkswagen')" aria-label="Explore Volkswagen inventory: 6 models, starting at ₹6.0 Lakh">
+                                <span class="brand-category premium-category">Premium</span>
+                                <img src="../assets/images/cars_logo/volkswagen_logo.jpg" class="brand-logo-premium" alt="Volkswagen official round emblem" loading="lazy">
+                                <h4 class="h5 fw-bold mb-2">Volkswagen</h4>
+                                <p class="small text-muted mb-3">Das Auto</p>
+                                <div class="brand-stats">
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <strong class="d-block text-dark">6</strong>
+                                            <small class="text-muted">Models</small>
+                                        </div>
+                                        <div class="col-6">
+                                            <strong class="d-block text-gold">₹6.0L+</strong>
+                                            <small class="text-muted">Starting</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Skoda -->
+                        <div class="col-md-6 col-lg-3">
+                            <article class="premium-brand-card" role="button" tabindex="0" onclick="filterByBrand('Skoda')" onkeydown="handleBrandKey(event, 'Skoda')" aria-label="Explore Skoda inventory: 6 models, starting at ₹11.6 Lakh">
+                                <span class="brand-category premium-category">Premium</span>
+                                <img src="../assets/images/cars_logo/skoda_logo.jpg" class="brand-logo-premium" alt="Skoda winged arrow logo" loading="lazy">
+                                <h4 class="h5 fw-bold mb-2">Skoda</h4>
+                                <p class="small text-muted mb-3">Simply Clever</p>
+                                <div class="brand-stats">
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <strong class="d-block text-dark">6</strong>
+                                            <small class="text-muted">Models</small>
+                                        </div>
+                                        <div class="col-6">
+                                            <strong class="d-block text-gold">₹11.6L+</strong>
+                                            <small class="text-muted">Starting</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Category 3: Mainstream Brands Section -->
+                <section class="mb-5" aria-labelledby="popular-heading">
+                    <header class="mb-4 text-center">
+                        <h3 id="popular-heading" class="fw-bold d-inline-flex align-items-center justify-content-center">
+                            <i class="bi bi-people-fill text-gold me-2" aria-hidden="true"></i>High-Reliability &amp; Popular Marques
+                        </h3>
+                    </header>
+                    <div class="row g-4">
+                        <!-- Maruti Suzuki -->
+                        <div class="col-md-6 col-lg-3">
+                            <article class="premium-brand-card" role="button" tabindex="0" onclick="filterByBrand('Maruti')" onkeydown="handleBrandKey(event, 'Maruti')" aria-label="Explore Maruti Suzuki inventory: 13 models, starting at ₹3.5 Lakh">
+                                <span class="brand-category mainstream-category">Popular</span>
+                                <img src="../assets/images/cars_logo/maruti_suzuki_logo.jpg" class="brand-logo-premium" alt="Maruti Suzuki official logo" loading="lazy">
+                                <h4 class="h5 fw-bold mb-2">Maruti Suzuki</h4>
+                                <p class="small text-muted mb-3">Way of Life</p>
+                                <div class="brand-stats">
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <strong class="d-block text-dark">13</strong>
+                                            <small class="text-muted">Models</small>
+                                        </div>
+                                        <div class="col-6">
+                                            <strong class="d-block text-gold">₹3.5L+</strong>
+                                            <small class="text-muted">Starting</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Hyundai -->
+                        <div class="col-md-6 col-lg-3">
+                            <article class="premium-brand-card" role="button" tabindex="0" onclick="filterByBrand('Hyundai')" onkeydown="handleBrandKey(event, 'Hyundai')" aria-label="Explore Hyundai inventory: 8 models, starting at ₹3.5 Lakh">
+                                <span class="brand-category mainstream-category">Popular</span>
+                                <img src="../assets/images/cars_logo/hyundai_logo.jpg" class="brand-logo-premium" alt="Hyundai stylized H logo" loading="lazy">
+                                <h4 class="h5 fw-bold mb-2">Hyundai</h4>
+                                <p class="small text-muted mb-3">New Thinking. New Possibilities.</p>
+                                <div class="brand-stats">
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <strong class="d-block text-dark">8</strong>
+                                            <small class="text-muted">Models</small>
+                                        </div>
+                                        <div class="col-6">
+                                            <strong class="d-block text-gold">₹3.5L+</strong>
+                                            <small class="text-muted">Starting</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Tata Motors -->
+                        <div class="col-md-6 col-lg-3">
+                            <article class="premium-brand-card" role="button" tabindex="0" onclick="filterByBrand('Tata')" onkeydown="handleBrandKey(event, 'Tata')" aria-label="Explore Tata Motors inventory: 13 models, starting at ₹5.7 Lakh">
+                                <span class="brand-category mainstream-category">Popular</span>
+                                <img src="../assets/images/cars_logo/tata.jpg" class="brand-logo-premium" alt="Tata Motors official emblem logo" loading="lazy">
+                                <h4 class="h5 fw-bold mb-2">Tata Motors</h4>
+                                <p class="small text-muted mb-3">Connecting Aspirations</p>
+                                <div class="brand-stats">
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <strong class="d-block text-dark">13</strong>
+                                            <small class="text-muted">Models</small>
+                                        </div>
+                                        <div class="col-6">
+                                            <strong class="d-block text-gold">₹5.7L+</strong>
+                                            <small class="text-muted">Starting</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Mahindra -->
+                        <div class="col-md-6 col-lg-3">
+                            <article class="premium-brand-card" role="button" tabindex="0" onclick="filterByBrand('Mahindra')" onkeydown="handleBrandKey(event, 'Mahindra')" aria-label="Explore Mahindra inventory: 12 models, starting at ₹7.5 Lakh">
+                                <span class="brand-category mainstream-category">Popular</span>
+                                <img src="../assets/images/cars_logo/mahindra_logo.jpg" class="brand-logo-premium" alt="Mahindra twin peaks emblem logo" loading="lazy">
+                                <h4 class="h5 fw-bold mb-2">Mahindra</h4>
+                                <p class="small text-muted mb-3">Rise</p>
+                                <div class="brand-stats">
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <strong class="d-block text-dark">12</strong>
+                                            <small class="text-muted">Models</small>
+                                        </div>
+                                        <div class="col-6">
+                                            <strong class="d-block text-gold">₹7.5L+</strong>
+                                            <small class="text-muted">Starting</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Category 4: Emerging & Electric Brands Section -->
+                <section class="mb-5" aria-labelledby="electric-heading">
+                    <header class="mb-4 text-center">
+                        <h3 id="electric-heading" class="fw-bold d-inline-flex align-items-center justify-content-center">
+                            <i class="bi bi-lightning-charge-fill text-gold me-2" aria-hidden="true"></i>Emerging &amp; Sustainable Mobility
+                        </h3>
+                    </header>
+                    <div class="row g-4">
+                        <!-- Kia -->
+                        <div class="col-md-6 col-lg-3">
+                            <article class="premium-brand-card" role="button" tabindex="0" onclick="filterByBrand('Kia')" onkeydown="handleBrandKey(event, 'Kia')" aria-label="Explore Kia inventory: 6 models, starting at ₹8.0 Lakh">
+                                <span class="brand-category electric-category">Emerging</span>
+                                <img src="../assets/images/cars_logo/kia_logo.jpg" class="brand-logo-premium" alt="Kia modern wordmark logo" loading="lazy">
+                                <h4 class="h5 fw-bold mb-2">Kia</h4>
+                                <p class="small text-muted mb-3">Movement that Inspires</p>
+                                <div class="brand-stats">
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <strong class="d-block text-dark">6</strong>
+                                            <small class="text-muted">Models</small>
+                                        </div>
+                                        <div class="col-6">
+                                            <strong class="d-block text-gold">₹8.0L+</strong>
+                                            <small class="text-muted">Starting</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- MG Motor -->
+                        <div class="col-md-6 col-lg-3">
+                            <article class="premium-brand-card" role="button" tabindex="0" onclick="filterByBrand('MG')" onkeydown="handleBrandKey(event, 'MG')" aria-label="Explore MG Motor inventory: 5 models, starting at ₹7.0 Lakh">
+                                <span class="brand-category electric-category">Electric</span>
+                                <img src="../assets/images/cars_logo/mg_motor_logo.jpg" class="brand-logo-premium" alt="MG Motor octagonal logo" loading="lazy">
+                                <h4 class="h5 fw-bold mb-2">MG Motor</h4>
+                                <p class="small text-muted mb-3">Designed for You</p>
+                                <div class="brand-stats">
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <strong class="d-block text-dark">5</strong>
+                                            <small class="text-muted">Models</small>
+                                        </div>
+                                        <div class="col-6">
+                                            <strong class="d-block text-gold">₹7.0L+</strong>
+                                            <small class="text-muted">Starting</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Nissan -->
+                        <div class="col-md-6 col-lg-3">
+                            <article class="premium-brand-card" role="button" tabindex="0" onclick="filterByBrand('Nissan')" onkeydown="handleBrandKey(event, 'Nissan')" aria-label="Explore Nissan inventory: 5 models, starting at ₹4.0 Lakh">
+                                <span class="brand-category mainstream-category">Global</span>
+                                <img src="../assets/images/cars_logo/nissan_logo.jpg" class="brand-logo-premium" alt="Nissan official emblem logo" loading="lazy">
+                                <h4 class="h5 fw-bold mb-2">Nissan</h4>
+                                <p class="small text-muted mb-3">Innovation that Excites</p>
+                                <div class="brand-stats">
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <strong class="d-block text-dark">5</strong>
+                                            <small class="text-muted">Models</small>
+                                        </div>
+                                        <div class="col-6">
+                                            <strong class="d-block text-gold">₹4.0L+</strong>
+                                            <small class="text-muted">Starting</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Statistics Section -->
+        <section class="stats-section" aria-labelledby="portfolio-stats-heading">
+            <div class="container">
+                <header class="text-center mb-5">
+                    <h2 id="portfolio-stats-heading" class="fw-bold text-white mb-3">Our Brand Portfolio At A Glance</h2>
+                    <p class="text-white-50 lead fs-6">Comprehensive statistics across our verified automobile collection</p>
+                </header>
+                
+                <div class="row g-4">
+                    <div class="col-md-3 col-6">
+                        <article class="stat-card" aria-label="15 or more premium brands available">
+                            <div class="stat-number">15+</div>
+                            <h3 class="h6 text-white mt-2 mb-0">Premium Brands</h3>
+                            <small class="text-white-50">Global Manufacturers</small>
+                        </article>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <article class="stat-card" aria-label="135 or more vehicle models in stock">
+                            <div class="stat-number">135+</div>
+                            <h3 class="h6 text-white mt-2 mb-0">Vehicle Models</h3>
+                            <small class="text-white-50">Across All Segments</small>
+                        </article>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <article class="stat-card" aria-label="Starting price at 3.5 Lakh rupees">
+                            <div class="stat-number">₹3.5L</div>
+                            <h3 class="h6 text-white mt-2 mb-0">Starting Price</h3>
+                            <small class="text-white-50">Accessible Entry Options</small>
+                        </article>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <article class="stat-card" aria-label="25 or more electric and hybrid models">
+                            <div class="stat-number">25+</div>
+                            <h3 class="h6 text-white mt-2 mb-0">Electric Models</h3>
+                            <small class="text-white-50">Future-Ready Mobility</small>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="luxury-footer pt-5 pb-4 mt-0" role="contentinfo">
+        <div class="container">
+            <div class="row gy-4 border-bottom border-dark-subtle pb-5">
+                <div class="col-lg-4 text-center text-lg-start">
+                    <div class="mb-3 d-inline-block">
+                        <img src="../assets/images/car_fusion_logo.png" alt="Car Fusion footer logo" class="footer-logo-glow"
+                            style="max-width: 180px; height: auto;" width="180" height="45">
+                    </div>
+                    <p class="text-secondary small">
+                        The world's most trusted marketplace for premium pre-owned automobiles.
+                        We deliver excellence in every mile.
+                    </p>
+                </div>
+
+                <div class="col-lg-4 text-center">
+                    <h5 class="text-gold text-uppercase fw-bold mb-4 fs-6">Quick Links</h5>
+                    <nav aria-label="Footer Quick Links">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="new_cars.html" class="text-secondary text-decoration-none hover-gold">New Inventory</a></li>
+                            <li class="mb-2"><a href="new_cars.html" class="text-secondary text-decoration-none hover-gold">Curated Collection</a></li>
+                            <li class="mb-2"><a href="compare.html" class="text-secondary text-decoration-none hover-gold">Compare Cars</a></li>
+                            <li class="mb-2"><a href="contact.html" class="text-secondary text-decoration-none hover-gold">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="col-lg-4 text-center text-lg-end">
+                    <h5 class="text-gold text-uppercase fw-bold mb-4 fs-6">Connect With Us</h5>
+                    <div class="d-flex justify-content-center justify-content-lg-end gap-3 social-group" aria-label="Social media links">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn facebook" aria-label="Visit Car Fusion Facebook page"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn instagram" aria-label="Visit Car Fusion Instagram profile"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+                        <a href="mailto:info@carfusion.com" class="social-btn mail" aria-label="Email Car Fusion"><i class="bi bi-envelope-fill" aria-hidden="true"></i></a>
+                        <a href="tel:+919876543210" class="social-btn phone" aria-label="Call Car Fusion Support"><i class="bi bi-telephone-fill" aria-hidden="true"></i></a>
+                    </div>
+                    <address class="mt-4 text-secondary small not-italic mb-0">
+                        <i class="bi bi-geo-alt-fill text-gold me-2" aria-hidden="true"></i>
+                        <span class="location-display">Ahmedabad</span>, Gujarat, India
+                    </address>
+                </div>
+            </div>
+
+            <div class="text-center pt-4">
+                <p class="text-secondary small mb-0">&copy; 2026 Car Fusion. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap & Core JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
+    <script>
+        // Brand filtering functionality
+        function filterByBrand(brandName) {
+            window.location.href = `new_cars.html?brand=${encodeURIComponent(brandName)}`;
+        }
+
+        // Accessible keyboard trigger (Enter / Space)
+        function handleBrandKey(event, brandName) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                filterByBrand(brandName);
+            }
+        }
+
+        // Add smooth scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate brand cards on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all brand cards
+            document.querySelectorAll('.premium-brand-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Animate statistics counters
+            const statNumbers = document.querySelectorAll('.stat-number');
+            const statsObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            statNumbers.forEach(stat => {
+                statsObserver.observe(stat);
+            });
+        });
+
+        function animateCounter(element) {
+            const target = element.textContent;
+            const isNumber = target.match(/\d+/);
+            
+            if (isNumber) {
+                const number = parseInt(isNumber[0]);
+                const prefix = target.replace(/\d+/, '');
+                let current = 0;
+                const increment = Math.max(1, Math.floor(number / 50));
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= number) {
+                        element.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = prefix.replace(/\d+/, Math.floor(current));
+                    }
+                }, 30);
+            }
+        }
+
+        // Add hover effects for brand cards
+        document.querySelectorAll('.premium-brand-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

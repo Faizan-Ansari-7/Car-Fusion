@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Cars - Car Fusion | The Future is Here</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icons/car_fusion_favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="../assets/css/main_interface.css">
+
+    <style>
+        /* Specific Styles for Long Content */
+        .content-text {
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        .feature-icon-box {
+            background: #f8f9fa;
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
+
+        .feature-icon-box:hover {
+            background: #000;
+            color: #D4AF37;
+            border-color: #000;
+        }
+
+        .feature-icon-box:hover h5,
+        .feature-icon-box:hover p {
+            color: #fff;
+        }
+
+        .pro-con-card {
+            height: 100%;
+            border: 1px solid #eee;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        /* Dropdown Fix */
+        .hover-dropdown {
+            position: relative;
+        }
+
+        .hover-dropdown:hover .dropdown-menu {
+            display: block;
+            margin-top: 0;
+        }
+
+        .dropdown-menu {
+            z-index: 1050;
+        }
+
+        /* OVERLAY FIX: Ensures it stays inside the hero section */
+        .hero-overlay {
+            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            /* Behind text */
+        }
+
+        /* FAQ Accordion Euro Theme */
+        .accordion-button:not(.collapsed) {
+            background-color: #000;
+            color: #D4AF37;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: #D4AF37;
+        }
+    </style>
+</head>
+
+<body class="euro-body">
+
+    <header class="euro-header fixed-top">
+        <div class="top-bar">
+            <div class="container d-flex align-items-center justify-content-between">
+                <a class="navbar-brand me-4" href="../index.html">
+                    <img src="../assets/images/car_fusion_logo.png" alt="Car Fusion" class="logo-size">
+                </a>
+
+                <div class="flex-grow-1 mx-lg-5 d-lg-block">
+                    <div class="header-search-container">
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0">
+                                <i class="bi bi-search text-gold"></i>
+                            </span>
+                            <input type="text" id="searchInput" class="form-control border-start-0 ps-0"
+                                placeholder="Search for 'Porsche 911'...">
+                            <button class="btn btn-gold" type="button" id="searchBtn">SEARCH</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-4">
+                    <div class="d-flex align-items-center text-white cursor-pointer hover-gold" data-bs-toggle="modal" data-bs-target="#locationModal" style="cursor: pointer;">
+                        <i class="bi bi-geo-alt me-2"></i>
+                        <span class="small fw-bold location-display">Ahmedabad</span>
+                    </div>
+                    <a href="login.html" class="d-flex align-items-center text-white text-decoration-none hover-gold">
+                        <i class="bi bi-person-circle me-2 fs-5"></i>
+                        <span class="small fw-bold">Login</span>
+                    </a>
+                </div>
+
+                <button class="navbar-toggler d-lg-none text-white border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mobileMenu">
+                    <i class="bi bi-list fs-1"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="secondary-nav border-top border-dark-subtle">
+            <div class="container">
+                <nav class="nav justify-content-center d-lg-flex">
+                    <div class="dropdown hover-dropdown">
+                        <a class="nav-link dropdown-toggle" href="new_cars.html" role="button" aria-expanded="false">
+                            NEW CARS
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="new_cars.html">EXPLORE NEW CARS</a></li>
+                            <li><a class="dropdown-item" href="compare.html">COMPARE CARS</a></li>
+                            <li><a class="dropdown-item" href="electric-cars.html">ELECTRIC CARS</a></li>
+                            <li><a class="dropdown-item" href="brands.html">POPULAR BRANDS</a></li>
+                        </ul>
+                    </div>
+                    <a class="nav-link" href="reviews_news.html">REVIEWS & NEWS</a>
+                    <a class="nav-link" href="modify.html">FUSION LAB</a>
+                    <a class="nav-link" href="about_us.html">ABOUT US</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-spacer"></div>
+
+    <section class="new-cars-hero position-relative d-flex align-items-center justify-content-center text-center"
+        style="background: url('https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2072') center/cover; height: 60vh;">
+        <div class="container position-relative z-2">
+            <h5 class="text-gold text-uppercase ls-2 mb-3">Sustainable Performance</h5>
+            <h1 class="display-3 fw-bold text-white mb-4">ELECTRIC REVOLUTION</h1>
+            <p class="lead text-white-50 mx-auto" style="max-width: 700px;">
+                Experience the perfect synthesis of luxury, technology, and sustainability.
+                The future of driving has arrived at Car Fusion.
+            </p>
+            <div class="divider-gold mx-auto mt-4"></div>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h5 class="text-gold text-uppercase ls-2">The Shift</h5>
+                    <h2 class="fw-bold mb-4 display-6">Why Choose Electric?</h2>
+                    <p class="content-text mb-4">
+                        The automotive world is undergoing its most significant transformation in a century. Switching
+                        to an electric vehicle (EV) is no longer just an environmental choice—it is a performance and
+                        lifestyle upgrade.
+                    </p>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-lightning-charge-fill text-gold fs-3 me-3"></i>
+                                <div>
+                                    <h6 class="fw-bold">Instant Torque</h6>
+                                    <p class="small text-secondary">Electric motors provide 100% torque instantly,
+                                        offering acceleration that rivals supercars.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-wallet2 text-gold fs-3 me-3"></i>
+                                <div>
+                                    <h6 class="fw-bold">80% Lower Costs</h6>
+                                    <p class="small text-secondary">Save massively on fuel and maintenance. Electricity
+                                        is a fraction of the cost of petrol.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-soundwave text-gold fs-3 me-3"></i>
+                                <div>
+                                    <h6 class="fw-bold">Silent Luxury</h6>
+                                    <p class="small text-secondary">Enjoy a cabin experience that is whisper-quiet,
+                                        reducing driver fatigue and enhancing music quality.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-globe-americas text-gold fs-3 me-3"></i>
+                                <div>
+                                    <h6 class="fw-bold">Zero Emissions</h6>
+                                    <p class="small text-secondary">Drive guilt-free with zero tailpipe emissions,
+                                        contributing to cleaner air for future generations.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1000"
+                        class="img-fluid border border-5 border-white shadow-lg" alt="Electric Charging">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-black text-white">
+        <div class="container text-center">
+            <h5 class="text-gold text-uppercase ls-2 mb-3">Vision 2030</h5>
+            <h2 class="fw-bold mb-5 display-5">The Future of Mobility</h2>
+
+            <div class="row g-4 text-start">
+                <div class="col-md-4">
+                    <div class="feature-icon-box p-4 h-100 bg-dark border-secondary">
+                        <i class="bi bi-cpu-fill text-gold fs-1 mb-3"></i>
+                        <h4 class="text-white">Autonomous Driving</h4>
+                        <p class="text-secondary">Future EVs will not just be cars; they will be personal lounges. With
+                            Level 5 autonomy on the horizon, your car will handle the traffic while you handle business.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-icon-box p-4 h-100 bg-dark border-secondary">
+                        <i class="bi bi-battery-charging text-gold fs-1 mb-3"></i>
+                        <h4 class="text-white">Solid State Batteries</h4>
+                        <p class="text-secondary">The next leap in tech. Batteries that charge in 5 minutes and offer
+                            1000km range are currently in development by major manufacturers like Toyota and BMW.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-icon-box p-4 h-100 bg-dark border-secondary">
+                        <i class="bi bi-hdd-network-fill text-gold fs-1 mb-3"></i>
+                        <h4 class="text-white">Connected Ecosystem</h4>
+                        <p class="text-secondary">Cars will communicate with traffic lights, other vehicles, and your
+                            smart home. Your EV will cool your house down before you arrive and park itself
+                            automatically.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h5 class="text-gold text-uppercase ls-2">Balanced View</h5>
+                <h2 class="fw-bold">Advantages vs Challenges</h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-header bg-success text-white py-3">
+                            <h4 class="mb-0"><i class="bi bi-check-circle-fill me-2"></i> Advantages (Pros)</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled content-text">
+                                <li class="mb-3 d-flex"><i class="bi bi-check-lg text-success fs-4 me-2"></i>
+                                    <div><strong>Lower Running Costs:</strong> Electricity is roughly 1/10th the cost of
+                                        petrol per km.</div>
+                                </li>
+                                <li class="mb-3 d-flex"><i class="bi bi-check-lg text-success fs-4 me-2"></i>
+                                    <div><strong>Minimal Maintenance:</strong> No oil changes, no spark plugs, no
+                                        transmission fluids. Fewer moving parts mean fewer breakdowns.</div>
+                                </li>
+                                <li class="mb-3 d-flex"><i class="bi bi-check-lg text-success fs-4 me-2"></i>
+                                    <div><strong>Government Subsidies:</strong> Tax benefits (Section 80EEB) and FAME II
+                                        subsidies reduce upfront costs in India.</div>
+                                </li>
+                                <li class="mb-3 d-flex"><i class="bi bi-check-lg text-success fs-4 me-2"></i>
+                                    <div><strong>Performance:</strong> Superior acceleration and handling due to a low
+                                        center of gravity (battery placement).</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-header bg-black text-white py-3">
+                            <h4 class="mb-0 text-gold"><i class="bi bi-exclamation-triangle-fill me-2"></i> Challenges
+                                (Cons)</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled content-text">
+                                <li class="mb-3 d-flex"><i class="bi bi-x-lg text-danger fs-4 me-2"></i>
+                                    <div><strong>Range Anxiety:</strong> Although improving, the fear of running out of
+                                        charge on long highway trips still exists for some users.</div>
+                                </li>
+                                <li class="mb-3 d-flex"><i class="bi bi-x-lg text-danger fs-4 me-2"></i>
+                                    <div><strong>Charging Infrastructure:</strong> While cities like Surat and Mumbai
+                                        are well-equipped, rural India is still developing charging stations.</div>
+                                </li>
+                                <li class="mb-3 d-flex"><i class="bi bi-x-lg text-danger fs-4 me-2"></i>
+                                    <div><strong>Initial Cost:</strong> EVs currently have a higher upfront purchase
+                                        price compared to petrol variants (though cheaper to own long-term).</div>
+                                </li>
+                                <li class="mb-3 d-flex"><i class="bi bi-x-lg text-danger fs-4 me-2"></i>
+                                    <div><strong>Charging Time:</strong> Refueling takes 5 minutes; charging can take 45
+                                        mins (Fast Charge) to 8 hours (Home Charge).</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-white">
+        <div class="container">
+            <h5 class="text-gold text-uppercase ls-2 mb-4">Car Fusion Spotlight</h5>
+            <div class="card border-0 shadow-lg overflow-hidden">
+                <div class="row g-0">
+                    <div class="col-lg-7">
+                        <img src="https://images.unsplash.com/photo-1616422285623-13ff0162193c?q=80&w=1000"
+                            class="img-fluid h-100 object-fit-cover" alt="Porsche Taycan">
+                    </div>
+                    <div class="col-lg-5 bg-black text-white p-5 d-flex flex-column justify-content-center">
+                        <span class="badge bg-gold text-dark w-25 mb-3"
+                            style="background-color: #D4AF37;">FLAGSHIP</span>
+                        <h2 class="display-5 fw-bold text-white mb-2">Porsche Taycan</h2>
+                        <p class="text-gold fs-5 mb-4">The Soul, Electrified.</p>
+                        <p class="text-secondary mb-4">
+                            The Porsche Taycan represents the pinnacle of electric performance. It combines the everyday
+                            usability of a sedan with the soul of a 911.
+                        </p>
+                        <div class="row g-3 mb-4">
+                            <div class="col-6">
+                                <div class="border border-secondary p-3 text-center">
+                                    <h4 class="text-white m-0">2.8s</h4>
+                                    <small class="text-secondary">0-100 km/h</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="border border-secondary p-3 text-center">
+                                    <h4 class="text-white m-0">450km</h4>
+                                    <small class="text-secondary">Range</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="border border-secondary p-3 text-center">
+                                    <h4 class="text-white m-0">750</h4>
+                                    <small class="text-secondary">Horsepower</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="border border-secondary p-3 text-center">
+                                    <h4 class="text-white m-0">22 min</h4>
+                                    <small class="text-secondary">Fast Charge</small>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-gold btn-lg rounded-0 fw-bold">ENQUIRE NOW</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" style="background-color: #F9F9F9;">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-end mb-4">
+                <div>
+                    <h5 class="text-gold text-uppercase ls-2">Current Inventory</h5>
+                    <h2 class="fw-bold m-0">Available Electric & Hybrid Models</h2>
+                </div>
+                <a href="new_cars.html" class="btn btn-outline-dark rounded-0">View All Inventory</a>
+            </div>
+
+            <div id="electricCarGrid" class="row g-4">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-white">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Frequently Asked Questions</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item border-0 border-bottom mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    How long does an EV battery last?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-secondary">
+                                    Most modern EV batteries are designed to last 10-20 years. Manufacturers typically
+                                    offer an 8-year or 160,000 km warranty on the battery pack specifically. Even after
+                                    this, the battery often retains 70-80% of its capacity.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 border-bottom mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Can I charge my electric car at home?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-secondary">
+                                    Yes, absolutely. 80% of EV charging happens at home. You can use a standard 3-pin
+                                    plug (slow charging) or install a dedicated Wallbox charger (fast home charging)
+                                    which can fully charge your car overnight (6-8 hours).
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 border-bottom mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Is maintenance really cheaper?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-secondary">
+                                    Yes. An internal combustion engine has over 2,000 moving parts. An electric motor
+                                    has around 20. There is no oil to change, no timing belts, no spark plugs, and
+                                    regenerative braking saves your brake pads.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="luxury-footer pt-5 pb-4">
+        <div class="container">
+            <div class="row gy-4 border-bottom border-dark-subtle pb-5">
+                <div class="col-lg-4 text-center text-lg-start">
+                    <div class="mb-3 d-inline-block">
+                        <img src="../assets/images/car_fusion_logo.png" alt="Car Fusion" class="footer-logo-glow"
+                            style="max-width: 180px; height: auto;">
+                    </div>
+                    <p class="text-secondary small">
+                        The world's most trusted marketplace for premium pre-owned automobiles.
+                        We deliver excellence in every mile.
+                    </p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <h6 class="text-gold text-uppercase fw-bold mb-4">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="new_cars.html" class="footer-link">New Inventory</a></li>
+                        <li class="mb-2"><a href="new_cars.html" class="footer-link">Collection</a></li>
+                        <li class="mb-2"><a href="contact.html" class="footer-link">Insurance</a></li>
+                        <li class="mb-2"><a href="contact.html" class="footer-link">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 text-center text-lg-end">
+                    <h6 class="text-gold text-uppercase fw-bold mb-4">Connect With Us</h6>
+                    <div class="d-flex justify-content-center justify-content-lg-end gap-3 social-group">
+                        <a href="#" class="social-btn facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-btn instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-btn mail"><i class="bi bi-envelope-fill"></i></a>
+                        <a href="#" class="social-btn phone"><i class="bi bi-telephone-fill"></i></a>
+                    </div>
+                    <div class="mt-4 text-secondary small">
+                        <i class="bi bi-geo-alt-fill text-gold me-2"></i> <span class="location-display">Ahmedabad</span>, Gujarat, India
+                    </div>
+                </div>
+            </div>
+            <div class="text-center pt-4">
+                <p class="text-secondary small mb-0">&copy; 2026 Car Fusion. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Load Electric and Hybrid Cars
+        document.addEventListener('DOMContentLoaded', function() {
+            const electricCarGrid = document.getElementById('electricCarGrid');
+            
+            // Filter electric and hybrid cars
+            const electricCars = cars.filter(car => 
+                car.fuel === 'Electric' || car.fuel === 'Hybrid' || car.fuel === 'Plug-in Hybrid'
+            );
+            
+            if (electricCars.length === 0) {
+                electricCarGrid.innerHTML = `
+                    <div class="col-12 text-center py-5">
+                        <i class="bi bi-battery-charging text-gold" style="font-size: 4rem;"></i>
+                        <h4 class="mt-3">No Electric Cars Available</h4>
+                        <p class="text-muted">Check back soon for our electric vehicle inventory.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            electricCars.forEach(car => {
+                const carCard = `
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm hover-card">
+                            <div class="position-relative">
+                                <img src="${car.image}" class="card-img-top" alt="${car.brand} ${car.model}" 
+                                    style="height: 250px; object-fit: cover;">
+                                <span class="badge bg-success position-absolute top-0 end-0 m-3">
+                                    <i class="bi bi-lightning-charge-fill me-1"></i>${car.fuel}
+                                </span>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="fw-bold mb-2">${car.brand} ${car.model}</h5>
+                                <p class="text-gold fw-bold fs-5 mb-3">₹ ${(car.price / 100000).toFixed(2)} Lakh</p>
+                                <div class="row g-2 mb-3 small text-muted">
+                                    <div class="col-6">
+                                        <i class="bi bi-speedometer me-1"></i>${car.mileage}
+                                    </div>
+                                    <div class="col-6">
+                                        <i class="bi bi-gear-fill me-1"></i>${car.transmission}
+                                    </div>
+                                    <div class="col-6">
+                                        <i class="bi bi-lightning-charge me-1"></i>${car.power || 'N/A'}
+                                    </div>
+                                    <div class="col-6">
+                                        <i class="bi bi-speedometer2 me-1"></i>${car.topSpeed || 'N/A'}
+                                    </div>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <a href="car_details.html?id=${car.id}" class="btn btn-outline-dark rounded-0">
+                                        <i class="bi bi-eye me-2"></i>View Details
+                                    </a>
+                                    <button class="btn btn-gold rounded-0" onclick="alert('Booking feature coming soon!')">
+                                        <i class="bi bi-bag-check me-2"></i>Book Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                electricCarGrid.innerHTML += carCard;
+            });
+        });
+    </script>
+    <style>
+        .hover-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+        }
+    </style>
+</body>
+
+</html>

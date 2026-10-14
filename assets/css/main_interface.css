@@ -1,0 +1,494 @@
+/* 1. Global Reset & Fonts */
+:root {
+    --euro-black: #000000;
+    --euro-gold: #D4AF37;
+    --euro-white: #FFFFFF;
+    --euro-text: #333333;
+    --euro-gray: #f4f4f4;
+}
+
+body.euro-body {
+    background-color: var(--euro-white);
+    color: var(--euro-text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+/* 2. Typography & Colors */
+.text-gold { color: var(--euro-gold) !important; }
+.bg-black { background-color: var(--euro-black) !important; }
+.fw-bold { font-weight: 700 !important; }
+
+.divider-gold {
+    height: 3px;
+    width: 60px;
+    background-color: var(--euro-gold);
+    margin: 15px auto;
+}
+
+/* 3. Unified Header (Black & Gold) */
+.euro-header {
+    background-color: var(--euro-black); /* Black Background */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    
+    /* Sticky Properties */
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    right: 0;
+    
+    /* Ensure it is ALWAYS on top */
+    z-index: 100000; 
+}
+
+.top-bar { padding: 12px 0; background-color: var(--euro-black); }
+.logo-size { height: 50px; width: auto; }
+
+/* Search Input */
+.header-search-container .input-group {
+    border: 1px solid #333;
+    border-radius: 2px;
+}
+.header-search-container input {
+    border: none;
+    box-shadow: none !important;
+    background: #fff;
+}
+.btn-gold {
+    background-color: var(--euro-gold);
+    color: #000;
+    font-weight: 700;
+    border: none;
+    padding: 0 20px;
+    transition: 0.3s;
+}
+.btn-gold:hover { background-color: #F0C440; }
+
+.secondary-nav { background-color: #0a0a0a; border-top: 1px solid #222; }
+.secondary-nav .nav-link {
+    color: #999;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 15px 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+.secondary-nav .nav-link:hover, .secondary-nav .nav-link.active-gold {
+    color: var(--euro-gold);
+}
+
+/* 4. Dropdown Hover Fix */
+@media (min-width: 992px) {
+    .hover-dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+        animation: fadeIn 0.3s;
+    }
+}
+.dropdown-menu {
+    background-color: #000;
+    border-top: 3px solid var(--euro-gold);
+    border-radius: 0;
+}
+.dropdown-item {
+    color: #bbb;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+.dropdown-item:hover {
+    background-color: #111;
+    color: var(--euro-gold);
+    padding-left: 25px;
+}
+
+@keyframes fadeIn { 
+    from {
+        opacity: 0; transform: translateY(10px); 
+    } to { 
+        opacity: 1; transform: translateY(0); 
+    }
+}
+
+/* 5. Hero Sections */
+.header-spacer { height: 126px; }
+
+/* Standard Hero for Subpages */
+.subpage-hero {
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    position: relative;
+    color: white;
+    text-align: center;
+}
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 1;
+}
+.subpage-content {
+    position: relative; z-index: 2;
+}
+
+/* 6. Cards & Grid */
+.euro-card {
+    background: #fff;
+    border: 1px solid #eee;
+    transition: 0.3s;
+    height: 100%;
+}
+.euro-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-color: var(--euro-gold);
+}
+
+/* 7. Luxury Footer */
+.luxury-footer {
+    background-color: #050505;
+    color: #fff;
+    border-top: 4px solid var(--euro-gold);
+    margin-top: 50px;
+}
+.footer-link {
+    color: #888;
+    text-decoration: none;
+    transition: 0.3s;
+    display: block;
+    margin-bottom: 8px;
+}
+.footer-link:hover { 
+    color: var(--euro-gold); padding-left: 5px;
+}
+
+.social-btn {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #111;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-right: 10px;
+    transition: 0.3s;
+    border: 1px solid #333;
+}
+.social-btn:hover {
+    background: var(--euro-gold);
+    color: #000;
+    border-color: var(--euro-gold);
+}
+
+/* --- LOGIN PAGE --- */
+
+.form-control:focus {
+    border-color: var(--euro-gold);
+    box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25); /* Gold Glow */
+}
+.form-floating > label {
+    font-size: 0.9rem;
+}
+
+.form-check-input:checked {
+    background-color: var(--euro-black);
+    border-color: var(--euro-black);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.login-section .euro-card:hover {
+    transform: none; 
+    border-color: transparent;
+}
+
+/* Brand Loader Styles */
+.brand-loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95); /* Slight transparency */
+    z-index: 99999; /* On top of everything */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(5px); /* Premium blur effect */
+}
+
+/* Logo Pulse Animation */
+#loaderLogo {
+    animation: pulseLogo 1.5s infinite ease-in-out;
+}
+
+@keyframes pulseLogo {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.d-none {
+    display: none !important;
+}
+
+/* ========================
+   AI CHATBOT STYLES
+   ======================== */
+
+/* Floating Button */
+.chat-float-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #000;
+    color: #D4AF37; /* Gold */
+    border: 2px solid #D4AF37;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 100001; /* High Priority */
+    transition: 0.3s;
+}
+
+.chat-float-btn:hover {
+    transform: scale(1.1);
+    background: #D4AF37;
+    color: #000;
+}
+
+/* Chat Window */
+.chat-window {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 350px;
+    height: 450px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 100002;
+    border: 1px solid #ddd;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.chat-header {
+    background: #000;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #D4AF37;
+}
+
+/* Body */
+.chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #f9f9f9;
+    font-size: 0.9rem;
+}
+
+/* Messages */
+.bot-msg {
+    background: #e9ecef;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 15px 15px 15px 0;
+    margin-bottom: 10px;
+    max-width: 80%;
+    align-self: flex-start;
+}
+
+.user-msg {
+    background: #D4AF37;
+    color: #000;
+    padding: 10px 15px;
+    border-radius: 15px 15px 0 15px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    margin-left: auto; /* Push to right */
+    font-weight: 600;
+}
+
+/* Footer */
+.chat-footer {
+    padding: 10px;
+    background: #fff;
+    border-top: 1px solid #eee;
+}
+
+/* ========================
+   ADVANCED CHATBOT STYLES
+   ======================== */
+
+/* Quick Action Buttons (Chips) */
+.chat-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+}
+.chat-btn-option {
+    background: #fff;
+    border: 1px solid #D4AF37;
+    color: #000;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.chat-btn-option:hover {
+    background: #D4AF37;
+    color: #fff;
+}
+
+/* Comparison Table inside Chat */
+.chat-table {
+    width: 100%;
+    font-size: 0.85rem;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: #fff;
+}
+.chat-table th, .chat-table td {
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: left;
+}
+.chat-table th {
+    background: #000;
+    color: #D4AF37;
+}
+
+/* Typing Indicator (Dots) */
+.typing-indicator {
+    font-style: italic;
+    color: #888;
+    font-size: 0.8rem;
+    margin-left: 10px;
+    display: none; /* Hidden by default */
+}
+
+/* =========================================
+   SMOOTH DROPDOWN ANIMATIONS (GLOBAL)
+   ========================================= */
+
+/* 1. Container Settings */
+.hover-dropdown { 
+    position: relative; 
+}
+
+/* 2. Dropdown Menu Animation (Hidden State) */
+.hover-dropdown .dropdown-menu {
+    display: block; /* Hamesha block rakho animation ke liye */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px); /* Thoda neeche se shuru hoga */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Ultra Smooth CSS Bezier */
+    border: none;
+    border-top: 3px solid #D4AF37; /* Gold Top Border */
+    border-radius: 0;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    margin-top: 0;
+    background: #ffffff;
+    min-width: 220px;
+}
+
+/* 3. Dropdown Menu Animation (Visible State on Hover) */
+.hover-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Wapas apni jagah par */
+}
+
+/* 4. Dropdown Items Styling (Links) */
+.dropdown-item {
+    padding: 12px 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #444;
+    transition: all 0.3s ease; /* Smooth transition */
+    border-left: 3px solid transparent;
+}
+
+/* 5. Item Hover Effect (Slide Right & Gold) */
+.dropdown-item:hover {
+    background: #fffbf0; /* Light Gold Background */
+    color: #000;
+    border-left-color: #D4AF37; /* Left Border Gold */
+    padding-left: 35px; /* Thoda right khisko */
+}
+
+/* =========================================
+   GLOBAL DROPDOWN STYLES (Paste in main_interface.css)
+   ========================================= */
+
+/* 1. Make Container Relative */
+.hover-dropdown {
+    position: relative;
+}
+
+/* 2. Dropdown Menu - Hidden State (Animation Start) */
+.hover-dropdown .dropdown-menu {
+    display: block; /* Required for animation */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px); /* Start slightly below */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Smooth Glide */
+    border: none;
+    border-top: 3px solid #D4AF37; /* Gold Top Border */
+    border-radius: 0;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    margin-top: 0;
+    background: #ffffff;
+    min-width: 220px;
+    z-index: 1050;
+}
+
+/* 3. Dropdown Menu - Visible State (On Hover) */
+.hover-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Move to position */
+}
+
+/* 4. Dropdown Items (Links) */
+.dropdown-item {
+    padding: 12px 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #444;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+/* 5. Hover Effect on Items (Slide & Gold) */
+.dropdown-item:hover {
+    background: #fffbf0; /* Light Gold BG */
+    color: #000;
+    border-left-color: #D4AF37; /* Gold Border */
+    padding-left: 35px; /* Slide Right Animation */
+}
+

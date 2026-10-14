@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews & News | Car Fusion</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../assets/css/main_interface.css">
+    <link rel="icon" href="../assets/icons/car_fusion_favicon.ico">
+
+    <style>
+        .news-hero {
+            height: 60vh;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.9)), 
+                        url('https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 50px;
+            margin-top: -20px;
+        }
+
+        .news-card {
+            border: none;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+        .news-card:hover .card-title {
+            color: #D4AF37;
+        }
+        .news-img-wrapper {
+            overflow: hidden;
+            height: 250px;
+        }
+        .news-img-wrapper img {
+            transition: 0.5s;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .news-card:hover .news-img-wrapper img {
+            transform: scale(1.1);
+        }
+        
+        .category-btn {
+            background: transparent;
+            border: 1px solid #ddd;
+            color: #333;
+            padding: 10px 25px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+        .category-btn:hover, .category-btn.active {
+            background: #000;
+            color: #D4AF37;
+            border-color: #000;
+        }
+
+        /* Modal Styles */
+        .article-content {
+            font-family: 'Georgia', serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+        }
+        .article-meta {
+            font-size: 0.85rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="euro-body">
+
+    <header class="euro-header fixed-top">
+    <div class="top-bar">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a class="navbar-brand me-4" href="../index.html">
+                <img src="../assets/images/car_fusion_logo.png" alt="Car Fusion" class="logo-size">
+            </a>
+
+            <div class="flex-grow-1 mx-lg-5 d-none d-lg-block">
+                <div class="header-search-container">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0">
+                            <i class="bi bi-search text-gold"></i>
+                        </span>
+                        <input type="text" id="searchInput" class="form-control border-start-0 ps-0" placeholder="Search for 'Porsche 911'...">
+                        <button class="btn btn-gold" type="button" id="searchBtn">SEARCH</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-4">
+                <div class="d-flex align-items-center text-white cursor-pointer hover-gold" data-bs-toggle="modal" data-bs-target="#locationModal" style="cursor: pointer;">
+                    <i class="bi bi-geo-alt me-2"></i>
+                    <span class="small fw-bold location-display">Ahmedabad</span>
+                </div>
+                <a href="login.html" class="d-flex align-items-center text-white text-decoration-none hover-gold">
+                    <i class="bi bi-person-circle me-2 fs-5"></i>
+                    <span class="small fw-bold">Login</span>
+                </a>
+            </div>
+
+            <button class="navbar-toggler d-lg-none text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
+                <i class="bi bi-list fs-1"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="secondary-nav border-top border-dark-subtle">
+        <div class="container">
+            <nav class="nav justify-content-center d-flex flex-wrap"> 
+                <div class="dropdown hover-dropdown">
+                    <a class="nav-link dropdown-toggle active-gold" href="new_cars.html" role="button" aria-expanded="false">
+                        NEW CARS
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="new_cars.html">EXPLORE NEW CARS</a></li>
+                        <li><a class="dropdown-item" href="compare.html">COMPARE CARS</a></li>
+                        <li><a class="dropdown-item" href="electric-cars.html">ELECTRIC CARS</a></li>
+                        <li><a class="dropdown-item" href="brands.html">POPULAR BRANDS</a></li>
+                    </ul>
+                </div>
+                <a class="nav-link" href="reviews_news.html">REVIEWS & NEWS</a>
+                <a class="nav-link" href="modify.html">FUSION LAB</a>
+                <a class="nav-link" href="about_us.html">ABOUT US</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <div class="header-spacer"></div>
+
+    <section class="news-hero" onclick="openArticle(0)"> 
+        <div class="container">
+            <div class="col-lg-8">
+                <span class="badge bg-gold text-black mb-3 rounded-0 px-3 py-2 fw-bold">FEATURED REVIEW</span>
+                <h1 class="display-3 fw-bold text-white mb-3">The Porsche 911 S/T: Pure Driving Nirvana?</h1>
+                <p class="lead text-white-50 mb-4">We took the limited-edition anniversary model to the twisty roads of the Black Forest to see if it lives up to the hype.</p>
+                <button class="btn btn-gold rounded-0 fw-bold px-4 py-3">READ FULL REVIEW</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            
+            <div class="d-flex justify-content-center gap-3 mb-5">
+                <button class="category-btn active" onclick="filterNews('all', this)">All Stories</button>
+                <button class="category-btn" onclick="filterNews('review', this)">Expert Reviews</button>
+                <button class="category-btn" onclick="filterNews('news', this)">Industry News</button>
+                <button class="category-btn" onclick="filterNews('tech', this)">Future Tech</button>
+            </div>
+
+            <div class="row g-4" id="newsGrid">
+                </div>
+
+        </div>
+    </section>
+
+    <footer class="luxury-footer pt-5 pb-4">
+        <div class="container">
+            <div class="row gy-4 border-bottom border-dark-subtle pb-5">
+                <div class="col-lg-4 text-center text-lg-start">
+                    <div class="mb-3 d-inline-block">
+                        <img src="../assets/images/car_fusion_logo.png" alt="Car Fusion" class="footer-logo-glow" style="max-width: 180px; height: auto;">
+                    </div>
+                    <p class="text-secondary small">
+                        The world's most trusted marketplace for premium pre-owned automobiles. 
+                        We deliver excellence in every mile.
+                    </p>
+                </div>
+
+                <div class="col-lg-4 text-center">
+                    <h6 class="text-gold text-uppercase fw-bold mb-4">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="new_cars.html" class="footer-link">New Inventory</a></li>
+                        <li class="mb-2"><a href="new_cars.html" class="footer-link">Collection</a></li>
+                        <li class="mb-2"><a href="contact.html" class="footer-link">Insurance</a></li>
+                        <li class="mb-2"><a href="contact.html" class="footer-link">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 text-center text-lg-end">
+                    <h6 class="text-gold text-uppercase fw-bold mb-4">Connect With Us</h6>
+                    <div class="d-flex justify-content-center justify-content-lg-end gap-3 social-group">
+                        <a href="#" class="social-btn facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-btn instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-btn mail"><i class="bi bi-envelope-fill"></i></a>
+                        <a href="#" class="social-btn phone"><i class="bi bi-telephone-fill"></i></a>
+                    </div>
+                    <div class="mt-4 text-secondary small">
+                        <i class="bi bi-geo-alt-fill text-gold me-2"></i> <span class="location-display">Ahmedabad</span>, Gujarat, India
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center pt-4">
+                <p class="text-secondary small mb-0">&copy; 2026 Car Fusion. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="articleModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+            <div class="modal-content rounded-0 border-0">
+                <div class="modal-header border-0 bg-black text-white">
+                    <h5 class="modal-title text-gold text-uppercase ls-2">Car Fusion Editorial</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <img id="modalImg" src="" class="w-100" style="height: 300px; object-fit: cover;">
+                    <div class="p-5">
+                        <span id="modalMeta" class="article-meta">CATEGORY | DATE</span>
+                        <h2 id="modalTitle" class="fw-bold mb-4">Article Title</h2>
+                        <div id="modalBody" class="article-content">
+                            </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-outline-dark rounded-0" data-bs-dismiss="modal">Close Article</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script> <script src="../assets/js/news_data.js"></script> </body>
+</html>
