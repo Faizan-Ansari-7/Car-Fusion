@@ -16,7 +16,6 @@ The project has been refactored from a flat, cluttered root directory into an in
 ```
 Car-Fusion/
 ├── index.html                  # Homepage (Main Entrance / Curated Showcases)
-├── robots.txt                  # Technical SEO Crawler Directives
 ├── sitemap.xml                 # XML Sitemap for Search Engines
 ├── README.md                   # Comprehensive Architecture & Interview Documentation
 ├── pages/                      # Internal Subpages
